@@ -25,19 +25,19 @@ const DropdownDesktop = ({ label, items, baseUrl, isActiveParent }) => (
       {isActiveParent && (
         <motion.div
           layoutId="underline"
-          className="absolute left-0 bottom-4 w-full h-[3px] bg-[#088349] rounded-t-md"
+          className="absolute left-0 bottom-4 w-full h-0.75 bg-[#088349] rounded-t-md"
         />
       )}
     </span>
 
     {/* Invisible bridge for hover */}
-    <div className="absolute top-1/2 left-0 w-full h-[40px] z-40"></div>
+    <div className="absolute top-1/2 left-0 w-full h-10 z-40"></div>
 
     {/* Dropdown Menu */}
-    <div className="absolute top-[80%] left-0 w-[280px] pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-3 group-hover:translate-y-0 z-50">
+    <div className="absolute top-[80%] left-0 w-70 pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-3 group-hover:translate-y-0 z-50">
       <div className="bg-white rounded-2xl shadow-xl shadow-slate-200/50 border border-slate-100 overflow-hidden relative">
         {/* Top green accent border */}
-        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#088349] to-emerald-400"></div>
+        <div className="absolute top-0 left-0 w-full h-1 bg-linear-to-r from-[#088349] to-emerald-400"></div>
         <div className="py-3 flex flex-col">
           {items.map((item, index) => (
             <NavLink
@@ -119,7 +119,7 @@ function Header() {
             <img
               src="https://www.tekinspirations.com/wp-content/uploads/2022/03/cropped-tek-logo-new-e1648224691993.png"
               alt="TEK Inspirations"
-              className="h-full w-auto transition-transform hover:scale-105 duration-300 max-h-[50px]"
+              className="h-full w-auto transition-transform hover:scale-105 duration-300 max-h-12.5"
               style={{
                 filter:
                   "brightness(0) saturate(100%) invert(34%) sepia(74%) saturate(1004%) hue-rotate(122deg) brightness(96%) contrast(94%)",
@@ -139,7 +139,7 @@ function Header() {
                     {isActive && (
                       <motion.div
                         layoutId="underline"
-                        className="absolute left-0 bottom-4 w-full h-[3px] bg-[#088349] rounded-t-md"
+                        className="absolute left-0 bottom-4 w-full h-0.75 bg-[#088349] rounded-t-md"
                       />
                     )}
                   </span>
@@ -190,7 +190,7 @@ function Header() {
                     {isActive && (
                       <motion.div
                         layoutId="underline"
-                        className="absolute left-0 bottom-4 w-full h-[3px] bg-[#088349] rounded-t-md"
+                        className="absolute left-0 bottom-4 w-full h-0.75 bg-[#088349] rounded-t-md"
                       />
                     )}
                   </span>
@@ -226,7 +226,7 @@ function Header() {
             animate={{ opacity: 1, height: "100vh" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-            className="lg:hidden fixed top-[80px] left-0 w-full bg-white border-t border-gray-100 shadow-2xl overflow-y-auto z-40 pb-32"
+            className="lg:hidden fixed top-20 left-0 w-full bg-white border-t border-gray-100 shadow-2xl overflow-y-auto z-40 pb-32"
             style={{ height: "calc(100vh - 80px)" }}
           >
             <div className="flex flex-col py-2">
