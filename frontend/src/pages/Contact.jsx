@@ -17,7 +17,7 @@ function Contact() {
   return (
     <div className="bg-slate-50 min-h-screen py-16 lg:py-24 relative overflow-hidden">
       {/* Premium Background Dot Pattern */}
-      <div className="absolute inset-0 bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] [background-size:24px_24px] opacity-40 pointer-events-none"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] bg-size-[24px_24px] opacity-40 pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Top Header */}
@@ -36,7 +36,7 @@ function Contact() {
             className="text-5xl md:text-6xl font-extrabold text-slate-900 mb-6 tracking-tight"
           >
             Let's{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#088349] to-emerald-400">
+            <span className="text-transparent bg-clip-text bg-linear-to-r from-[#088349] to-emerald-400">
               Connect
             </span>
           </motion.h1>
@@ -56,10 +56,10 @@ function Contact() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3 }}
-          className="bg-white rounded-[2rem] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] overflow-hidden flex flex-col lg:flex-row border border-slate-200/60 relative z-20"
+          className="bg-white rounded-4xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] overflow-hidden flex flex-col lg:flex-row border border-slate-200/60 relative z-20"
         >
           {/* Left Side: Contact Details */}
-          <div className="lg:w-2/5 bg-gradient-to-br from-[#06180e] via-[#052915] to-[#088349] p-10 lg:p-14 text-white relative overflow-hidden flex flex-col justify-between">
+          <div className="lg:w-2/5 bg-linear-to-br from-[#06180e] via-[#052915] to-[#088349] p-10 lg:p-14 text-white relative overflow-hidden flex flex-col justify-between">
             {/* Background Orbs */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-[#088349] rounded-full blur-[80px] -translate-y-1/2 translate-x-1/3 opacity-40"></div>
             <div className="absolute bottom-0 left-0 w-72 h-72 bg-[#052915] rounded-full blur-[80px] translate-y-1/3 -translate-x-1/3 opacity-60 z-0"></div>
@@ -79,7 +79,7 @@ function Contact() {
                     <Phone size={24} />
                   </div>
                   <div className="pt-1">
-                    <p className="text-sm text-slate-300 mb-1 font-medium tracking-wide text-white/70">
+                    <p className="text-sm mb-1 font-medium tracking-wide text-white/70">
                       Call Us Directly
                     </p>
                     <p className="text-xl font-bold group-hover:text-white transition-colors text-white">
@@ -93,7 +93,7 @@ function Contact() {
                     <Mail size={24} />
                   </div>
                   <div className="pt-1">
-                    <p className="text-sm text-slate-300 mb-1 font-medium tracking-wide text-white/70">
+                    <p className="text-sm mb-1 font-medium tracking-wide text-white/70">
                       Email Address
                     </p>
                     <p className="text-xl font-bold group-hover:text-white transition-colors text-white">
@@ -107,7 +107,7 @@ function Contact() {
                     <MapPin size={24} />
                   </div>
                   <div className="pt-1">
-                    <p className="text-sm text-slate-300 mb-1 font-medium tracking-wide text-white/70">
+                    <p className="text-sm mb-1 font-medium tracking-wide text-white/70">
                       Headquarters
                     </p>
                     <p className="text-lg font-bold leading-snug group-hover:text-white text-white">
@@ -242,7 +242,7 @@ function Contact() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="group bg-white p-8 rounded-[2rem] shadow-[0_8px_30px_rgb(0,0,0,0.04)] border-t-[6px] border-t-transparent hover:border-t-[#088349] border-l border-r border-b border-slate-100 flex flex-col h-full hover:-translate-y-3 hover:shadow-[0_20px_40px_rgba(8,131,73,0.1)] transition-all duration-500 relative overflow-hidden"
+              className="group bg-white p-8 rounded-4xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border-t-[6px] border-t-transparent hover:border-t-[#088349] border-l border-r border-b border-slate-100 flex flex-col h-full hover:-translate-y-3 hover:shadow-[0_20px_40px_rgba(8,131,73,0.1)] transition-all duration-500 relative overflow-hidden"
             >
               <div className="absolute top-0 right-0 w-32 h-32 bg-[#088349]/5 rounded-bl-full -z-10 group-hover:scale-125 transition-transform duration-500"></div>
 
@@ -259,7 +259,7 @@ function Contact() {
                   </span>
                 </h3>
               </div>
-              <p className="text-slate-600 font-medium mb-6 flex-grow text-lg z-10">
+              <p className="text-slate-600 font-medium mb-6 grow text-lg z-10">
                 13573 Tabasco Cat Trail,
                 <br />
                 Frisco, TX 75035, USA
@@ -268,7 +268,7 @@ function Contact() {
                 <div className="absolute inset-0 bg-slate-900/10 group-hover:bg-transparent transition-colors duration-500 z-10 pointer-events-none"></div>
                 <iframe
                   title="Texas Office Map"
-                  className="w-full h-full grayscale-[60%] group-hover:grayscale-0 transition-all duration-700 outline-none border-none"
+                  className="w-full h-full grayscale-60 group-hover:grayscale-0 transition-all duration-700 outline-none border-none"
                   src="https://maps.google.com/maps?width=100%25&amp;height=100%25&amp;hl=en&amp;q=13573%20Tabasco%20Cat%20Trail,%20Frisco,%20TX%2075035+(TEK%20Inspirations%20LLC)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
                 ></iframe>
               </div>
@@ -280,7 +280,7 @@ function Contact() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="group bg-white p-8 rounded-[2rem] shadow-[0_8px_30px_rgb(0,0,0,0.04)] border-t-[6px] border-t-transparent hover:border-t-[#088349] border-l border-r border-b border-slate-100 flex flex-col h-full hover:-translate-y-3 hover:shadow-[0_20px_40px_rgba(8,131,73,0.1)] transition-all duration-500 relative overflow-hidden"
+              className="group bg-white p-8 rounded-4xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border-t-[6px] border-t-transparent hover:border-t-[#088349] border-l border-r border-b border-slate-100 flex flex-col h-full hover:-translate-y-3 hover:shadow-[0_20px_40px_rgba(8,131,73,0.1)] transition-all duration-500 relative overflow-hidden"
             >
               <div className="absolute top-0 right-0 w-32 h-32 bg-[#088349]/5 rounded-bl-full -z-10 group-hover:scale-125 transition-transform duration-500"></div>
 
@@ -292,7 +292,7 @@ function Contact() {
                 />
                 <h3 className="text-2xl font-bold text-slate-800">Noida</h3>
               </div>
-              <p className="text-slate-600 font-medium mb-6 flex-grow text-[16px] z-10">
+              <p className="text-slate-600 font-medium mb-6 grow text-[16px] z-10">
                 D-247/1, Sector 63 Rd, D Block,
                 <br />
                 Sector 63, Noida, UP 201301
@@ -301,7 +301,7 @@ function Contact() {
                 <div className="absolute inset-0 bg-slate-900/10 group-hover:bg-transparent transition-colors duration-500 z-10 pointer-events-none"></div>
                 <iframe
                   title="Noida Office Map"
-                  className="w-full h-full grayscale-[60%] group-hover:grayscale-0 transition-all duration-700 outline-none border-none"
+                  className="w-full h-full grayscale-60 group-hover:grayscale-0 transition-all duration-700 outline-none border-none"
                   src="https://maps.google.com/maps?width=100%25&amp;height=100%25&amp;hl=en&amp;q=D-247/1,%20Sector%2063,%20Noida+(TEK%20Inspirations%20LLC)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
                 ></iframe>
               </div>
@@ -312,7 +312,7 @@ function Contact() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className="group bg-white p-8 rounded-[2rem] shadow-[0_8px_30px_rgb(0,0,0,0.04)] border-t-[6px] border-t-transparent hover:border-t-[#088349] border-l border-r border-b border-slate-100 flex flex-col h-full hover:-translate-y-3 hover:shadow-[0_20px_40px_rgba(8,131,73,0.1)] transition-all duration-500 relative overflow-hidden"
+              className="group bg-white p-8 rounded-4xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border-t-[6px] border-t-transparent hover:border-t-[#088349] border-l border-r border-b border-slate-100 flex flex-col h-full hover:-translate-y-3 hover:shadow-[0_20px_40px_rgba(8,131,73,0.1)] transition-all duration-500 relative overflow-hidden"
             >
               <div className="absolute top-0 right-0 w-32 h-32 bg-[#088349]/5 rounded-bl-full -z-10 group-hover:scale-125 transition-transform duration-500"></div>
 
@@ -324,7 +324,7 @@ function Contact() {
                 />
                 <h3 className="text-2xl font-bold text-slate-800">Agra</h3>
               </div>
-              <p className="text-slate-600 font-medium mb-6 flex-grow text-[16px] z-10">
+              <p className="text-slate-600 font-medium mb-6 grow text-[16px] z-10">
                 4th Floor, Padam High Street,
                 <br />
                 Panchvati, Fatehabad Rd, Agra, UP 282001
@@ -333,7 +333,7 @@ function Contact() {
                 <div className="absolute inset-0 bg-slate-900/10 group-hover:bg-transparent transition-colors duration-500 z-10 pointer-events-none"></div>
                 <iframe
                   title="Agra Office Map"
-                  className="w-full h-full grayscale-[60%] group-hover:grayscale-0 transition-all duration-700 outline-none border-none"
+                  className="w-full h-full grayscale-60 group-hover:grayscale-0 transition-all duration-700 outline-none border-none"
                   src="https://maps.google.com/maps?width=100%25&amp;height=100%25&amp;hl=en&amp;q=Padam%20High%20Street,%20Agra+(TEK%20Inspirations%20LLC)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
                 ></iframe>
               </div>
@@ -344,7 +344,7 @@ function Contact() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.3 }}
-              className="group bg-white p-8 rounded-[2rem] shadow-[0_8px_30px_rgb(0,0,0,0.04)] border-t-[6px] border-t-transparent hover:border-t-[#088349] border-l border-r border-b border-slate-100 flex flex-col h-full hover:-translate-y-3 hover:shadow-[0_20px_40px_rgba(8,131,73,0.1)] transition-all duration-500 relative overflow-hidden"
+              className="group bg-white p-8 rounded-4xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border-t-[6px] border-t-transparent hover:border-t-[#088349] border-l border-r border-b border-slate-100 flex flex-col h-full hover:-translate-y-3 hover:shadow-[0_20px_40px_rgba(8,131,73,0.1)] transition-all duration-500 relative overflow-hidden"
             >
               <div className="absolute top-0 right-0 w-32 h-32 bg-[#088349]/5 rounded-bl-full -z-10 group-hover:scale-125 transition-transform duration-500"></div>
 
@@ -356,7 +356,7 @@ function Contact() {
                 />
                 <h3 className="text-2xl font-bold text-slate-800">Meerut</h3>
               </div>
-              <p className="text-slate-600 font-medium mb-6 flex-grow text-[16px] z-10">
+              <p className="text-slate-600 font-medium mb-6 grow text-[16px] z-10">
                 C-26, Sector 1, East Rithani, Shatabdi Nagar,
                 <br />
                 Near Bhagwati Mata Mandir, Meerut, UP 250103
@@ -365,7 +365,7 @@ function Contact() {
                 <div className="absolute inset-0 bg-slate-900/10 group-hover:bg-transparent transition-colors duration-500 z-10 pointer-events-none"></div>
                 <iframe
                   title="Meerut Office Map"
-                  className="w-full h-full grayscale-[60%] group-hover:grayscale-0 transition-all duration-700 outline-none border-none"
+                  className="w-full h-full grayscale-60 group-hover:grayscale-0 transition-all duration-700 outline-none border-none"
                   src="https://maps.google.com/maps?width=100%25&amp;height=100%25&amp;hl=en&amp;q=Shatabdi%20Nagar,%20Meerut+(TEK%20Inspirations%20LLC)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
                 ></iframe>
               </div>
@@ -376,7 +376,7 @@ function Contact() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.4 }}
-              className="group bg-white p-8 rounded-[2rem] shadow-[0_8px_30px_rgb(0,0,0,0.04)] border-t-[6px] border-t-transparent hover:border-t-[#088349] border-l border-r border-b border-slate-100 flex flex-col h-full hover:-translate-y-3 hover:shadow-[0_20px_40px_rgba(8,131,73,0.1)] transition-all duration-500 relative overflow-hidden"
+              className="group bg-white p-8 rounded-4xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border-t-[6px] border-t-transparent hover:border-t-[#088349] border-l border-r border-b border-slate-100 flex flex-col h-full hover:-translate-y-3 hover:shadow-[0_20px_40px_rgba(8,131,73,0.1)] transition-all duration-500 relative overflow-hidden"
             >
               <div className="absolute top-0 right-0 w-32 h-32 bg-[#088349]/5 rounded-bl-full -z-10 group-hover:scale-125 transition-transform duration-500"></div>
 
@@ -388,7 +388,7 @@ function Contact() {
                 />
                 <h3 className="text-2xl font-bold text-slate-800">Varanasi</h3>
               </div>
-              <p className="text-slate-600 font-medium mb-6 flex-grow text-[16px] z-10">
+              <p className="text-slate-600 font-medium mb-6 grow text-[16px] z-10">
                 SA17/3K6 PAHARIA,
                 <br />
                 Near Surbhi International Hotel, Varanasi, UP 221007
@@ -397,7 +397,7 @@ function Contact() {
                 <div className="absolute inset-0 bg-slate-900/10 group-hover:bg-transparent transition-colors duration-500 z-10 pointer-events-none"></div>
                 <iframe
                   title="Varanasi Office Map"
-                  className="w-full h-full grayscale-[60%] group-hover:grayscale-0 transition-all duration-700 outline-none border-none"
+                  className="w-full h-full grayscale-60 group-hover:grayscale-0 transition-all duration-700 outline-none border-none"
                   src="https://maps.google.com/maps?width=100%25&amp;height=100%25&amp;hl=en&amp;q=PAHARIA,%20Varanasi+(TEK%20Inspirations%20LLC)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
                 ></iframe>
               </div>
