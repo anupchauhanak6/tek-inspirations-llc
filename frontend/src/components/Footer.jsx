@@ -163,12 +163,18 @@ function Footer() {
             . All rights reserved.
           </p>
           <div className="flex space-x-6">
-            <a href="#" className="hover:text-white transition-colors">
+            <Link
+              to="/privacy-policy"
+              className="hover:text-white transition-colors"
+            >
               Privacy Policy
-            </a>
-            <a href="#" className="hover:text-white transition-colors">
+            </Link>
+            <Link
+              to="/terms-of-service"
+              className="hover:text-white transition-colors"
+            >
               Terms of Service
-            </a>
+            </Link>
           </div>
         </div>
       </div>
