@@ -183,9 +183,10 @@ function OurSolutions() {
                   ({ icon: Icon, label, value, desc, colSpan }) => (
                     <div
                       key={label}
-                      className={`${colSpan} bg-[#0f172a] rounded-2xl p-6 border border-slate-700/50 shadow-2xl relative overflow-hidden group hover:border-[#088349]/50 transition-colors`}
+                      className={`${colSpan} bg-[#0f172a] rounded-2xl p-6 border border-slate-700/50 shadow-2xl relative overflow-hidden group hover:border-[#088349]/50 transition-all duration-500`}
                     >
-                      <div className="absolute top-0 right-0 p-4 opacity-5">
+                      <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[#088349] via-[#3ddc84] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                      <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
                         <Icon size={80} className="text-white" />
                       </div>
                       <Icon size={20} className="text-[#3ddc84] mb-4" />

@@ -219,10 +219,11 @@ function RPO() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="bg-[#1e293b]/50 backdrop-blur-xl border border-white/10 rounded-[1.5rem] p-8 relative overflow-hidden hover:border-[#088349]/50 hover:bg-[#1e293b]/80 transition-all duration-300 group"
+                className="bg-[#1e293b]/50 backdrop-blur-xl border border-white/[0.06] rounded-[1.5rem] p-8 relative overflow-hidden hover:border-[#088349]/40 hover:bg-[#1e293b]/80 transition-all duration-500 group"
               >
-                <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 group-hover:border-[#088349]/40 transition-transform">
-                  <Icon size={20} className="text-[#3ddc84]" strokeWidth={2} />
+                <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[#088349] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="w-14 h-14 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 group-hover:border-[#088349]/40 group-hover:bg-[#088349]/10 transition-all duration-300">
+                  <Icon size={22} className="text-[#3ddc84]" strokeWidth={2} />
                 </div>
 
                 <h3 className="text-white font-black text-xl mb-3">{title}</h3>
@@ -262,20 +263,27 @@ function RPO() {
       </section>
 
       {/* CTA Layer */}
-      <section className="bg-white py-16 text-center border-t border-slate-200">
-        <h2 className="text-2xl font-black text-[#0f172a] mb-6 tracking-tight">
-          Ready to Scale Your Technical Operations?
-        </h2>
-        <Link
-          to="/contact"
-          className="inline-flex items-center gap-2 px-8 py-4 bg-[#0f172a] hover:bg-[#1e293b] text-white font-bold text-sm rounded-xl transition-all duration-300 shadow-xl shadow-[#0f172a]/20 hover:-translate-y-0.5 group"
-        >
-          Connect With Recruitment Engineers{" "}
-          <ArrowRight
-            size={16}
-            className="text-[#3ddc84] group-hover:translate-x-1 transition-transform"
-          />
-        </Link>
+      <section className="bg-white py-20 text-center border-t border-slate-200 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-[0.02]" style={{ backgroundImage: "radial-gradient(#088349 1px, transparent 1px)", backgroundSize: "32px 32px" }} />
+        <div className="relative z-10">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#088349]/10 border border-[#088349]/20 text-[#088349] text-xs font-bold uppercase tracking-widest mb-6">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#088349] animate-pulse" /> Ready to Deploy
+          </div>
+          <h2 className="text-2xl md:text-3xl font-black text-[#0f172a] mb-4 tracking-tight">
+            Ready to Scale Your Technical Operations?
+          </h2>
+          <p className="text-slate-500 max-w-lg mx-auto mb-8 text-sm">Let our recruitment engineers build the talent pipeline your enterprise needs to grow.</p>
+          <Link
+            to="/contact"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-[#088349] hover:bg-[#0aad60] text-white font-bold text-sm rounded-xl transition-all duration-300 shadow-xl shadow-[#088349]/30 hover:-translate-y-0.5 group active:scale-[0.98]"
+          >
+            Connect With Recruitment Engineers{" "}
+            <ArrowRight
+              size={16}
+              className="group-hover:translate-x-1 transition-transform"
+            />
+          </Link>
+        </div>
       </section>
     </div>
   );

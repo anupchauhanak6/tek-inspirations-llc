@@ -401,7 +401,7 @@ function Header() {
               <div className="flex items-center justify-between px-5 py-4 border-b border-slate-100 h-[80px]">
                 <Link to="/" onClick={close}>
                   <img
-                    src="https://www.tekinspirations.com/wp-content/uploads/2022/03/cropped-tek-logo-new-e1648224691993.png"
+                    src="photos/logo.png"
                     alt="TEK Inspirations"
                     className="h-10 w-auto object-contain"
                   />
