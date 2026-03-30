@@ -78,7 +78,7 @@ function Contact() {
                   <div key={id} className="group space-y-1.5">
                     <label htmlFor={id} className="text-xs font-bold text-slate-500 uppercase tracking-widest block group-focus-within:text-[#088349] transition-colors">{label}</label>
                     <input id={id} type={type} placeholder={ph}
-                      className="w-full px-4 py-3.5 rounded-xl border-2 border-slate-100 focus:border-[#088349] bg-slate-50 focus:bg-white font-medium text-slate-900 outline-none transition-all" />
+                      className="w-full px-4 py-3.5 rounded-xl border-2 border-slate-100 focus:border-[#088349] bg-white focus:bg-white font-medium text-slate-900 outline-none transition-all shadow-sm" />
                   </div>
                 ))}
               </div>
@@ -87,7 +87,7 @@ function Contact() {
                   <div key={id} className="group space-y-1.5">
                     <label htmlFor={id} className="text-xs font-bold text-slate-500 uppercase tracking-widest block group-focus-within:text-[#088349] transition-colors">{label}</label>
                     <input id={id} type={type} placeholder={ph}
-                      className="w-full px-4 py-3.5 rounded-xl border-2 border-slate-100 focus:border-[#088349] bg-slate-50 focus:bg-white font-medium text-slate-900 outline-none transition-all" />
+                      className="w-full px-4 py-3.5 rounded-xl border-2 border-slate-100 focus:border-[#088349] bg-white focus:bg-white font-medium text-slate-900 outline-none transition-all shadow-sm" />
                   </div>
                 ))}
               </div>
@@ -109,7 +109,7 @@ function Contact() {
                   className="w-full px-4 py-3.5 rounded-xl border-2 border-slate-100 focus:border-[#088349] bg-slate-50 focus:bg-white resize-none font-medium text-slate-900 outline-none transition-all" />
               </div>
               <button type="submit"
-                className="group inline-flex items-center gap-2.5 px-8 py-4 rounded-xl bg-[#088349] hover:bg-[#066a3a] text-white font-bold transition-all duration-200 hover:shadow-xl hover:shadow-[#088349]/25 hover:-translate-y-0.5 active:scale-95">
+                className="group inline-flex items-center gap-2.5 px-8 py-4 rounded-xl bg-[#088349] hover:bg-[#066a3a] text-white font-bold transition-all duration-200 hover:shadow-xl hover:shadow-[#088349]/25 hover:-translate-y-0.5 active:scale-[0.98]">
                 Send Message
                 <Send size={16} className="transition-transform group-hover:translate-x-0.5" />
               </button>
