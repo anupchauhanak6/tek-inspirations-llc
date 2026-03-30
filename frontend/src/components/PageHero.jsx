@@ -11,22 +11,25 @@ function PageHero({ badge, title, highlight, subtitle }) {
     <div className="relative bg-[#0f172a] border-b border-slate-800 pt-36 pb-24 overflow-hidden flex flex-col items-center justify-center text-center">
       
       {/* ── Abstract Tech Background ── */}
-      <div className="pointer-events-none absolute inset-0 opacity-[0.06]"
+      <div className="pointer-events-none absolute inset-0 opacity-[0.04]"
         style={{ backgroundImage: "linear-gradient(#ffffff 1px, transparent 1px), linear-gradient(90deg, #ffffff 1px, transparent 1px)", backgroundSize: "64px 64px" }} />
       
       <div className="pointer-events-none absolute inset-0"
         style={{ background: "radial-gradient(ellipse at top, #08834920 0%, transparent 60%)" }} />
       
-      <div className="pointer-events-none absolute -left-[20%] top-[20%] w-[500px] h-[500px] border-[50px] border-white/5 rounded-full blur-[8px]" />
-      <div className="pointer-events-none absolute -right-[10%] top-[40%] w-[300px] h-[300px] border-[30px] border-[#088349]/10 rounded-full blur-[4px]" />
+      <div className="pointer-events-none absolute -left-[20%] top-[20%] w-[500px] h-[500px] border-[50px] border-white/[0.03] rounded-full blur-[8px]" />
+      <div className="pointer-events-none absolute -right-[10%] top-[40%] w-[300px] h-[300px] border-[30px] border-[#088349]/[0.06] rounded-full blur-[4px]" />
+
+      {/* Extra glow */}
+      <div className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[#088349]/[0.05] rounded-full blur-[80px]" />
 
       <div className="relative z-10 max-w-5xl mx-auto px-6 lg:px-12 flex flex-col items-center">
         
-        {/* Terminal/Code styled Badge */}
+        {/* Terminal Badge */}
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          className="inline-flex items-center gap-2 px-3 py-1.5 rounded bg-[#1e293b]/50 border border-[#088349]/40 mb-8 backdrop-blur-md shadow-lg shadow-[#088349]/10"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#1e293b]/50 border border-[#088349]/40 mb-8 backdrop-blur-md shadow-lg shadow-[#088349]/10"
         >
           <TerminalSquare size={12} className="text-[#3ddc84]" />
           <span className="text-[#3ddc84] text-[10px] font-black uppercase tracking-[0.2em]">{badge}</span>
@@ -59,7 +62,7 @@ function PageHero({ badge, title, highlight, subtitle }) {
           </motion.p>
         )}
 
-        {/* Decorative scanning line */}
+        {/* Scanning line */}
         <motion.div 
           initial={{ scaleX: 0, opacity: 0 }} 
           animate={{ scaleX: 1, opacity: 1 }} 
