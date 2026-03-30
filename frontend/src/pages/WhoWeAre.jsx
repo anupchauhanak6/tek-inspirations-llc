@@ -1,14 +1,14 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Shield, Rocket, Users, Lock, Anchor, AlignLeft, ArrowRight, Binary, Cpu } from "lucide-react";
+import { Shield, Rocket, Users, Lock, Cpu, AlignLeft, ArrowRight, Binary, Globe, Building2, Award } from "lucide-react";
 import PageHero from "../components/PageHero";
 
 const values = [
-  { title: "Immutable Integrity", icon: Shield,  col: "col-span-1", desc: "Cryptographic transparency. We build faith by remaining honest and responsive." },
-  { title: "Agile Innovation",    icon: Rocket,  col: "col-span-2", desc: "Our drive to achieve pushes us to advance and help clients reach benchmarks faster." },
-  { title: "Systemic Fusion",     icon: Cpu,     col: "col-span-2", desc: "Across hierarchies, resources compute together for maximum synergistic advantage." },
-  { title: "Zero Trust Ethics",   icon: Lock,    col: "col-span-1", desc: "What we say and do are manifestations of strict compliance protocols." },
+  { title: "Immutable Integrity", icon: Shield,  desc: "Cryptographic transparency. We build faith by remaining honest and responsive." },
+  { title: "Agile Innovation",    icon: Rocket,  desc: "Our drive to achieve pushes us to advance and help clients reach benchmarks faster." },
+  { title: "Systemic Fusion",     icon: Cpu,     desc: "Across hierarchies, resources compute together for maximum synergistic advantage." },
+  { title: "Zero Trust Ethics",   icon: Lock,    desc: "What we say and do are manifestations of strict compliance protocols." },
 ];
 
 const milestones = [
@@ -16,6 +16,13 @@ const milestones = [
   { year: "2018", tag: "NODE EXPANSION",      event: "Deployed delivery centers natively across Noida, Agra, and Varanasi." },
   { year: "2020", tag: "MSP LAUNCH",          event: "Scaled operations to include robust 24/7 Managed Infrastructure Services." },
   { year: "2024", tag: "GLOBAL SCALE",        event: "Supporting 500+ endpoints. Processing high volume SLA requirements globally." },
+];
+
+const quickStats = [
+  { icon: Globe,     k: "Operational Nodes", v: "4+ Global" },
+  { icon: Award,     k: "SLA Adherence",     v: "99.9%" },
+  { icon: Users,     k: "Talent Pipeline",   v: "Continuous" },
+  { icon: Building2, k: "Deployments",       v: "High Vel." },
 ];
 
 function WhoWeAre() {
@@ -30,10 +37,10 @@ function WhoWeAre() {
 
       {/* ── Enterprise Narrative ── */}
       <section className="py-24 bg-white relative overflow-hidden">
-        {/* Subtle geometric watermark */}
-        <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#0f172a]/[0.02] rounded-full border border-[#0f172a]/[0.05] flex items-center justify-center">
-          <div className="w-[600px] h-[600px] border border-[#0f172a]/[0.05] rounded-full flex items-center justify-center">
-            <div className="w-[400px] h-[400px] border border-[#0f172a]/[0.05] rounded-full" />
+        {/* Decorative circles */}
+        <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#0f172a]/[0.015] rounded-full border border-[#0f172a]/[0.04] flex items-center justify-center pointer-events-none">
+          <div className="w-[600px] h-[600px] border border-[#0f172a]/[0.04] rounded-full flex items-center justify-center">
+            <div className="w-[400px] h-[400px] border border-[#0f172a]/[0.04] rounded-full" />
           </div>
         </div>
 
@@ -49,16 +56,16 @@ function WhoWeAre() {
               <img 
                 src="https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&q=80&w=1200" 
                 alt="Corporate Technology Team" 
-                className="absolute inset-0 w-full h-full object-cover opacity-30 grayscale group-hover:grayscale-0 transition-all duration-700"
+                className="absolute inset-0 w-full h-full object-cover opacity-30 grayscale group-hover:grayscale-0 group-hover:opacity-40 transition-all duration-700"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a] via-transparent to-transparent opacity-90" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a] via-[#0f172a]/30 to-transparent opacity-90" />
               
               {/* Glass UI Element */}
               <div className="absolute bottom-6 left-6 right-6">
                 <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 shadow-2xl overflow-hidden relative">
                   <div className="absolute top-0 right-0 w-32 h-32 bg-[#3ddc84]/10 rounded-full blur-[30px]" />
                   <div className="relative z-10 flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-lg bg-[#088349] flex items-center justify-center shrink-0 shadow-lg shadow-[#088349]/40 border border-[#3ddc84]/30">
+                    <div className="w-11 h-11 rounded-xl bg-[#088349] flex items-center justify-center shrink-0 shadow-lg shadow-[#088349]/40 border border-[#3ddc84]/30">
                       <Binary size={18} className="text-white" />
                     </div>
                     <div>
@@ -70,6 +77,16 @@ function WhoWeAre() {
                   </div>
                 </div>
               </div>
+
+              {/* Top-left floating badge */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }}
+                transition={{ delay: 0.3 }}
+                className="absolute top-4 left-4 bg-white/10 backdrop-blur-md rounded-xl p-3 border border-white/20"
+              >
+                <p className="text-[#3ddc84] text-[9px] font-black uppercase tracking-[0.15em]">Since 2016</p>
+                <p className="text-white font-black text-xl">8+ Years</p>
+              </motion.div>
             </motion.div>
 
             {/* Narrative Context */}
@@ -80,7 +97,7 @@ function WhoWeAre() {
               </div>
               <h2 className="text-3xl lg:text-5xl font-black text-[#0f172a] mb-7 leading-[1.1] tracking-tight">
                 Built on <br/>
-                <span style={{ background: "linear-gradient(135deg,#0f172a,#1e293b)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
+                <span style={{ background: "linear-gradient(135deg,#088349,#0aad60)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
                   Engineering Principles
                 </span>
               </h2>
@@ -91,14 +108,12 @@ function WhoWeAre() {
               </div>
 
               <div className="grid grid-cols-2 gap-4 mt-8">
-                {[
-                  { k: "Operational Nodes", v: "4+ GlobaL" },
-                  { k: "SLA Adherence", v: "99.9%" },
-                  { k: "Talent Pipeline", v: "Continuous" },
-                  { k: "Deployments", v: "High Vel." }
-                ].map(({k, v}) => (
-                  <div key={k} className="bg-slate-50 border border-slate-100 p-4 rounded-xl">
-                    <p className="text-[#088349] font-black text-xs uppercase tracking-widest mb-1">{k}</p>
+                {quickStats.map(({ icon: Icon, k, v }) => (
+                  <div key={k} className="bg-slate-50 border border-slate-100 p-4 rounded-xl group hover:border-[#088349]/20 hover:bg-[#088349]/[0.02] transition-colors">
+                    <div className="flex items-center gap-2 mb-2">
+                      <Icon size={14} className="text-[#088349]" />
+                      <p className="text-[#088349] font-black text-[10px] uppercase tracking-widest">{k}</p>
+                    </div>
                     <p className="text-[#0f172a] font-bold text-lg">{v}</p>
                   </div>
                 ))}
@@ -106,12 +121,17 @@ function WhoWeAre() {
             </motion.div>
           </div>
 
-          {/* ── Precision Roadmap ── */}
+          {/* ── Timeline ── */}
           <div className="mt-20 relative">
-            <h3 className="text-2xl font-black text-[#0f172a] mb-12 text-center">Deployment Timeline History</h3>
+            <div className="text-center mb-14">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#088349]/10 border border-[#088349]/20 text-[#088349] text-xs font-bold uppercase tracking-widest mb-4">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#088349]" /> Our Journey
+              </div>
+              <h3 className="text-2xl md:text-3xl font-black text-[#0f172a]">Deployment Timeline History</h3>
+            </div>
             
-            {/* Connecting core line */}
-            <div className="hidden lg:block absolute top-[120px] left-0 w-full h-[2px] bg-slate-200 z-0">
+            {/* Connecting line */}
+            <div className="hidden lg:block absolute top-[180px] left-0 w-full h-[2px] bg-slate-200 z-0">
                <div className="absolute top-0 left-0 h-full w-1/3" style={{ background: "linear-gradient(to right, #0aad60, transparent)" }} />
             </div>
 
@@ -137,14 +157,15 @@ function WhoWeAre() {
         </div>
       </section>
 
-      {/* ── Operational Protocol (Values) ── */}
-      <section className="py-24 bg-[#0f172a] border-t border-slate-800 relative">
-        <div className="absolute inset-0 z-0 opacity-[0.05]" style={{ backgroundImage: "linear-gradient(#ffffff 1px, transparent 1px), linear-gradient(90deg, #ffffff 1px, transparent 1px)", backgroundSize: "64px 64px" }} />
+      {/* ── Values ── */}
+      <section className="py-24 bg-[#0f172a] border-t border-slate-800 relative overflow-hidden">
+        <div className="absolute inset-0 z-0 opacity-[0.04]" style={{ backgroundImage: "linear-gradient(#ffffff 1px, transparent 1px), linear-gradient(90deg, #ffffff 1px, transparent 1px)", backgroundSize: "64px 64px" }} />
+        <div className="absolute right-0 top-0 w-96 h-96 bg-[#088349]/5 rounded-full blur-[100px] pointer-events-none" />
         
         <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
           <div className="flex flex-col md:flex-row gap-12 items-end justify-between mb-16">
             <div className="max-w-xl">
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-white/5 border border-white/10 mb-4">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 mb-4">
                 <span className="w-1.5 h-1.5 bg-[#3ddc84] rounded-full animate-pulse" />
                 <span className="text-slate-300 text-[10px] font-black uppercase tracking-[0.2em]">Operational Protocols</span>
               </div>
@@ -157,14 +178,17 @@ function WhoWeAre() {
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {values.map(({ title, icon: Icon, col, desc }, i) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+            {values.map(({ title, icon: Icon, desc }, i) => (
               <motion.div key={title}
                 initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.07 }}
-                className={`${col} bg-[#1e293b]/50 backdrop-blur-xl border border-white/10 rounded-[1.5rem] p-8 hover:border-[#088349]/50 hover:bg-[#1e293b]/80 transition-all duration-300 group`}>
+                className="bg-[#1e293b]/50 backdrop-blur-xl border border-white/[0.06] rounded-[1.5rem] p-8 hover:border-[#088349]/40 hover:bg-[#1e293b]/80 transition-all duration-500 group relative overflow-hidden">
                 
-                <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-[#088349]/20 group-hover:border-[#088349]/40 transition-all">
-                  <Icon size={20} className="text-[#3ddc84]" strokeWidth={2.5} />
+                {/* Gradient top accent */}
+                <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[#088349] via-[#3ddc84] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                
+                <div className="w-14 h-14 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-[#088349]/20 group-hover:border-[#088349]/40 transition-all duration-300">
+                  <Icon size={22} className="text-[#3ddc84]" strokeWidth={2} />
                 </div>
                 
                 <h3 className="text-white font-black text-xl mb-3">{title}</h3>
