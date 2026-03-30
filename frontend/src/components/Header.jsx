@@ -273,7 +273,8 @@ function Header() {
             className="shrink-0 flex items-center h-[80px] py-4"
           >
             <img
-              src="https://www.tekinspirations.com/wp-content/uploads/2022/03/cropped-tek-logo-new-e1648224691993.png"
+              src="photos/logo.png"
+              width={100}
               alt="TEK Inspirations LLC"
               className="h-full w-auto max-h-12 object-contain hover:scale-105 transition-transform"
             />
