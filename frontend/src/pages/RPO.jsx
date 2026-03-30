@@ -1,380 +1,284 @@
-﻿import React from "react";
+import React from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import {
   Users,
   Target,
   Zap,
-  ShieldCheck,
-  BarChart,
   Globe,
-  Briefcase,
-  Award,
+  ShieldCheck,
+  CheckCircle2,
+  ArrowRight,
 } from "lucide-react";
+import PageHero from "../components/PageHero";
 
-function RecruitmentProcess() {
-  const steps = [
-    {
-      title: "Requirement Analysis",
-      desc: "Understanding your business needs, culture, and technical requirements deeply.",
-    },
-    {
-      title: "Sourcing & Pipelining",
-      desc: "Leveraging our vast network and passive talent pools to find the exact match.",
-    },
-    {
-      title: "Screening & Assessment",
-      desc: "Rigorous technical, cultural, and behavioral filtering by our expert team.",
-    },
-    {
-      title: "Onboarding Seamlessly",
-      desc: "Managing the offer, negotiation, and placement ensuring high retention rates.",
-    },
-  ];
+const stats = [
+  { value: "40%", label: "Time-to-Hire Optimization", color: "#3ddc84" },
+  { value: "30%", label: "Cost-Per-Hire Reduction", color: "#3ddc84" },
+  { value: "95%", label: "Long-Term Retention Rate", color: "#3ddc84" },
+  { value: "10k+", label: "Total Personnel Deployed", color: "#3ddc84" },
+];
 
-  const services = [
-    {
-      icon: <Users size={32} className="text-[#088349]" />,
-      title: "End-to-End RPO",
-      desc: "Full-cycle recruitment management from job profiling to onboarding, acting as your internal talent acquisition team.",
-    },
-    {
-      icon: <Target size={32} className="text-[#088349]" />,
-      title: "Project-Based RPO",
-      desc: "Dedicated recruitment support for specific projects, seasonal hiring spikes, or new market expansions.",
-    },
-    {
-      icon: <Zap size={32} className="text-[#088349]" />,
-      title: "On-Demand Recruiting",
-      desc: "Agile, flexible hiring assistance available exactly when you need it without long-term commitments.",
-    },
-    {
-      icon: <Globe size={32} className="text-[#088349]" />,
-      title: "Global Talent Sourcing",
-      desc: "Access to international talent pools to build diverse, world-class teams across borders.",
-    },
-  ];
+const services = [
+  {
+    icon: Users,
+    title: "Full-Cycle RPO Strategy",
+    desc: "Total management of your recruitment supply chain from sourcing to technical onboarding.",
+  },
+  {
+    icon: Target,
+    title: "Modular RPO Engagement",
+    desc: "Targeted support for critical operational spikes or highly specialized tech requirements.",
+  },
+  {
+    icon: Zap,
+    title: "Agile Sourcing Teams",
+    desc: "Rapid deployment of sourcers embedded natively within your infrastructure.",
+  },
+  {
+    icon: Globe,
+    title: "Cross-Border Acquisition",
+    desc: "Navigating international talent ecosystems to secure the top 1% of engineering talent.",
+  },
+];
 
-  const stats = [
-    { value: "40%", label: "Reduction in Time-to-Hire" },
-    { value: "30%", label: "Decrease in Hiring Costs" },
-    { value: "95%", label: "Candidate Retention Rate" },
-    { value: "10k+", label: "Successful Placements" },
-  ];
+const steps = [
+  {
+    num: "01",
+    title: "Needs Architecture",
+    desc: "Mapping corporate culture to technical prerequisites.",
+  },
+  {
+    num: "02",
+    title: "Talent Vectoring",
+    desc: "Deploying AI-driven queries against passive technical networks.",
+  },
+  {
+    num: "03",
+    title: "Hard Screening",
+    desc: "Rigorous technical algorithms and pair-programming tests.",
+  },
+  {
+    num: "04",
+    title: "Seamless Integration",
+    desc: "Executing offer protocols and managing initial onboarding cycles.",
+  },
+];
 
+const advantages = [
+  "Advanced ATS API Integrations",
+  "Deep Access to Passive Eng. Networks",
+  "Elastic Deployment Modules",
+  "Predictive Talent Analytics",
+];
+
+function RPO() {
   return (
-    <div
-      style={{
-        minHeight: "100vh",
-        backgroundColor: "#f8fafc",
-        paddingTop: "112px",
-        paddingBottom: "64px",
-      }}
-    >
-      {/* Hero Section */}
-      <div
-        className="relative overflow-hidden bg-slate-900"
-        style={{ padding: "96px 0", marginTop: "-112px", paddingTop: "160px" }}
-      >
-        <div className="absolute inset-0 bg-gradient-to-r from-[#088349]/20 to-transparent"></div>
-        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,white_1px,transparent_1px)] bg-[size:20px_20px]"></div>
+    <div className="min-h-screen bg-[#f8fafc]">
+      <PageHero
+        badge="Recruitment Process Outsourcing"
+        title="Human Capital"
+        highlight="Optimization"
+        subtitle="We do not just fill vacancies. We engineer, filter, and deploy high-performing operational teams at industrial scale."
+      />
 
-        <div className="relative z-10 text-center mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5 }}
-            style={{ marginBottom: "24px" }}
-            className="inline-flex items-center px-4 py-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-300 font-semibold text-sm tracking-wide"
-          >
-            <span className="flex h-2 w-2 rounded-full bg-emerald-400 mr-2"></span>
-            Next-Gen Talent Acquisition
-          </motion.div>
-
-          <motion.h1
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            style={{ marginBottom: "24px" }}
-            className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-tight"
-          >
-            Recruitment Process <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-[#10b981]">
-              Outsourcing
-            </span>
-          </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-lg md:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed"
-          >
-            We don't just fill vacancies; we build high-performing teams. Let us
-            act as your dedicated HR extension, optimizing your entire
-            recruitment lifecycle for speed, quality, and cost-efficiency.
-          </motion.p>
-        </div>
-      </div>
-
-      {/* Stats Section */}
-      <div
-        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20"
-        style={{ marginTop: "-48px", marginBottom: "80px" }}
-      >
-        <div className="bg-white rounded-2xl shadow-xl shadow-slate-200/50 p-8 grid grid-cols-2 md:grid-cols-4 gap-8 border border-slate-100 divide-x divide-slate-100">
-          {stats.map((stat, idx) => (
-            <motion.div
-              key={idx}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 + idx * 0.1 }}
-              className="text-center"
-              style={{ padding: "0 16px" }}
-            >
-              <h3 className="text-4xl font-black text-[#088349] mb-2">
-                {stat.value}
-              </h3>
-              <p className="text-slate-500 font-medium text-sm md:text-base">
-                {stat.label}
-              </p>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-
-      {/* Main Content & Image area */}
-      <div
-        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
-        style={{ marginBottom: "96px" }}
-      >
-        <div className="bg-white rounded-3xl shadow-lg border border-slate-100 overflow-hidden">
-          <div className="grid grid-cols-1 lg:grid-cols-2">
-            <div style={{ padding: "48px" }}>
-              <div style={{ marginBottom: "24px" }}>
-                <span className="text-[#088349] font-bold tracking-wider uppercase text-sm">
-                  Why Choose Tek Inspirations?
-                </span>
-                <h2
-                  className="text-3xl md:text-4xl font-black text-slate-800 tracking-tight"
-                  style={{ marginTop: "8px" }}
-                >
-                  Strategic RPO Solutions
-                </h2>
-              </div>
+      {/* Floating Performance Data */}
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 -mt-12 mb-20 relative z-20">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3 }}
+          className="bg-[#0f172a] rounded-[2rem] border border-slate-800 shadow-2xl grid grid-cols-2 md:grid-cols-4 divide-x divide-slate-800 backdrop-blur-3xl overflow-hidden"
+        >
+          {stats.map(({ value, label, color }) => (
+            <div key={label} className="p-8 text-center relative group">
+              <div className="absolute inset-0 bg-gradient-to-t from-[#088349]/5 to-transparent h-[200%] -translate-y-[100%] group-hover:translate-y-[100%] transition-transform duration-1000 ease-in-out pointer-events-none" />
               <div
-                className="h-1 w-16 bg-[#088349] rounded-full"
-                style={{ marginBottom: "32px" }}
-              ></div>
-
-              <p
-                className="text-slate-600 leading-relaxed text-lg"
-                style={{ marginBottom: "24px" }}
+                className="font-black text-3xl mb-2 tracking-tight"
+                style={{ color }}
               >
-                RPO is not just about filling open positions; it's about
-                transforming your recruitment methodology. We integrate
-                seamlessly with your company culture to deliver scalable hiring
-                strategies.
-              </p>
-              <p
-                className="text-slate-600 leading-relaxed text-lg"
-                style={{ marginBottom: "40px" }}
-              >
-                From startups experiencing rapid growth phases to enterprise
-                organizations managing high-volume recruitment drives, our
-                tailored approaches ensure you secure the top 1% of talent
-                globally.
-              </p>
+                {value}
+              </div>
+              <div className="text-slate-400 text-[10px] font-bold uppercase tracking-widest">
+                {label}
+              </div>
+            </div>
+          ))}
+        </motion.div>
+      </div>
 
-              <ul className="space-y-4">
-                {[
-                  "Advanced Tech-Driven ATS Integration",
-                  "Access to Passive & Executive Talent Networks",
-                  "Scalable & Flexible Hiring Modules",
-                  "Data-Driven Hiring Analytics & Reporting",
-                ].map((tick, idx) => (
-                  <motion.li
-                    whileHover={{ x: 5 }}
-                    key={idx}
-                    className="flex items-center text-slate-800 font-bold bg-slate-50 rounded-xl border border-slate-100 transition-colors hover:bg-emerald-50 hover:border-emerald-200"
-                    style={{ padding: "16px" }}
-                  >
-                    <span
-                      className="w-8 h-8 rounded-full bg-emerald-100 text-[#088349] flex items-center justify-center text-sm shadow-inner"
-                      style={{ marginRight: "16px" }}
-                    >
-                      ✓
+      {/* ── Deployment Strategy ── */}
+      <section className="pb-24 bg-white relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch mb-24">
+            <motion.div
+              initial={{ opacity: 0, x: -24 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="bg-[#0f172a] rounded-[2rem] border border-slate-800 shadow-2xl p-10 flex flex-col relative overflow-hidden"
+            >
+              <div className="absolute top-0 right-0 w-64 h-64 bg-[#088349]/10 rounded-full blur-[80px] pointer-events-none" />
+
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-white/5 border border-white/10 text-[#3ddc84] text-[10px] font-black uppercase tracking-[0.2em] mb-8 self-start shadow-xl backdrop-blur-md">
+                Strategic RPO Model
+              </div>
+              <h2 className="text-3xl lg:text-4xl font-black text-white mb-6 leading-tight tracking-tight">
+                Re-architecting Talent <br />
+                <span className="text-[#3ddc84]">Acquisition</span>
+              </h2>
+              <div className="space-y-4 text-slate-400 leading-relaxed text-[15px] font-medium border-l-2 border-[#088349]/30 pl-5 mb-8">
+                <p>
+                  Scaling a modern enterprise requires absolute confidence in
+                  your engineering and operational talent. Finding them through
+                  standard channels is inefficient.
+                </p>
+                <p>
+                  Our RPO protocols embed directly into your corporate
+                  ecosystem. We deploy proprietary sourcing algorithms to secure
+                  the top tier of technical talent.
+                </p>
+              </div>
+
+              <ul className="space-y-4 flex-1">
+                {advantages.map((a) => (
+                  <li key={a} className="flex items-center gap-4">
+                    <CheckCircle2
+                      size={16}
+                      className="text-[#3ddc84] shrink-0"
+                    />
+                    <span className="text-white text-sm font-bold uppercase tracking-wider text-[11px]">
+                      {a}
                     </span>
-                    {tick}
-                  </motion.li>
+                  </li>
                 ))}
               </ul>
-            </div>
+            </motion.div>
 
-            <div className="relative h-full min-h-[500px] overflow-hidden group">
+            <motion.div
+              initial={{ opacity: 0, x: 24 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="relative rounded-[2rem] overflow-hidden min-h-[400px] border border-slate-200 group shadow-xl"
+            >
               <img
-                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=1200"
-                alt="Talent acquisition meeting"
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                src="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?auto=format&fit=crop&q=80&w=1200"
+                alt="Talent Operations"
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
               />
-              <div
-                className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent flex flex-col justify-end"
-                style={{ padding: "48px" }}
-              >
-                <ShieldCheck size={48} className="text-emerald-400 mb-6" />
-                <p
-                  className="text-emerald-400 font-bold tracking-widest text-sm uppercase"
-                  style={{ marginBottom: "8px" }}
-                >
-                  Global Impact
-                </p>
-                <p className="text-white text-3xl font-bold leading-tight max-w-md">
-                  Transforming Workforces At Scale For Maximum Growth
-                </p>
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a] via-[#0f172a]/30 to-transparent" />
+
+              <div className="absolute bottom-10 left-10">
+                <div className="bg-[#1e293b]/90 backdrop-blur-xl border border-white/20 p-6 rounded-2xl shadow-2xl origin-bottom-left transition-transform duration-500 group-hover:scale-105">
+                  <ShieldCheck size={28} className="text-[#3ddc84] mb-4" />
+                  <p className="text-[#3ddc84] text-[10px] font-black uppercase tracking-[0.2em] mb-2">
+                    Security Cleared
+                  </p>
+                  <p className="text-white text-xl font-black">
+                    Pre-Vetted
+                    <br />
+                    Operatives
+                  </p>
+                </div>
               </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Engagement Vectors ── */}
+      <section className="py-24 bg-[#0f172a] border-t border-slate-800 relative">
+        <div
+          className="absolute inset-0 z-0 opacity-10 mix-blend-overlay"
+          style={{
+            backgroundImage:
+              "linear-gradient(#ffffff 1px, transparent 1px), linear-gradient(90deg, #ffffff 1px, transparent 1px)",
+            backgroundSize: "64px 64px",
+          }}
+        />
+
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-white/5 border border-white/10 mb-4 backdrop-blur-md">
+              <span className="w-1.5 h-1.5 bg-[#3ddc84] rounded-full animate-pulse shadow-[0_0_8px_#3ddc84]" />
+              <span className="text-slate-300 text-[10px] font-black uppercase tracking-[0.2em]">
+                Operational Modularity
+              </span>
+            </div>
+            <h2 className="text-3xl lg:text-5xl font-black text-white mb-4 tracking-tight">
+              RPO <span className="text-[#3ddc84]">Integrations</span>
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {services.map(({ icon: Icon, title, desc }, i) => (
+              <motion.div
+                key={title}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                className="bg-[#1e293b]/50 backdrop-blur-xl border border-white/10 rounded-[1.5rem] p-8 relative overflow-hidden hover:border-[#088349]/50 hover:bg-[#1e293b]/80 transition-all duration-300 group"
+              >
+                <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 group-hover:border-[#088349]/40 transition-transform">
+                  <Icon size={20} className="text-[#3ddc84]" strokeWidth={2} />
+                </div>
+
+                <h3 className="text-white font-black text-xl mb-3">{title}</h3>
+                <p className="text-slate-400 text-sm leading-relaxed font-medium">
+                  {desc}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Process Timeline */}
+          <div className="mt-24 pt-24 border-t border-slate-800/80">
+            <div className="text-center mb-16">
+              <h3 className="text-2xl font-black text-white">
+                Standard Deployment Flow
+              </h3>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {steps.map(({ num, title, desc }) => (
+                <div
+                  key={num}
+                  className="relative pl-6 lg:pl-0 lg:pt-6 border-l-2 lg:border-l-0 lg:border-t-2 border-[#088349]/30"
+                >
+                  <div className="absolute top-0 left-0 w-3 h-3 -translate-x-[7px] lg:translate-x-0 lg:-translate-y-[7px] rounded-full bg-[#3ddc84] shadow-[0_0_12px_#3ddc84]" />
+                  <div className="text-white font-black text-3xl mb-4 tracking-tight opacity-20 hidden lg:block">
+                    {num}
+                  </div>
+                  <h4 className="text-[#3ddc84] text-[11px] font-black uppercase tracking-[0.2em] mb-2">
+                    {title}
+                  </h4>
+                  <p className="text-slate-400 text-sm font-medium">{desc}</p>
+                </div>
+              ))}
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* Comprehensive Services Grid */}
-      <div
-        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
-        style={{ marginBottom: "96px" }}
-      >
-        <div className="text-center" style={{ marginBottom: "64px" }}>
-          <h2
-            className="text-3xl md:text-4xl font-black text-slate-800 tracking-tight"
-            style={{ marginBottom: "16px" }}
-          >
-            Comprehensive RPO Models
-          </h2>
-          <div className="h-1 w-24 bg-[#088349] mx-auto rounded-full"></div>
-          <p
-            className="text-slate-600 max-w-2xl mx-auto text-lg"
-            style={{ marginTop: "24px" }}
-          >
-            We offer diverse engagement models tailored perfectly to your
-            organization's unique structure, size, and hiring objectives.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {services.map((service, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              whileHover={{ y: -10 }}
-              className="bg-white rounded-2xl border border-slate-100 shadow-md hover:shadow-xl transition-all duration-300"
-              style={{ padding: "32px" }}
-            >
-              <div
-                className="w-16 h-16 rounded-2xl bg-emerald-50 flex items-center justify-center"
-                style={{ marginBottom: "24px" }}
-              >
-                {service.icon}
-              </div>
-              <h3
-                className="text-xl font-bold text-slate-800"
-                style={{ marginBottom: "16px" }}
-              >
-                {service.title}
-              </h3>
-              <p className="text-slate-600 leading-relaxed">{service.desc}</p>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-
-      {/* Proven Process */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center" style={{ marginBottom: "64px" }}>
-          <h2
-            className="text-3xl md:text-4xl font-black text-slate-800 tracking-tight"
-            style={{ marginBottom: "16px" }}
-          >
-            Our Proven 4-Step Process
-          </h2>
-          <div className="h-1 w-24 bg-[#088349] mx-auto rounded-full"></div>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative">
-          <div
-            className="hidden lg:block absolute top-1/2 left-0 w-full h-0.5 bg-slate-200 -z-10"
-            style={{ transform: "translateY(-50%)" }}
-          ></div>
-
-          {steps.map((step, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="bg-white rounded-2xl border border-slate-100 shadow-lg relative overflow-hidden group hover:border-[#088349] transition-colors duration-300"
-              style={{ padding: "40px 32px" }}
-            >
-              <div className="absolute top-0 right-0 w-32 h-32 bg-slate-50 rounded-bl-full -z-10 group-hover:bg-emerald-50 transition-colors duration-500"></div>
-
-              <div
-                className="w-14 h-14 rounded-full bg-[#088349] text-white flex items-center justify-center text-xl font-bold border-4 border-white shadow-md mx-auto relative z-10"
-                style={{ marginBottom: "32px" }}
-              >
-                {i + 1}
-              </div>
-
-              <div className="text-center">
-                <h3
-                  className="text-xl font-bold text-slate-800"
-                  style={{ marginBottom: "16px" }}
-                >
-                  {step.title}
-                </h3>
-                <p className="text-slate-600 leading-relaxed text-sm">
-                  {step.desc}
-                </p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-
-      {/* Ready to start CTA */}
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mt-24">
-        <div
-          className="bg-[#088349] rounded-3xl relative overflow-hidden text-center"
-          style={{ padding: "64px" }}
+      {/* CTA Layer */}
+      <section className="bg-white py-16 text-center border-t border-slate-200">
+        <h2 className="text-2xl font-black text-[#0f172a] mb-6 tracking-tight">
+          Ready to Scale Your Technical Operations?
+        </h2>
+        <Link
+          to="/contact"
+          className="inline-flex items-center gap-2 px-8 py-4 bg-[#0f172a] hover:bg-[#1e293b] text-white font-bold text-sm rounded-xl transition-all duration-300 shadow-xl shadow-[#0f172a]/20 hover:-translate-y-0.5 group"
         >
-          <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-400 opacity-20 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-0 left-0 w-64 h-64 bg-emerald-600 opacity-20 rounded-full blur-3xl"></div>
-
-          <h2
-            className="text-3xl md:text-4xl font-bold text-white relative z-10"
-            style={{ marginBottom: "24px" }}
-          >
-            Ready to Upgrade Your Hiring Process?
-          </h2>
-          <p
-            className="text-emerald-100 text-lg max-w-2xl mx-auto relative z-10"
-            style={{ marginBottom: "40px" }}
-          >
-            Let's connect and design a customized Recruitment Process
-            Outsourcing strategy that scales with your ambition.
-          </p>
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="relative z-10 bg-white text-[#088349] font-bold text-lg rounded-full shadow-xl hover:shadow-2xl transition-all"
-            style={{ padding: "16px 48px" }}
-          >
-            Connect With Our Experts
-          </motion.button>
-        </div>
-      </div>
+          Connect With Recruitment Engineers{" "}
+          <ArrowRight
+            size={16}
+            className="text-[#3ddc84] group-hover:translate-x-1 transition-transform"
+          />
+        </Link>
+      </section>
     </div>
   );
 }
 
-export default RecruitmentProcess;
+export default RPO;
