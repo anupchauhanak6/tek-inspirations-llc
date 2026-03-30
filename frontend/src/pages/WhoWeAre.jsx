@@ -1,142 +1,179 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import { Shield, Rocket, Users, Lock, Anchor, AlignLeft, ArrowRight, Binary, Cpu } from "lucide-react";
+import PageHero from "../components/PageHero";
+
+const values = [
+  { title: "Immutable Integrity", icon: Shield,  col: "col-span-1", desc: "Cryptographic transparency. We build faith by remaining honest and responsive." },
+  { title: "Agile Innovation",    icon: Rocket,  col: "col-span-2", desc: "Our drive to achieve pushes us to advance and help clients reach benchmarks faster." },
+  { title: "Systemic Fusion",     icon: Cpu,     col: "col-span-2", desc: "Across hierarchies, resources compute together for maximum synergistic advantage." },
+  { title: "Zero Trust Ethics",   icon: Lock,    col: "col-span-1", desc: "What we say and do are manifestations of strict compliance protocols." },
+];
+
+const milestones = [
+  { year: "2016", tag: "V1.0 INITIALIZATION", event: "Incorporated in Texas. Framework established for enterprise talent sourcing." },
+  { year: "2018", tag: "NODE EXPANSION",      event: "Deployed delivery centers natively across Noida, Agra, and Varanasi." },
+  { year: "2020", tag: "MSP LAUNCH",          event: "Scaled operations to include robust 24/7 Managed Infrastructure Services." },
+  { year: "2024", tag: "GLOBAL SCALE",        event: "Supporting 500+ endpoints. Processing high volume SLA requirements globally." },
+];
 
 function WhoWeAre() {
-  const values = [
-    {
-      title: "Integrity",
-      desc: "We believe that trust must be earned rather than granted. We build faith by remaining honest, real, and responsive.",
-      icon: "🛡️",
-    },
-    {
-      title: "Entrepreneurial Spirit",
-      desc: "With our natural drive to achieve, we seek to advance professionally and personally to help clients attain objectives faster.",
-      icon: "🚀",
-    },
-    {
-      title: "Seamlessness",
-      desc: "Across all our organizational areas and hierarchies, people think and work together. We gain synergistic advantages.",
-      icon: "🤝",
-    },
-    {
-      title: "Honesty",
-      desc: "What we say and do are manifestations of our integrity. Our integrity propels us to act with honesty at all times.",
-      icon: "✨",
-    },
-    {
-      title: "Equal Opportunity",
-      desc: "We passionately believe all individuals are created equal in terms of rights, dignity, and the ability to do great things.",
-      icon: "⚖️",
-    },
-    {
-      title: "Ethics",
-      desc: "We are a value-driven company embracing an ethical mentality and moral behavior in all of our everyday activities.",
-      icon: "✅",
-    },
-  ];
-
   return (
-    <div className="min-h-screen bg-slate-50 pt-28 pb-16">
-      {/* Hero Section */}
-      <div className="bg-[#088349] py-20 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,white_1px,transparent_1px)] bg-[size:20px_20px]"></div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <motion.h1
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-4xl md:text-5xl font-extrabold text-white mb-6"
-          >
-            Who We Are
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-lg md:text-xl text-emerald-50 max-w-2xl mx-auto"
-          >
-            Bringing the world's expertise together to grow together. Global
-            Reach With Expertise.
-          </motion.p>
-        </div>
-      </div>
+    <div className="min-h-screen bg-[#f8fafc]">
+      <PageHero
+        badge="Corporate Origin"
+        title="Engineering"
+        highlight="Excellence"
+        subtitle="We build more than teams. We deploy fully-integrated offshore capabilities and infrastructure designed for absolute operational dominance."
+      />
 
-      {/* Overview Section */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16">
-        <div className="bg-white rounded-2xl shadow-xl shadow-slate-200/50 p-8 md:p-12 border border-slate-100">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl font-bold text-slate-800 mb-6 border-b-4 border-[#088349] inline-block pb-2">
-                Overview
-              </h2>
-              <p className="text-slate-600 leading-relaxed mb-4">
-                Tek Inspirations LLC was formed with the objective of offering
-                professionals with excellent solutions. We take a proactive
-                approach, ensuring that personnel and task consulting teams have
-                the necessary competence.
-              </p>
-              <p className="text-slate-600 leading-relaxed mb-4">
-                Our in-house experts go the additional mile, leaving no stone
-                unturned in order to provide you with industry-leading
-                solutions. Our purpose is to determine the appropriate people
-                for the task or project while also addressing your company's
-                specific requirements.
-              </p>
-              <p className="text-slate-600 leading-relaxed">
-                We are a people’s enterprise, and we intend to stay committed to
-                that. Our employees are encouraged to grow professionally,
-                personally, and morally.
-              </p>
-            </div>
-            <div className="flex flex-col justify-center items-center p-10 bg-slate-50/50 rounded-2xl border border-dashed border-slate-200 h-full">
-              <span className="text-6xl mb-4">🏢</span>
-              <h3 className="text-xl font-semibold text-slate-700 mt-2 text-center">
-                Life at Tek Inspirations
-              </h3>
-              <p className="text-slate-500 text-center mt-4">
-                Since Tek Inspirations LLC first opened its doors in Texas in
-                2016, we had a simple mission: to find the brightest people for
-                the corporate world. We are a community of people with shared
-                interests!
-              </p>
-            </div>
+      {/* ── Enterprise Narrative ── */}
+      <section className="py-24 bg-white relative overflow-hidden">
+        {/* Subtle geometric watermark */}
+        <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#0f172a]/[0.02] rounded-full border border-[#0f172a]/[0.05] flex items-center justify-center">
+          <div className="w-[600px] h-[600px] border border-[#0f172a]/[0.05] rounded-full flex items-center justify-center">
+            <div className="w-[400px] h-[400px] border border-[#0f172a]/[0.05] rounded-full" />
           </div>
         </div>
-      </div>
 
-      {/* Core Values Section */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-slate-800 inline-block border-b-4 border-[#088349] pb-2">
-            Our Core Values
-          </h2>
-          <p className="mt-4 text-slate-600 max-w-2xl mx-auto">
-            We are driven by equal opportunity, accountability, and
-            appreciation. These core values guide everything we do.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {values.map((val, idx) => (
-            <motion.div
-              key={idx}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className="bg-white p-8 rounded-xl shadow-sm border border-slate-100 hover:shadow-lg transition-shadow duration-300"
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+          
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-24">
+            
+            {/* Dark Tech Visualization */}
+            <motion.div 
+              initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}
+              className="relative aspect-square lg:aspect-[4/5] rounded-[2rem] overflow-hidden shadow-2xl bg-[#0f172a] border-2 border-slate-800 flex items-center justify-center group"
             >
-              <div className="text-4xl mb-4">{val.icon}</div>
-              <h3 className="text-xl font-bold text-slate-800 mb-3">
-                {val.title}
-              </h3>
-              <p className="text-slate-600 leading-relaxed text-sm">
-                {val.desc}
-              </p>
+              <img 
+                src="https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&q=80&w=1200" 
+                alt="Corporate Technology Team" 
+                className="absolute inset-0 w-full h-full object-cover opacity-30 grayscale group-hover:grayscale-0 transition-all duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a] via-transparent to-transparent opacity-90" />
+              
+              {/* Glass UI Element */}
+              <div className="absolute bottom-6 left-6 right-6">
+                <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 shadow-2xl overflow-hidden relative">
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-[#3ddc84]/10 rounded-full blur-[30px]" />
+                  <div className="relative z-10 flex items-start gap-4">
+                    <div className="w-10 h-10 rounded-lg bg-[#088349] flex items-center justify-center shrink-0 shadow-lg shadow-[#088349]/40 border border-[#3ddc84]/30">
+                      <Binary size={18} className="text-white" />
+                    </div>
+                    <div>
+                      <h4 className="font-black text-white text-lg tracking-tight mb-1">Human Intelligence Core</h4>
+                      <p className="text-slate-400 text-[11px] font-bold uppercase tracking-widest leading-relaxed">
+                        Fusing technical perfection with high-performance personnel deployment.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </motion.div>
-          ))}
+
+            {/* Narrative Context */}
+            <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-md bg-[#0f172a] shadow-lg mb-6">
+                <AlignLeft size={12} className="text-[#3ddc84]" />
+                <span className="text-[#3ddc84] text-[10px] font-black uppercase tracking-[0.2em]">Architecture of Success</span>
+              </div>
+              <h2 className="text-3xl lg:text-5xl font-black text-[#0f172a] mb-7 leading-[1.1] tracking-tight">
+                Built on <br/>
+                <span style={{ background: "linear-gradient(135deg,#0f172a,#1e293b)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
+                  Engineering Principles
+                </span>
+              </h2>
+              <div className="space-y-4 text-slate-600 leading-relaxed text-[15px] font-medium border-l-2 border-[#088349]/20 pl-6 mb-8">
+                <p>Tek Inspirations LLC was engineered with a singular objective: to inject profound technical competence into the DNA of growing enterprises. We reject the generic staffing model; we architect solutions.</p>
+                <p>Our global delivery ecosystem ensures that when you need a microservices architect, an RPO pipeline, or a 24/7 SOC team, it is provisioned instantly, reliably, and seamlessly.</p>
+                <p>We are a human-centric protocol. We invest heavily in the continual upgrade of our talent, ensuring our internal logic and external outputs remain flawless.</p>
+              </div>
+
+              <div className="grid grid-cols-2 gap-4 mt-8">
+                {[
+                  { k: "Operational Nodes", v: "4+ GlobaL" },
+                  { k: "SLA Adherence", v: "99.9%" },
+                  { k: "Talent Pipeline", v: "Continuous" },
+                  { k: "Deployments", v: "High Vel." }
+                ].map(({k, v}) => (
+                  <div key={k} className="bg-slate-50 border border-slate-100 p-4 rounded-xl">
+                    <p className="text-[#088349] font-black text-xs uppercase tracking-widest mb-1">{k}</p>
+                    <p className="text-[#0f172a] font-bold text-lg">{v}</p>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+
+          {/* ── Precision Roadmap ── */}
+          <div className="mt-20 relative">
+            <h3 className="text-2xl font-black text-[#0f172a] mb-12 text-center">Deployment Timeline History</h3>
+            
+            {/* Connecting core line */}
+            <div className="hidden lg:block absolute top-[120px] left-0 w-full h-[2px] bg-slate-200 z-0">
+               <div className="absolute top-0 left-0 h-full w-1/3" style={{ background: "linear-gradient(to right, #0aad60, transparent)" }} />
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-8 relative z-10">
+              {milestones.map(({ year, tag, event }, i) => (
+                <motion.div 
+                  key={year}
+                  initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}
+                  className="bg-[#0f172a] p-6 lg:p-8 rounded-[20px] border border-slate-700/50 shadow-2xl relative group hover:-translate-y-2 transition-transform duration-500"
+                >
+                  <div className="absolute -top-3 right-6 lg:right-auto lg:-top-3 bg-[#088349] text-white font-black text-2xl px-5 py-2 rounded-xl shadow-lg shadow-[#088349]/40 border-2 border-slate-800">
+                    {year}
+                  </div>
+                  <div className="mt-8 mb-4">
+                    <span className="text-[#3ddc84] text-[9px] font-black uppercase tracking-[0.2em] px-2 py-1 bg-[#3ddc84]/10 rounded border border-[#3ddc84]/20">{tag}</span>
+                  </div>
+                  <p className="text-slate-400 text-sm leading-relaxed font-medium">{event}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
         </div>
-      </div>
+      </section>
+
+      {/* ── Operational Protocol (Values) ── */}
+      <section className="py-24 bg-[#0f172a] border-t border-slate-800 relative">
+        <div className="absolute inset-0 z-0 opacity-[0.05]" style={{ backgroundImage: "linear-gradient(#ffffff 1px, transparent 1px), linear-gradient(90deg, #ffffff 1px, transparent 1px)", backgroundSize: "64px 64px" }} />
+        
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+          <div className="flex flex-col md:flex-row gap-12 items-end justify-between mb-16">
+            <div className="max-w-xl">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-white/5 border border-white/10 mb-4">
+                <span className="w-1.5 h-1.5 bg-[#3ddc84] rounded-full animate-pulse" />
+                <span className="text-slate-300 text-[10px] font-black uppercase tracking-[0.2em]">Operational Protocols</span>
+              </div>
+              <h2 className="text-3xl md:text-5xl font-black text-white mb-2 tracking-tight">
+                Core <span className="text-[#3ddc84]">Directives</span>
+              </h2>
+            </div>
+            <Link to="/contact" className="group hidden md:inline-flex items-center gap-2 text-[11px] font-black uppercase tracking-[0.2em] text-[#3ddc84] hover:text-white transition-colors">
+              Access Compliance Docs <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            {values.map(({ title, icon: Icon, col, desc }, i) => (
+              <motion.div key={title}
+                initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.07 }}
+                className={`${col} bg-[#1e293b]/50 backdrop-blur-xl border border-white/10 rounded-[1.5rem] p-8 hover:border-[#088349]/50 hover:bg-[#1e293b]/80 transition-all duration-300 group`}>
+                
+                <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-[#088349]/20 group-hover:border-[#088349]/40 transition-all">
+                  <Icon size={20} className="text-[#3ddc84]" strokeWidth={2.5} />
+                </div>
+                
+                <h3 className="text-white font-black text-xl mb-3">{title}</h3>
+                <p className="text-slate-400 text-[13px] leading-relaxed font-medium">{desc}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
