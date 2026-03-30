@@ -22,17 +22,18 @@ function AppRoutes() {
       <Route path="/who-we-are" element={<WhoWeAre />} />
       <Route path="/who-we-are/our-leaders" element={<OurLeaders />} />
 
+      {/* plural routes */}
       <Route path="/our-solutions" element={<OurSolutions />} />
       <Route path="/our-solutions/it-consulting" element={<ITConsulting />} />
-      <Route
-        path="/our-solutions/managed-services"
-        element={<ManagedServices />}
-      />
+      <Route path="/our-solutions/managed-services" element={<ManagedServices />} />
       <Route path="/our-solutions/rpo" element={<RPO />} />
-      <Route
-        path="/our-solutions/software-development"
-        element={<SoftwareDevelopment />}
-      />
+      <Route path="/our-solutions/software-development" element={<SoftwareDevelopment />} />
+      {/* singular aliases — used by Header nav */}
+      <Route path="/our-solution" element={<OurSolutions />} />
+      <Route path="/our-solution/it-consulting" element={<ITConsulting />} />
+      <Route path="/our-solution/managed-services" element={<ManagedServices />} />
+      <Route path="/our-solution/rpo" element={<RPO />} />
+      <Route path="/our-solution/software-development" element={<SoftwareDevelopment />} />
 
       <Route path="/gallery" element={<Gallery />} />
 

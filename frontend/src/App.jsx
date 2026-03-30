@@ -8,7 +8,7 @@ function App() {
   return (
     <div className="flex flex-col">
       <Header />
-      <main className="pt-20">
+      <main className="">
         <AppRoutes />
       </main>
       <Footer />
