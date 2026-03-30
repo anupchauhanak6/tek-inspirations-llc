@@ -1,408 +1,158 @@
 import React from "react";
 import { motion } from "framer-motion";
-import {
-  Mail,
-  Phone,
-  MapPin,
-  Send,
-  Facebook,
-  Twitter,
-  Linkedin,
-  Globe,
-} from "lucide-react";
+import { Mail, Phone, MapPin, Send, Facebook, Twitter, Linkedin, Globe } from "lucide-react";
+import PageHero from "../components/PageHero";
 
-const MotionDiv = motion.div;
+const offices = [
+  { city: "Frisco",   badge: "HQ", country: "us", address: "13573 Tabasco Cat Trail,\nFrisco, TX 75035, USA", color: "#088349", mapSrc: "https://maps.google.com/maps?width=100%25&height=100%25&hl=en&q=13573%20Tabasco%20Cat%20Trail,%20Frisco,%20TX%2075035+(TEK%20Inspirations%20LLC)&t=&z=14&ie=UTF8&iwloc=B&output=embed" },
+  { city: "Noida",    country: "in", address: "D-247/1, Sector 63 Rd,\nD Block, Sector 63, Noida, UP 201301", color: "#0369a1", mapSrc: "https://maps.google.com/maps?width=100%25&height=100%25&hl=en&q=D-247/1,%20Sector%2063,%20Noida+(TEK%20Inspirations%20LLC)&t=&z=14&ie=UTF8&iwloc=B&output=embed" },
+  { city: "Agra",     country: "in", address: "4th Floor, Padam High Street,\nFatehabad Rd, Agra, UP 282001", color: "#b45309", mapSrc: "https://maps.google.com/maps?width=100%25&height=100%25&hl=en&q=Padam%20High%20Street,%20Agra+(TEK%20Inspirations%20LLC)&t=&z=14&ie=UTF8&iwloc=B&output=embed" },
+  { city: "Meerut",   country: "in", address: "C-26, Sector 1, East Rithani,\nShatabdi Nagar, Meerut, UP 250103", color: "#7c3aed", mapSrc: "https://maps.google.com/maps?width=100%25&height=100%25&hl=en&q=Shatabdi%20Nagar,%20Meerut+(TEK%20Inspirations%20LLC)&t=&z=14&ie=UTF8&iwloc=B&output=embed" },
+  { city: "Varanasi", country: "in", address: "SA17/3K6 PAHARIA,\nNear Surbhi International Hotel, Varanasi, UP 221007", color: "#0e7490", mapSrc: "https://maps.google.com/maps?width=100%25&height=100%25&hl=en&q=PAHARIA,%20Varanasi+(TEK%20Inspirations%20LLC)&t=&z=14&ie=UTF8&iwloc=B&output=embed" },
+];
 
 function Contact() {
   return (
-    <div className="bg-slate-50 min-h-screen py-16 lg:py-24 relative overflow-hidden">
-      {/* Premium Background Dot Pattern */}
-      <div className="absolute inset-0 bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] bg-size-[24px_24px] opacity-40 pointer-events-none"></div>
+    <div className="min-h-screen bg-white">
+      <PageHero
+        badge="Contact Us"
+        title="Let's"
+        highlight="Connect"
+        subtitle="Have a project in mind or want to learn more about our services? Our team is ready to help you scale your business globally."
+      />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Top Header */}
-        <div className="text-center max-w-3xl mx-auto mb-20">
-          <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white border border-slate-200 shadow-sm text-[#088349] text-sm font-bold tracking-wide mb-6"
-          >
-            <Globe size={16} /> Global Reach, Local Touch
-          </motion.div>
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="text-5xl md:text-6xl font-extrabold text-slate-900 mb-6 tracking-tight"
-          >
-            Let's{" "}
-            <span className="text-transparent bg-clip-text bg-linear-to-r from-[#088349] to-emerald-400">
-              Connect
-            </span>
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="text-lg text-slate-600 leading-relaxed font-medium"
-          >
-            Have a project in mind or want to learn more about our services? Our
-            team of experts is ready to help you scale your business globally.
-          </motion.p>
-        </div>
-
-        {/* Floating Card Design */}
-        <MotionDiv
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3 }}
-          className="bg-white rounded-4xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] overflow-hidden flex flex-col lg:flex-row border border-slate-200/60 relative z-20"
+      {/* Main contact card */}
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 py-16">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}
+          className="bg-white rounded-3xl border border-slate-100 shadow-xl overflow-hidden flex flex-col lg:flex-row"
         >
-          {/* Left Side: Contact Details */}
-          <div className="lg:w-2/5 bg-linear-to-br from-[#06180e] via-[#052915] to-[#088349] p-10 lg:p-14 text-white relative overflow-hidden flex flex-col justify-between">
-            {/* Background Orbs */}
-            <div className="absolute top-0 right-0 w-64 h-64 bg-[#088349] rounded-full blur-[80px] -translate-y-1/2 translate-x-1/3 opacity-40"></div>
-            <div className="absolute bottom-0 left-0 w-72 h-72 bg-[#052915] rounded-full blur-[80px] translate-y-1/3 -translate-x-1/3 opacity-60 z-0"></div>
+          {/* Left — dark panel */}
+          <div className="lg:w-2/5 relative overflow-hidden flex flex-col justify-between p-10 lg:p-12"
+            style={{ background: "linear-gradient(160deg, #06180e, #088349 120%)" }}>
+            <div className="pointer-events-none absolute top-0 right-0 w-64 h-64 rounded-full opacity-30"
+              style={{ background: "radial-gradient(circle, rgba(255,255,255,0.3), transparent 70%)", filter: "blur(50px)", transform: "translate(30%,-30%)" }} />
 
             <div className="relative z-10">
-              <h3 className="text-3xl font-extrabold mb-4 tracking-wide text-white">
-                Contact Info
-              </h3>
-              <p className="text-slate-300 mb-12 text-[16px] leading-relaxed">
-                Fill out the form and our team will get back to you within 24
-                hours to discuss your needs.
-              </p>
+              <h3 className="text-2xl font-black text-white mb-2">Contact Info</h3>
+              <p className="text-emerald-100 text-sm mb-10 leading-relaxed">Fill out the form and our team will get back to you within 24 hours.</p>
 
-              <div className="space-y-8 text-white">
-                <div className="flex items-start gap-5 group cursor-pointer">
-                  <div className="w-14 h-14 rounded-2xl bg-white/10 flex items-center justify-center text-emerald-400 group-hover:bg-[#088349] group-hover:text-white transition-all duration-500 shadow-lg border border-white/10 group-hover:border-[#088349] group-hover:-translate-y-1">
-                    <Phone size={24} />
+              <div className="space-y-7">
+                {[
+                  { icon: Phone,  label: "Call Us",   value: "+1 123 456 7890" },
+                  { icon: Mail,   label: "Email",     value: "info@tekinspirations.com" },
+                  { icon: MapPin, label: "HQ",        value: "Frisco, Texas\nUnited States" },
+                ].map(({ icon: Icon, label, value }) => (
+                  <div key={label} className="flex items-start gap-4 group cursor-pointer">
+                    <div className="w-12 h-12 rounded-2xl bg-white/10 border border-white/15 flex items-center justify-center text-emerald-300 hover:bg-white/20 transition-colors shrink-0">
+                      <Icon size={20} />
+                    </div>
+                    <div className="pt-1">
+                      <p className="text-xs font-bold uppercase tracking-widest text-white/60 mb-1">{label}</p>
+                      <p className="text-white font-bold whitespace-pre-line leading-snug">{value}</p>
+                    </div>
                   </div>
-                  <div className="pt-1">
-                    <p className="text-sm mb-1 font-medium tracking-wide text-white/70">
-                      Call Us Directly
-                    </p>
-                    <p className="text-xl font-bold group-hover:text-white transition-colors text-white">
-                      +1 123 456 7890
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-5 group cursor-pointer">
-                  <div className="w-14 h-14 rounded-2xl bg-white/10 flex items-center justify-center text-emerald-400 group-hover:bg-[#088349] group-hover:text-white transition-all duration-500 shadow-lg border border-white/10 group-hover:border-[#088349] group-hover:-translate-y-1">
-                    <Mail size={24} />
-                  </div>
-                  <div className="pt-1">
-                    <p className="text-sm mb-1 font-medium tracking-wide text-white/70">
-                      Email Address
-                    </p>
-                    <p className="text-xl font-bold group-hover:text-white transition-colors text-white">
-                      info@tekinspirations.com
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-5 group cursor-pointer">
-                  <div className="w-14 h-14 rounded-2xl bg-white/10 flex items-center justify-center text-emerald-400 group-hover:bg-[#088349] group-hover:text-white transition-all duration-500 shadow-lg border border-white/10 group-hover:border-[#088349] group-hover:-translate-y-1">
-                    <MapPin size={24} />
-                  </div>
-                  <div className="pt-1">
-                    <p className="text-sm mb-1 font-medium tracking-wide text-white/70">
-                      Headquarters
-                    </p>
-                    <p className="text-lg font-bold leading-snug group-hover:text-white text-white">
-                      Dallas, Texas
-                      <br />
-                      United States
-                    </p>
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
 
-            <div className="relative z-10 mt-16 pt-8 border-t border-white/10">
-              <p className="text-sm text-slate-300 mb-5 font-bold uppercase tracking-widest">
-                Follow us
-              </p>
-              <div className="flex gap-4">
-                <a
-                  href="#"
-                  className="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center hover:bg-[#088349] hover:shadow-[0_0_20px_rgba(8,131,73,0.5)] transition-all duration-300 hover:-translate-y-1 transform border border-white/10 text-white"
-                >
-                  <Facebook size={20} />
-                </a>
-                <a
-                  href="#"
-                  className="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center hover:bg-[#088349] hover:shadow-[0_0_20px_rgba(8,131,73,0.5)] transition-all duration-300 hover:-translate-y-1 transform border border-white/10 text-white"
-                >
-                  <Twitter size={20} />
-                </a>
-                <a
-                  href="#"
-                  className="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center hover:bg-[#088349] hover:shadow-[0_0_20px_rgba(8,131,73,0.5)] transition-all duration-300 hover:-translate-y-1 transform border border-white/10 text-white"
-                >
-                  <Linkedin size={20} />
-                </a>
+            <div className="relative z-10 mt-12 pt-7 border-t border-white/15">
+              <p className="text-xs font-bold uppercase tracking-widest text-white/50 mb-4">Follow Us</p>
+              <div className="flex gap-3">
+                {[Facebook, Twitter, Linkedin].map((Icon, i) => (
+                  <a key={i} href="#"
+                    className="w-10 h-10 rounded-xl bg-white/10 border border-white/15 flex items-center justify-center text-white hover:bg-white/20 transition-all hover:-translate-y-0.5">
+                    <Icon size={16} />
+                  </a>
+                ))}
               </div>
             </div>
           </div>
 
-          {/* Right Side: Contact Form */}
-          <div className="lg:w-3/5 p-10 lg:p-14 xl:p-16 bg-white">
-            <h3 className="text-3xl font-extrabold text-slate-900 mb-8">
-              Send us a Message
-            </h3>
-
-            <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div className="space-y-2.5 text-left group">
-                  <label className="text-[14px] font-bold text-slate-500 uppercase tracking-widest group-focus-within:text-[#088349] transition-colors">
-                    First Name
-                  </label>
-                  <input
-                    type="text"
-                    className="w-full px-5 py-4 rounded-[14px] border-2 border-slate-100 focus:outline-none focus:ring-0 focus:border-[#088349] transition-all bg-slate-50/50 focus:bg-white font-medium text-slate-900 shadow-sm outline-none"
-                    placeholder="John"
-                  />
-                </div>
-                <div className="space-y-2.5 text-left group">
-                  <label className="text-[14px] font-bold text-slate-500 uppercase tracking-widest group-focus-within:text-[#088349] transition-colors">
-                    Last Name
-                  </label>
-                  <input
-                    type="text"
-                    className="w-full px-5 py-4 rounded-[14px] border-2 border-slate-100 focus:outline-none focus:ring-0 focus:border-[#088349] transition-all bg-slate-50/50 focus:bg-white font-medium text-slate-900 shadow-sm outline-none"
-                    placeholder="Doe"
-                  />
-                </div>
+          {/* Right — form */}
+          <div className="lg:w-3/5 p-10 lg:p-12 bg-white">
+            <h3 className="text-2xl font-black text-slate-900 mb-7">Send us a Message</h3>
+            <form className="space-y-5" onSubmit={e => e.preventDefault()}>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                {[["First Name","text","John","first-name"],["Last Name","text","Doe","last-name"]].map(([label,type,ph,id]) => (
+                  <div key={id} className="group space-y-1.5">
+                    <label htmlFor={id} className="text-xs font-bold text-slate-500 uppercase tracking-widest block group-focus-within:text-[#088349] transition-colors">{label}</label>
+                    <input id={id} type={type} placeholder={ph}
+                      className="w-full px-4 py-3.5 rounded-xl border-2 border-slate-100 focus:border-[#088349] bg-slate-50 focus:bg-white font-medium text-slate-900 outline-none transition-all" />
+                  </div>
+                ))}
               </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div className="space-y-2.5 text-left group">
-                  <label className="text-[14px] font-bold text-slate-500 uppercase tracking-widest group-focus-within:text-[#088349] transition-colors">
-                    Email Address
-                  </label>
-                  <input
-                    type="email"
-                    className="w-full px-5 py-4 rounded-[14px] border-2 border-slate-100 focus:outline-none focus:ring-0 focus:border-[#088349] transition-all bg-slate-50/50 focus:bg-white font-medium text-slate-900 shadow-sm outline-none"
-                    placeholder="john@example.com"
-                  />
-                </div>
-                <div className="space-y-2.5 text-left group">
-                  <label className="text-[14px] font-bold text-slate-500 uppercase tracking-widest group-focus-within:text-[#088349] transition-colors">
-                    Phone Number
-                  </label>
-                  <input
-                    type="tel"
-                    className="w-full px-5 py-4 rounded-[14px] border-2 border-slate-100 focus:outline-none focus:ring-0 focus:border-[#088349] transition-all bg-slate-50/50 focus:bg-white font-medium text-slate-900 shadow-sm outline-none"
-                    placeholder="+1 (555) 000-0000"
-                  />
-                </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                {[["Email","email","john@example.com","email"],["Phone","tel","+1 (555) 000-0000","phone"]].map(([label,type,ph,id]) => (
+                  <div key={id} className="group space-y-1.5">
+                    <label htmlFor={id} className="text-xs font-bold text-slate-500 uppercase tracking-widest block group-focus-within:text-[#088349] transition-colors">{label}</label>
+                    <input id={id} type={type} placeholder={ph}
+                      className="w-full px-4 py-3.5 rounded-xl border-2 border-slate-100 focus:border-[#088349] bg-slate-50 focus:bg-white font-medium text-slate-900 outline-none transition-all" />
+                  </div>
+                ))}
               </div>
-
-              <div className="space-y-2.5 text-left group">
-                <label className="text-[14px] font-bold text-slate-500 uppercase tracking-widest group-focus-within:text-[#088349] transition-colors">
-                  Your Message
-                </label>
-                <textarea
-                  rows="5"
-                  className="w-full px-5 py-4 rounded-[14px] border-2 border-slate-100 focus:outline-none focus:ring-0 focus:border-[#088349] transition-all bg-slate-50/50 focus:bg-white resize-none font-medium text-slate-900 shadow-sm outline-none"
-                  placeholder="Tell us about your project or inquiry..."
-                ></textarea>
+              <div className="group space-y-1.5">
+                <label htmlFor="service" className="text-xs font-bold text-slate-500 uppercase tracking-widest block group-focus-within:text-[#088349] transition-colors">Service Interested In</label>
+                <select id="service"
+                  className="w-full px-4 py-3.5 rounded-xl border-2 border-slate-100 focus:border-[#088349] bg-slate-50 focus:bg-white font-medium text-slate-900 outline-none transition-all">
+                  <option value="">Select a service...</option>
+                  <option>IT Consulting</option>
+                  <option>Managed Services</option>
+                  <option>RPO Solutions</option>
+                  <option>Software Development</option>
+                  <option>Other</option>
+                </select>
               </div>
-
-              <div className="pt-4">
-                <button
-                  type="submit"
-                  className="w-full md:w-auto px-10 py-4 bg-[#088349] hover:bg-[#066a3a] text-white rounded-[14px] font-bold text-[16px] transition-all duration-300 shadow-xl shadow-[#088349]/30 flex items-center justify-center gap-3 hover:-translate-y-1"
-                >
-                  Send Message <Send size={20} className="ml-1" />
-                </button>
+              <div className="group space-y-1.5">
+                <label htmlFor="message" className="text-xs font-bold text-slate-500 uppercase tracking-widest block group-focus-within:text-[#088349] transition-colors">Your Message</label>
+                <textarea id="message" rows={5} placeholder="Tell us about your project or inquiry..."
+                  className="w-full px-4 py-3.5 rounded-xl border-2 border-slate-100 focus:border-[#088349] bg-slate-50 focus:bg-white resize-none font-medium text-slate-900 outline-none transition-all" />
               </div>
+              <button type="submit"
+                className="group inline-flex items-center gap-2.5 px-8 py-4 rounded-xl bg-[#088349] hover:bg-[#066a3a] text-white font-bold transition-all duration-200 hover:shadow-xl hover:shadow-[#088349]/25 hover:-translate-y-0.5 active:scale-95">
+                Send Message
+                <Send size={16} className="transition-transform group-hover:translate-x-0.5" />
+              </button>
             </form>
           </div>
-        </MotionDiv>
+        </motion.div>
+      </div>
 
-        {/* Global Offices Section Spacer */}
-        <div className="mt-40">
-          <div className="text-center mb-16 relative">
-            <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6 font-sans tracking-tight">
-              Our Global <span className="text-[#088349]">Offices</span>
-            </h2>
-            <p className="text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed font-medium">
-              Visit us at any of our global locations. We have our headquarters
-              in the United States and a strong development presence across
-              India.
-            </p>
+      {/* Global Offices */}
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 pb-20">
+        <div className="text-center mb-12">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#088349]/10 border border-[#088349]/20 text-[#088349] text-xs font-bold uppercase tracking-widest mb-4">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#088349]" /> Worldwide
           </div>
+          <h2 className="text-3xl md:text-4xl font-black text-slate-900 mb-3">
+            Our Global{" "}
+            <span style={{ background: "linear-gradient(135deg,#088349,#0aad60)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>Offices</span>
+          </h2>
+          <p className="text-slate-500 max-w-xl mx-auto">Headquarters in the United States with a strong development presence across India.</p>
+        </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* US Card */}
-            <MotionDiv
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="group bg-white p-8 rounded-4xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border-t-[6px] border-t-transparent hover:border-t-[#088349] border-l border-r border-b border-slate-100 flex flex-col h-full hover:-translate-y-3 hover:shadow-[0_20px_40px_rgba(8,131,73,0.1)] transition-all duration-500 relative overflow-hidden"
-            >
-              <div className="absolute top-0 right-0 w-32 h-32 bg-[#088349]/5 rounded-bl-full -z-10 group-hover:scale-125 transition-transform duration-500"></div>
-
-              <div className="flex items-center gap-4 mb-6 z-10">
-                <img
-                  src="https://flagcdn.com/w40/us.png"
-                  alt="USA Flag"
-                  className="w-10 rounded-md shadow-md ring-1 ring-black/5"
-                />
-                <h3 className="text-2xl font-bold text-slate-800">
-                  Frisco{" "}
-                  <span className="text-[#088349] text-sm align-middle ml-1">
-                    (HQ)
-                  </span>
-                </h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {offices.map(({ city, badge, country, address, color, mapSrc }, i) => (
+            <motion.div key={city}
+              initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.07 }}
+              className="group bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 overflow-hidden">
+              <div className="h-1 w-full" style={{ background: `linear-gradient(to right, ${color}, transparent)` }} />
+              <div className="p-6">
+                <div className="flex items-center gap-2.5 mb-3">
+                  <img src={`https://flagcdn.com/w40/${country}.png`} alt="" className="w-7 rounded shadow-sm" />
+                  <h3 className="text-slate-900 font-black text-lg">
+                    {city}
+                    {badge && <span className="ml-2 text-xs font-bold px-2 py-0.5 rounded-full" style={{ background: `${color}12`, color }}>{badge}</span>}
+                  </h3>
+                </div>
+                <p className="text-slate-500 text-sm leading-relaxed mb-4 whitespace-pre-line">{address}</p>
               </div>
-              <p className="text-slate-600 font-medium mb-6 grow text-lg z-10">
-                13573 Tabasco Cat Trail,
-                <br />
-                Frisco, TX 75035, USA
-              </p>
-              <div className="w-full h-56 rounded-2xl overflow-hidden mt-2 relative z-10 shadow-inner">
-                <div className="absolute inset-0 bg-slate-900/10 group-hover:bg-transparent transition-colors duration-500 z-10 pointer-events-none"></div>
-                <iframe
-                  title="Texas Office Map"
-                  className="w-full h-full grayscale-60 group-hover:grayscale-0 transition-all duration-700 outline-none border-none"
-                  src="https://maps.google.com/maps?width=100%25&amp;height=100%25&amp;hl=en&amp;q=13573%20Tabasco%20Cat%20Trail,%20Frisco,%20TX%2075035+(TEK%20Inspirations%20LLC)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
-                ></iframe>
+              <div className="w-full h-44 relative">
+                <div className="absolute inset-0 bg-slate-900/8 group-hover:bg-transparent transition-colors duration-500 z-10 pointer-events-none" />
+                <iframe title={`${city} Office`} className="w-full h-full border-none outline-none grayscale group-hover:grayscale-0 transition-all duration-700" src={mapSrc} />
               </div>
-            </MotionDiv>
-
-            {/* India Cards */}
-            <MotionDiv
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-              className="group bg-white p-8 rounded-4xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border-t-[6px] border-t-transparent hover:border-t-[#088349] border-l border-r border-b border-slate-100 flex flex-col h-full hover:-translate-y-3 hover:shadow-[0_20px_40px_rgba(8,131,73,0.1)] transition-all duration-500 relative overflow-hidden"
-            >
-              <div className="absolute top-0 right-0 w-32 h-32 bg-[#088349]/5 rounded-bl-full -z-10 group-hover:scale-125 transition-transform duration-500"></div>
-
-              <div className="flex items-center gap-4 mb-6 z-10">
-                <img
-                  src="https://flagcdn.com/w40/in.png"
-                  alt="India Flag"
-                  className="w-10 rounded-md shadow-md ring-1 ring-black/5"
-                />
-                <h3 className="text-2xl font-bold text-slate-800">Noida</h3>
-              </div>
-              <p className="text-slate-600 font-medium mb-6 grow text-[16px] z-10">
-                D-247/1, Sector 63 Rd, D Block,
-                <br />
-                Sector 63, Noida, UP 201301
-              </p>
-              <div className="w-full h-56 rounded-2xl overflow-hidden mt-2 relative z-10 shadow-inner">
-                <div className="absolute inset-0 bg-slate-900/10 group-hover:bg-transparent transition-colors duration-500 z-10 pointer-events-none"></div>
-                <iframe
-                  title="Noida Office Map"
-                  className="w-full h-full grayscale-60 group-hover:grayscale-0 transition-all duration-700 outline-none border-none"
-                  src="https://maps.google.com/maps?width=100%25&amp;height=100%25&amp;hl=en&amp;q=D-247/1,%20Sector%2063,%20Noida+(TEK%20Inspirations%20LLC)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
-                ></iframe>
-              </div>
-            </MotionDiv>
-
-            <MotionDiv
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-              className="group bg-white p-8 rounded-4xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border-t-[6px] border-t-transparent hover:border-t-[#088349] border-l border-r border-b border-slate-100 flex flex-col h-full hover:-translate-y-3 hover:shadow-[0_20px_40px_rgba(8,131,73,0.1)] transition-all duration-500 relative overflow-hidden"
-            >
-              <div className="absolute top-0 right-0 w-32 h-32 bg-[#088349]/5 rounded-bl-full -z-10 group-hover:scale-125 transition-transform duration-500"></div>
-
-              <div className="flex items-center gap-4 mb-6 z-10">
-                <img
-                  src="https://flagcdn.com/w40/in.png"
-                  alt="India Flag"
-                  className="w-10 rounded-md shadow-md ring-1 ring-black/5"
-                />
-                <h3 className="text-2xl font-bold text-slate-800">Agra</h3>
-              </div>
-              <p className="text-slate-600 font-medium mb-6 grow text-[16px] z-10">
-                4th Floor, Padam High Street,
-                <br />
-                Panchvati, Fatehabad Rd, Agra, UP 282001
-              </p>
-              <div className="w-full h-56 rounded-2xl overflow-hidden mt-2 relative z-10 shadow-inner">
-                <div className="absolute inset-0 bg-slate-900/10 group-hover:bg-transparent transition-colors duration-500 z-10 pointer-events-none"></div>
-                <iframe
-                  title="Agra Office Map"
-                  className="w-full h-full grayscale-60 group-hover:grayscale-0 transition-all duration-700 outline-none border-none"
-                  src="https://maps.google.com/maps?width=100%25&amp;height=100%25&amp;hl=en&amp;q=Padam%20High%20Street,%20Agra+(TEK%20Inspirations%20LLC)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
-                ></iframe>
-              </div>
-            </MotionDiv>
-
-            <MotionDiv
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.3 }}
-              className="group bg-white p-8 rounded-4xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border-t-[6px] border-t-transparent hover:border-t-[#088349] border-l border-r border-b border-slate-100 flex flex-col h-full hover:-translate-y-3 hover:shadow-[0_20px_40px_rgba(8,131,73,0.1)] transition-all duration-500 relative overflow-hidden"
-            >
-              <div className="absolute top-0 right-0 w-32 h-32 bg-[#088349]/5 rounded-bl-full -z-10 group-hover:scale-125 transition-transform duration-500"></div>
-
-              <div className="flex items-center gap-4 mb-6 z-10">
-                <img
-                  src="https://flagcdn.com/w40/in.png"
-                  alt="India Flag"
-                  className="w-10 rounded-md shadow-md ring-1 ring-black/5"
-                />
-                <h3 className="text-2xl font-bold text-slate-800">Meerut</h3>
-              </div>
-              <p className="text-slate-600 font-medium mb-6 grow text-[16px] z-10">
-                C-26, Sector 1, East Rithani, Shatabdi Nagar,
-                <br />
-                Near Bhagwati Mata Mandir, Meerut, UP 250103
-              </p>
-              <div className="w-full h-56 rounded-2xl overflow-hidden mt-2 relative z-10 shadow-inner">
-                <div className="absolute inset-0 bg-slate-900/10 group-hover:bg-transparent transition-colors duration-500 z-10 pointer-events-none"></div>
-                <iframe
-                  title="Meerut Office Map"
-                  className="w-full h-full grayscale-60 group-hover:grayscale-0 transition-all duration-700 outline-none border-none"
-                  src="https://maps.google.com/maps?width=100%25&amp;height=100%25&amp;hl=en&amp;q=Shatabdi%20Nagar,%20Meerut+(TEK%20Inspirations%20LLC)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
-                ></iframe>
-              </div>
-            </MotionDiv>
-
-            <MotionDiv
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.4 }}
-              className="group bg-white p-8 rounded-4xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border-t-[6px] border-t-transparent hover:border-t-[#088349] border-l border-r border-b border-slate-100 flex flex-col h-full hover:-translate-y-3 hover:shadow-[0_20px_40px_rgba(8,131,73,0.1)] transition-all duration-500 relative overflow-hidden"
-            >
-              <div className="absolute top-0 right-0 w-32 h-32 bg-[#088349]/5 rounded-bl-full -z-10 group-hover:scale-125 transition-transform duration-500"></div>
-
-              <div className="flex items-center gap-4 mb-6 z-10">
-                <img
-                  src="https://flagcdn.com/w40/in.png"
-                  alt="India Flag"
-                  className="w-10 rounded-md shadow-md ring-1 ring-black/5"
-                />
-                <h3 className="text-2xl font-bold text-slate-800">Varanasi</h3>
-              </div>
-              <p className="text-slate-600 font-medium mb-6 grow text-[16px] z-10">
-                SA17/3K6 PAHARIA,
-                <br />
-                Near Surbhi International Hotel, Varanasi, UP 221007
-              </p>
-              <div className="w-full h-56 rounded-2xl overflow-hidden mt-2 relative z-10 shadow-inner">
-                <div className="absolute inset-0 bg-slate-900/10 group-hover:bg-transparent transition-colors duration-500 z-10 pointer-events-none"></div>
-                <iframe
-                  title="Varanasi Office Map"
-                  className="w-full h-full grayscale-60 group-hover:grayscale-0 transition-all duration-700 outline-none border-none"
-                  src="https://maps.google.com/maps?width=100%25&amp;height=100%25&amp;hl=en&amp;q=PAHARIA,%20Varanasi+(TEK%20Inspirations%20LLC)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
-                ></iframe>
-              </div>
-            </MotionDiv>
-          </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </div>
