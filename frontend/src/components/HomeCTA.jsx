@@ -1,103 +1,125 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { ArrowRight, ShieldCheck, Target, Briefcase } from "lucide-react";
 import { Link } from "react-router-dom";
-import { ArrowRight, Terminal, CloudLightning, Fingerprint, CheckCircle2 } from "lucide-react";
 
-const proofs = [
-  "500+ global enterprises served",
-  "24/7 NOC/SOC operational monitoring",
-  "ISO/IEC compliant deployments",
-];
-
-function HomeCTA() {
+export default function HomeCTA() {
   return (
-    <section className="py-24 bg-[#f8fafc] relative overflow-hidden">
-      {/* Background */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120vw] h-[120vw] opacity-[0.02] pointer-events-none" style={{ backgroundImage: "radial-gradient(#0f172a 1px, transparent 1px)", backgroundSize: "32px 32px" }} />
-      
-      <div className="max-w-6xl mx-auto px-6 lg:px-12 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}
-          className="relative rounded-[2.5rem] overflow-hidden px-8 py-20 text-center flex flex-col items-center group"
-          style={{ background: "#0f172a" }}
-        >
-          {/* Animated Glows */}
-          <motion.div
-            animate={{ scale: [1, 1.3, 1], opacity: [0.3, 0.2, 0.3] }}
-            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-            className="pointer-events-none absolute -top-32 -right-32 w-96 h-96 rounded-full"
-            style={{ background: "radial-gradient(circle, #088349, transparent 60%)", filter: "blur(50px)" }} />
-          <motion.div
-            animate={{ scale: [1, 1.2, 1], opacity: [0.2, 0.15, 0.2] }}
-            transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-            className="pointer-events-none absolute -bottom-32 -left-32 w-96 h-96 rounded-full"
-            style={{ background: "radial-gradient(circle, #3ddc84, transparent 60%)", filter: "blur(60px)" }} />
-
-          {/* Grid Overlay */}
-          <div className="pointer-events-none absolute inset-0 opacity-10 mix-blend-overlay"
-            style={{ backgroundImage: "linear-gradient(#ffffff 1px, transparent 1px), linear-gradient(90deg, #ffffff 1px, transparent 1px)", backgroundSize: "32px 32px" }} />
-
-          <div className="relative z-10 w-full max-w-2xl mx-auto">
-            
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 mb-6 backdrop-blur-md">
-              <span className="w-2 h-2 bg-[#3ddc84] rounded-full animate-pulse shadow-[0_0_10px_#3ddc84]" />
-              <span className="text-slate-300 text-[10px] font-black uppercase tracking-[0.2em]">Ready For Deployment</span>
+    <section className="py-20 md:py-28 bg-white font-sans border-t border-slate-200 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 lg:px-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          
+          {/* -- Left Side: Structural Image Block -- */}
+          <motion.div 
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="relative"
+          >
+            {/* Main Image */}
+            <div className="rounded-lg overflow-hidden shadow-lg border border-slate-100 bg-slate-100 relative h-[500px]">
+              <img
+                src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2940&auto=format&fit=crop"
+                alt="TEK Inspirations IT Team"
+                className="w-full h-full object-cover object-center"
+              />
             </div>
 
-            <h2 className="text-3xl md:text-5xl font-black text-white mb-6 leading-[1.15] tracking-tight">
-              Initiate Your Digital <br/>
-              <span style={{ background: "linear-gradient(135deg, #3ddc84, #088349)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
-                Transformation Protocol
-              </span>
+            {/* Static Corporate Stat Card */}
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.4, duration: 0.6 }}
+              className="absolute -bottom-8 -right-8 bg-[#0f172a] text-white py-6 px-8 rounded-lg shadow-xl hidden md:flex items-center gap-6 border-4 border-white"
+            >
+              <div className="w-16 h-16 rounded bg-[#088349] flex items-center justify-center text-white shadow-inner">
+                <Target size={32} strokeWidth={2} />
+              </div>
+              <div>
+                <p className="font-bold text-4xl mb-1">
+                  15<span className="text-[#088349]">+</span>
+                </p>
+                <p className="text-slate-300 text-xs uppercase tracking-widest font-semibold">
+                  Years IT Leaders
+                </p>
+              </div>
+            </motion.div>
+
+            {/* Subtle Info Box */}
+            <motion.div 
+              initial={{ opacity: 0, y: -20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.6, duration: 0.6 }}
+              className="absolute top-8 -left-8 bg-white py-4 px-6 rounded shadow-lg border border-slate-100 hidden lg:flex items-center gap-4"
+            >
+              <ShieldCheck size={28} className="text-[#088349]" />
+              <div>
+                <p className="text-slate-500 text-xs font-semibold uppercase tracking-wider">
+                  ISO Certified
+                </p>
+                <p className="text-slate-900 font-bold text-sm">
+                  Govt. Registered
+                </p>
+              </div>
+            </motion.div>
+          </motion.div>
+
+          {/* -- Right Side: Corporate Text -- */}
+          <motion.div 
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+            className="lg:pl-8 mt-10 lg:mt-0"
+          >
+            <h4 className="text-[#088349] font-bold tracking-widest uppercase text-xs mb-4">
+              About TEK Inspirations LLC
+            </h4>
+            
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-800 mb-8 leading-tight">
+              Architecting Your Digital Journey
             </h2>
-            
-            <p className="text-slate-400 text-sm md:text-base font-medium mb-8 leading-relaxed max-w-lg mx-auto">
-              Secure scalable infrastructure, deploy elite engineering teams, and automate critical workflows with military-grade precision.
-            </p>
 
-            {/* Proof points */}
-            <div className="flex flex-wrap justify-center gap-x-6 gap-y-3 mb-8">
-              {proofs.map(p => (
-                <div key={p} className="flex items-center gap-2 text-slate-300">
-                  <CheckCircle2 size={14} className="text-[#3ddc84] shrink-0" />
-                  <span className="text-[11px] font-bold uppercase tracking-wider">{p}</span>
-                </div>
-              ))}
+            <div className="space-y-6 text-slate-600 font-normal leading-relaxed text-lg mb-10 border-l-4 border-[#088349] pl-6">
+              <p>
+                <strong className="text-slate-800">TEK Inspirations LLC</strong> is a 
+                premier IT consulting and talent acquisition firm deeply rooted in innovation, operating with nationwide capability.
+              </p>
+              <p>
+                We believe every technological transition is a critical step towards superior operational efficiency — whether deploying cloud infrastructure, developing distinct software, or building an elite contingent workforce.
+              </p>
+              <p>
+                Our mission is to simplify the complex terrain of enterprise technology, empowering your business to scale with confidence, completely unobstructed.
+              </p>
             </div>
 
-            {/* Micro-Features */}
-            <div className="flex flex-wrap justify-center gap-6 mb-10 pt-6 border-t border-white/[0.06]">
-              {[
-                { i: Terminal,       t: "Custom CI/CD Pipelines" },
-                { i: CloudLightning, t: "Zero-Downtime Migration" },
-                { i: Fingerprint,    t: "SOC2 Compliant Architecture" }
-              ].map(({ i: Icon, t }, idx) => (
-                <div key={idx} className="flex items-center gap-2 text-slate-300">
-                  <div className="w-7 h-7 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center">
-                    <Icon size={13} className="text-[#3ddc84]" />
-                  </div>
-                  <span className="text-[10px] font-bold uppercase tracking-[0.1em]">{t}</span>
-                </div>
-              ))}
+            {/* Simple Strategic Highlight */}
+            <div className="bg-slate-50 border border-slate-200 rounded p-6 mb-10 flex items-center gap-5">
+              <div className="w-12 h-12 bg-slate-200 rounded flex items-center justify-center text-[#088349] shrink-0">
+                <Briefcase size={24} />
+              </div>
+              <div>
+                <h5 className="text-slate-800 font-bold text-lg mb-1">
+                  Aligning With Your Goals
+                </h5>
+                <p className="text-slate-600 text-sm">
+                  We design technological roadmaps heavily tailored to your exact enterprise requirements.
+                </p>
+              </div>
             </div>
 
-            {/* CTAs */}
-            <div className="flex flex-wrap justify-center gap-4">
-              <Link to="/contact"
-                className="group inline-flex items-center gap-2 px-8 py-4 bg-[#088349] hover:bg-[#0aad60] text-white font-bold text-sm rounded-xl transition-all duration-300 shadow-xl shadow-[#088349]/30 hover:-translate-y-0.5 active:scale-[0.98]">
-                Schedule Architecture Review
-                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-              </Link>
-              <Link to="/our-solution"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-white/5 border border-white/10 text-white font-bold text-sm rounded-xl hover:bg-white/10 transition-all duration-300 backdrop-blur-md active:scale-[0.98]">
-                View System Capabilities
-              </Link>
-            </div>
-          </div>
-        </motion.div>
+            {/* Standard Primary Button */}
+            <Link to="/contact" className="inline-flex items-center gap-3 px-8 py-4 bg-[#0f172a] hover:bg-black text-white font-bold text-sm uppercase tracking-wide rounded shadow transition-all duration-300 hover:scale-105 active:scale-95">
+              Schedule Consultation
+              <ArrowRight size={20} className="text-[#088349]" />
+            </Link>
+          </motion.div>
+
+        </div>
       </div>
     </section>
   );
 }
-
-export default HomeCTA;
