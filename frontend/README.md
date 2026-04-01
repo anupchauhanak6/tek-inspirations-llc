@@ -1,16 +1,80 @@
-# React + Vite
+# TEK Inspirations LLC - Enterprise Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A high-performance, enterprise-grade IT services platform built with React. This repository contains the frontend application for TEK Inspirations LLC, redesigned with a modern, mission-critical aesthetic focusing on corporate authority and technical precision.
 
-Currently, two official plugins are available:
+## 🚀 Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Framework:** React 18
+- **Styling:** Tailwind CSS (v4)
+- **Animations:** Framer Motion
+- **Icons:** Lucide React
+- **Routing:** React Router v6
+- **Build Tool:** Vite
 
-## React Compiler
+## ✨ Key Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Enterprise Design System:** A cohesive "Dark-Navy/Midnight Blue & Emerald-Green" color palette delivering a premium, tech-focused visual experience.
+- **Dynamic UI Components:** Extensive use of glassmorphism, bento-box grid layouts, glowing accents, and terminal-style typography.
+- **Fluid Animations:** Scroll-triggered reveals, page transitions, counting number statistics, and micro-interactions powered by Framer Motion.
+- **Responsive Architecture:** Fully optimized for mobile, tablet, and desktop environments including mobile drawer navigation and swipeable carousels.
+- **SEO Optimized:** Semantic HTML structure and performance-focused layouts.
 
-## Expanding the ESLint configuration
+## 📂 Project Structure
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```text
+src/
+├── components/      # Reusable UI elements (Header, Footer, PageHero, etc.)
+├── pages/           # Individual route components
+│   ├── Home/        # Main landing page with Stats, Services, Testimonials, CTA
+│   ├── Solutions/   # IT Consulting, Managed Services, RPO, Software Dev
+│   ├── Company/     # Who We Are, Our Leaders, Contact, Gallery
+│   └── Legal/       # Privacy Policy, Terms of Service
+├── routes/          # Application routing configuration (AppRoutes.jsx)
+├── index.css        # Global CSS, Font (Inter), selection colors, custom scrollbar
+└── App.jsx          # Root component & ScrollToTop behavior
+```
+
+## 🎨 Design System
+
+**Primary Colors:**
+- Base/Background: Dark Navy (`#0f172a`), Slate-50/White for light sections
+- Primary Accent: Emerald Green (`#088349` to `#3ddc84` gradients)
+
+**Typography:**
+- Primary Font: **Inter** (Google Fonts)
+- Style: Monospaced terminal elements for technical badges, bold uppercase labels for hierarchy.
+
+## ⚙️ Getting Started
+
+### Prerequisites
+- Node.js (v18+ recommended)
+- npm or yarn
+
+### Installation
+
+1. Clone the repository and navigate to the frontend directory:
+   ```bash
+   cd frontend
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
+4. Build for production:
+   ```bash
+   npm run build
+   ```
+
+## 📝 Recent Major Updates
+
+- **Complete UI Overhaul:** Upgraded 20+ files with rich interactive effects.
+- **Navigation:** Added `ScrollToTop` handling for SPA routing.
+- **Visuals:** Implemented animated gradient orbs, SVG progress rings, and interactive bento grids.
+- **Performance:** Replaced heavy static assets with CSS gradients and optimized Framer Motion loading.
