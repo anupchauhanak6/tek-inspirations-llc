@@ -3,7 +3,7 @@ import Hero from "../components/Hero";
 import HomeStats from "../components/HomeStats";
 import ServicesHighlight from "../components/ServicesHighlight";
 import Testimonials from "../components/Testimonials";
-import HomeCTA from "../components/HomeCTA";
+import HomeCallToAction from "../components/HomeCallToAction";
 
 function Home() {
   return (
@@ -21,7 +21,7 @@ function Home() {
       <Testimonials />
 
       {/* 5. Powerful CTA */}
-      <HomeCTA />
+      <HomeCallToAction />
     </div>
   );
 }

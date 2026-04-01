@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, ShieldCheck, Target, Briefcase } from "lucide-react";
 import { Link } from "react-router-dom";
 
-export default function HomeCTA() {
+export default function HomeCallToAction() {
   return (
     <section className="py-20 md:py-28 bg-white font-sans border-t border-slate-200 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
