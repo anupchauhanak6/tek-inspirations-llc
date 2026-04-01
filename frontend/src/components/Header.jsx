@@ -14,7 +14,7 @@ import {
   Terminal,
 } from "lucide-react";
 
-/* ─── High-Contrast Tech Colors ─── */
+/* ─── Corporate Colors (Green logo matched) ─── */
 const whoWeAreItems = [
   {
     name: "Who We Are",
@@ -33,29 +33,29 @@ const solutionItems = [
     name: "IT Consulting",
     path: "/our-solution/it-consulting",
     icon: Lightbulb,
-    color: "#3ddc84",
-    bg: "#088349",
+    color: "#059669", // emerald-600
+    bg: "#ecfdf5", // emerald-50
   },
   {
     name: "Managed Services",
     path: "/our-solution/managed-services",
     icon: Settings,
-    color: "#3ddc84",
-    bg: "#0f172a",
+    color: "#059669",
+    bg: "#022c22", // emerald-950
   },
   {
     name: "RPO Solutions",
     path: "/our-solution/rpo",
     icon: Users,
-    color: "#3ddc84",
-    bg: "#088349",
+    color: "#059669",
+    bg: "#ecfdf5", // emerald-50
   },
   {
     name: "Software Development",
     path: "/our-solution/software-development",
     icon: Code2,
-    color: "#3ddc84",
-    bg: "#0f172a",
+    color: "#059669",
+    bg: "#022c22", // emerald-950
   },
 ];
 
@@ -64,10 +64,10 @@ function SimpleDropdown({ label, items, isActive }) {
   return (
     <div className="relative h-full flex items-center group">
       <button
-        className={`flex items-center gap-1.5 text-[13px] font-black uppercase tracking-widest transition-colors focus:outline-none ${
+        className={`flex items-center gap-1.5 text-[13px] font-bold uppercase tracking-widest transition-colors focus:outline-none h-full ${
           isActive
-            ? "text-[#088349]"
-            : "text-[#0f172a] group-hover:text-[#088349]"
+            ? "text-[#059669]"
+            : "text-[#022c22] group-hover:text-[#059669]"
         }`}
       >
         {label}
@@ -80,32 +80,31 @@ function SimpleDropdown({ label, items, isActive }) {
       {isActive && (
         <motion.div
           layoutId="nav-line"
-          className="absolute bottom-0 left-0 right-0 h-[3px] bg-[#088349] rounded-t-sm"
+          className="absolute bottom-0 left-0 right-0 h-[3px] bg-[#059669] rounded-t-sm"
         />
       )}
 
-      <div className="absolute top-full left-0 w-full h-4" />
-
-      <div className="absolute top-[calc(100%+16px)] left-0 w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible translate-y-2 group-hover:translate-y-0 transition-all duration-200 z-50">
-        <div className="bg-white rounded-[1rem] border border-slate-200 shadow-2xl overflow-hidden p-2">
+      {/* Dropdown Container with built-in padding bridge */}
+      <div className="absolute top-full left-0 w-56 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+        <div className="bg-white rounded-lg border border-slate-200 shadow-xl overflow-hidden p-2 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-200">
           {items.map((item) => (
             <NavLink
               key={item.path}
               to={item.path}
               className={({ isActive }) =>
-                `flex flex-col px-4 py-3.5 rounded-xl transition-all ${
+                `flex flex-col px-4 py-3.5 rounded transition-all ${
                   isActive
-                    ? "bg-[#f8fafc] border border-[#088349]/20"
-                    : "text-[#0f172a] hover:bg-slate-50 border border-transparent hover:border-slate-200"
+                    ? "bg-slate-50 border border-[#059669]/20"
+                    : "text-[#022c22] hover:bg-slate-50 border border-transparent hover:border-slate-200"
                 }`
               }
             >
               <span
-                className={`font-black text-sm ${isActive ? "text-[#088349]" : "text-[#0f172a]"}`}
+                className={`font-bold text-sm ${isActive ? "text-[#059669]" : "text-[#022c22]"}`}
               >
                 {item.name}
               </span>
-              <span className="text-[10px] text-slate-400 mt-1 uppercase font-bold tracking-widest">
+              <span className="text-[10px] text-slate-500 mt-1 uppercase font-bold tracking-widest">
                 {item.desc}
               </span>
             </NavLink>
@@ -121,10 +120,10 @@ function SolutionsMegaDropdown({ isActive }) {
   return (
     <div className="relative h-full flex items-center group">
       <button
-        className={`flex items-center gap-1.5 text-[13px] font-black uppercase tracking-widest transition-colors focus:outline-none ${
+        className={`flex items-center gap-1.5 text-[13px] font-bold uppercase tracking-widest transition-colors focus:outline-none h-full ${
           isActive
-            ? "text-[#088349]"
-            : "text-[#0f172a] group-hover:text-[#088349]"
+            ? "text-[#059669]"
+            : "text-[#022c22] group-hover:text-[#059669]"
         }`}
       >
         Solutions
@@ -137,29 +136,26 @@ function SolutionsMegaDropdown({ isActive }) {
       {isActive && (
         <motion.div
           layoutId="nav-line"
-          className="absolute bottom-0 left-0 right-0 h-[3px] bg-[#088349] rounded-t-sm"
+          className="absolute bottom-0 left-0 right-0 h-[3px] bg-[#059669] rounded-t-sm"
         />
       )}
 
-      <div className="absolute top-full left-0 w-full h-4" />
-
-      <div className="absolute top-[calc(100%+16px)] left-1/2 -translate-x-1/2 w-[520px] opacity-0 invisible group-hover:opacity-100 group-hover:visible translate-y-2 group-hover:translate-y-0 transition-all duration-200 z-50">
-        <div className="bg-white rounded-[1.5rem] border border-slate-200 shadow-2xl overflow-hidden flex">
-          <div className="w-1/3 bg-[#0f172a] p-6 relative overflow-hidden flex flex-col justify-between">
-            <div className="absolute top-0 left-0 w-32 h-32 bg-[#088349] blur-[50px] opacity-20" />
+      {/* Dropdown Container with built-in padding bridge */}
+      <div className="absolute top-full left-1/2 -translate-x-1/2 w-[520px] pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+        <div className="bg-white rounded-lg border border-slate-200 shadow-xl overflow-hidden flex transform translate-y-2 group-hover:translate-y-0 transition-transform duration-200">
+          <div className="w-1/3 bg-[#022c22] p-6 relative overflow-hidden flex flex-col justify-between">
             <div className="relative z-10">
-              <Terminal size={24} className="text-[#3ddc84] mb-4" />
-              <h3 className="text-white font-black text-xl mb-2">
+              <Terminal size={24} className="text-[#059669] mb-4" />
+              <h3 className="text-white font-bold text-xl mb-2">
                 Systems & Capabilities
               </h3>
-              <p className="text-slate-400 text-xs font-medium leading-relaxed">
-                Enterprise-grade modules designed for absolute operational
-                scale.
+              <p className="text-emerald-100/70 text-xs leading-relaxed">
+                Enterprise-grade modules designed for absolute operational scale.
               </p>
             </div>
             <Link
               to="/our-solution"
-              className="relative z-10 inline-flex items-center gap-2 text-[#3ddc84] text-[10px] font-black uppercase tracking-[0.2em] group/link"
+              className="relative z-10 inline-flex items-center gap-2 text-[#059669] text-[10px] font-bold uppercase tracking-[0.2em] group/link hover:text-white transition-colors"
             >
               View All{" "}
               <ArrowRight
@@ -175,16 +171,16 @@ function SolutionsMegaDropdown({ isActive }) {
                 key={path}
                 to={path}
                 className={({ isActive: a }) =>
-                  `flex flex-col gap-3 p-4 rounded-xl transition-all group/item border ${a ? "bg-slate-50 border-[#088349]/30 shadow-sm" : "border-transparent hover:border-slate-200 hover:bg-slate-50"}`
+                  `flex flex-col gap-3 p-4 rounded transition-all group/item border ${a ? "bg-slate-50 border-[#059669]/30 shadow-sm" : "border-transparent hover:border-slate-200 hover:bg-slate-50"}`
                 }
               >
                 <div
-                  className="w-10 h-10 rounded-lg flex items-center justify-center shrink-0 shadow-md group-hover/item:scale-110 transition-transform"
+                  className="w-10 h-10 rounded flex items-center justify-center shrink-0 shadow-sm transition-transform group-hover/item:scale-105"
                   style={{ background: bg }}
                 >
                   <Icon size={18} style={{ color }} strokeWidth={2} />
                 </div>
-                <p className="text-[#0f172a] text-[13px] font-black leading-tight group-hover/item:text-[#088349] transition-colors">
+                <p className="text-[#022c22] text-[13px] font-bold leading-tight group-hover/item:text-[#059669] transition-colors">
                   {name}
                 </p>
               </NavLink>
@@ -205,7 +201,7 @@ function MobileAccordion({ label, children }) {
         onClick={() => setOpen(!open)}
         className="flex items-center justify-between w-full px-6 py-4 text-left focus:outline-none"
       >
-        <span className="text-[#0f172a] font-black text-[13px] uppercase tracking-widest">
+        <span className="text-[#022c22] font-bold text-[13px] uppercase tracking-widest">
           {label}
         </span>
         <ChevronDown
@@ -262,7 +258,7 @@ function Header() {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           scrolled
-            ? "bg-white/95 backdrop-blur-xl shadow-md border-b border-slate-200"
+            ? "bg-white shadow-md border-b border-slate-200"
             : "bg-white border-b border-slate-200"
         }`}
       >
@@ -282,51 +278,47 @@ function Header() {
 
           {/* Desktop Nav */}
           <nav className="hidden lg:flex items-center h-full gap-8">
-            <NavLink to="/" end className="relative h-full flex items-center">
+            <NavLink to="/" end className="relative h-full flex items-center group">
               {({ isActive }) => (
                 <>
                   <span
-                    className={`text-[13px] font-black uppercase tracking-widest transition-colors ${isActive ? "text-[#088349]" : "text-[#0f172a] hover:text-[#088349]"}`}
+                    className={`text-[13px] font-bold uppercase tracking-widest transition-colors ${isActive ? "text-[#059669]" : "text-[#022c22] group-hover:text-[#059669]"}`}
                   >
                     Home
                   </span>
                   {isActive && (
                     <motion.div
                       layoutId="nav-line"
-                      className="absolute bottom-0 left-0 right-0 h-[3px] bg-[#088349] rounded-t-sm"
+                      className="absolute bottom-0 left-0 right-0 h-[3px] bg-[#059669] rounded-t-sm"
                     />
                   )}
                 </>
               )}
             </NavLink>
 
-            <div className="relative h-full flex items-center">
-              <SimpleDropdown
-                label="Who We Are"
-                items={whoWeAreItems}
-                isActive={whoWeAreActive}
-              />
-            </div>
+            <SimpleDropdown
+              label="Who We Are"
+              items={whoWeAreItems}
+              isActive={whoWeAreActive}
+            />
 
-            <div className="relative h-full flex items-center">
-              <SolutionsMegaDropdown isActive={solutionsActive} />
-            </div>
+            <SolutionsMegaDropdown isActive={solutionsActive} />
 
             <NavLink
               to="/gallery"
-              className="relative h-full flex items-center"
+              className="relative h-full flex items-center group"
             >
               {({ isActive }) => (
                 <>
                   <span
-                    className={`text-[13px] font-black uppercase tracking-widest transition-colors ${isActive ? "text-[#088349]" : "text-[#0f172a] hover:text-[#088349]"}`}
+                    className={`text-[13px] font-bold uppercase tracking-widest transition-colors ${isActive ? "text-[#059669]" : "text-[#022c22] group-hover:text-[#059669]"}`}
                   >
                     Gallery
                   </span>
                   {isActive && (
                     <motion.div
                       layoutId="nav-line"
-                      className="absolute bottom-0 left-0 right-0 h-[3px] bg-[#088349] rounded-t-sm"
+                      className="absolute bottom-0 left-0 right-0 h-[3px] bg-[#059669] rounded-t-sm"
                     />
                   )}
                 </>
@@ -337,18 +329,17 @@ function Header() {
 
             <NavLink
               to="/contact"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#0f172a] hover:bg-[#1e293b] text-white font-bold text-[13px] uppercase tracking-wider transition-all duration-300 shadow-xl shadow-[#0f172a]/20 hover:-translate-y-0.5 relative group overflow-hidden"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded bg-[#059669] hover:bg-[#047857] text-white font-bold text-[13px] uppercase tracking-wider transition-all duration-300 shadow"
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#088349]/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
-              <Phone size={14} className="text-[#3ddc84]" />
-              Initialize Contact
+              <Phone size={16} />
+              Contact Us
             </NavLink>
           </nav>
 
           {/* Mobile hamburger */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden w-11 h-11 rounded-xl border border-slate-200 bg-slate-50 flex items-center justify-center text-[#0f172a] hover:border-[#088349]/40 hover:text-[#088349] transition-all focus:outline-none focus:ring-2 focus:ring-[#088349]/50"
+            className="lg:hidden w-11 h-11 rounded border border-slate-200 bg-slate-50 flex items-center justify-center text-slate-800 hover:border-[#059669]/40 hover:text-[#059669] transition-all"
           >
             <AnimatePresence mode="wait" initial={false}>
               {isOpen ? (
@@ -386,7 +377,7 @@ function Header() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
-              className="fixed inset-0 z-40 bg-slate-900/30 backdrop-blur-sm lg:hidden"
+              className="fixed inset-0 z-40 bg-slate-900/40 backdrop-blur-sm lg:hidden"
               onClick={close}
             />
 
@@ -408,7 +399,7 @@ function Header() {
                 </Link>
                 <button
                   onClick={close}
-                  className="w-10 h-10 rounded-xl border border-slate-200 bg-slate-50 flex items-center justify-center text-slate-600 hover:text-[#088349] transition-colors focus:outline-none"
+                  className="w-10 h-10 rounded border border-slate-200 bg-slate-50 flex items-center justify-center text-slate-600 hover:text-[#059669] transition-colors"
                 >
                   <X size={18} />
                 </button>
@@ -421,10 +412,10 @@ function Header() {
                   end
                   onClick={close}
                   className={({ isActive }) =>
-                    `flex items-center px-6 py-4 text-[13px] font-black uppercase tracking-widest border-b border-slate-100 transition-colors ${
+                    `flex items-center px-6 py-4 text-[13px] font-bold uppercase tracking-widest border-b border-slate-100 transition-colors ${
                       isActive
-                        ? "text-[#088349] bg-[#088349]/5"
-                        : "text-[#0f172a] hover:text-[#088349] hover:bg-slate-50"
+                        ? "text-[#059669] bg-[#ecfdf5]"
+                        : "text-[#022c22] hover:text-[#059669] hover:bg-slate-50"
                     }`
                   }
                 >
@@ -438,14 +429,14 @@ function Header() {
                       to={path}
                       onClick={close}
                       className={({ isActive }) =>
-                        `flex items-center gap-2.5 px-3 py-3 rounded-xl text-[12px] font-bold uppercase tracking-wider transition-colors ${
+                        `flex items-center gap-2.5 px-3 py-3 rounded text-[12px] font-bold uppercase tracking-wider transition-colors ${
                           isActive
-                            ? "text-[#088349] bg-[#088349]/8"
-                            : "text-slate-600 hover:text-[#088349] hover:bg-slate-50"
+                            ? "text-[#059669] bg-[#ecfdf5]"
+                            : "text-slate-600 hover:text-[#059669] hover:bg-slate-50"
                         }`
                       }
                     >
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#088349]/40 shrink-0" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#059669] shrink-0" />
                       {name}
                     </NavLink>
                   ))}
@@ -456,10 +447,10 @@ function Header() {
                     to="/our-solution"
                     onClick={close}
                     className={({ isActive }) =>
-                      `flex items-center gap-2.5 px-3 py-3 w-[calc(100%-8px)] rounded-xl text-[12px] font-bold uppercase tracking-wider transition-colors mb-2 ${
+                      `flex items-center gap-2.5 px-3 py-3 w-[calc(100%-8px)] rounded text-[12px] font-bold uppercase tracking-wider transition-colors mb-2 ${
                         isActive
-                          ? "text-[#088349] bg-[#088349]/8"
-                          : "text-slate-600 hover:text-[#088349] hover:bg-slate-50"
+                          ? "text-[#059669] bg-[#ecfdf5]"
+                          : "text-slate-600 hover:text-[#059669] hover:bg-slate-50"
                       }`
                     }
                   >
@@ -473,7 +464,7 @@ function Header() {
                         to={path}
                         onClick={close}
                         className={({ isActive }) =>
-                          `flex items-center gap-3 px-3 py-3 rounded-xl transition-colors ${
+                          `flex items-center gap-3 px-3 py-3 rounded transition-colors ${
                             isActive ? "bg-slate-50" : "hover:bg-slate-50"
                           }`
                         }
@@ -481,7 +472,7 @@ function Header() {
                         {({ isActive }) => (
                           <>
                             <div
-                              className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0"
+                              className="w-8 h-8 rounded flex items-center justify-center shrink-0 shadow-sm"
                               style={{ background: bg }}
                             >
                               <Icon
@@ -491,7 +482,7 @@ function Header() {
                               />
                             </div>
                             <span
-                              className={`${isActive ? "text-[#088349]" : "text-[#0f172a]"} text-[13px] font-bold`}
+                              className={`${isActive ? "text-[#059669]" : "text-[#022c22]"} text-[13px] font-bold`}
                             >
                               {name}
                             </span>
@@ -506,10 +497,10 @@ function Header() {
                   to="/gallery"
                   onClick={close}
                   className={({ isActive }) =>
-                    `flex items-center px-6 py-4 text-[13px] font-black uppercase tracking-widest border-b border-slate-100 transition-colors ${
+                    `flex items-center px-6 py-4 text-[13px] font-bold uppercase tracking-widest border-b border-slate-100 transition-colors ${
                       isActive
-                        ? "text-[#088349] bg-[#088349]/5"
-                        : "text-[#0f172a] hover:text-[#088349] hover:bg-slate-50"
+                        ? "text-[#059669] bg-[#ecfdf5]"
+                        : "text-[#022c22] hover:text-[#059669] hover:bg-slate-50"
                     }`
                   }
                 >
@@ -522,10 +513,9 @@ function Header() {
                 <NavLink
                   to="/contact"
                   onClick={close}
-                  className="flex items-center justify-center gap-2 w-full py-4 rounded-xl bg-[#0f172a] hover:bg-[#1e293b] text-white font-bold text-[13px] uppercase tracking-wider transition-all active:scale-95 shadow-xl shadow-[#0f172a]/20"
+                  className="flex items-center justify-center gap-2 w-full py-4 rounded bg-[#059669] hover:bg-[#047857] text-white font-bold text-[13px] uppercase tracking-wider transition-all shadow-md"
                 >
-                  <Phone size={14} className="text-[#3ddc84]" /> Initialize
-                  Contact
+                  <Phone size={14} /> Contact Us
                 </NavLink>
               </div>
             </motion.div>
