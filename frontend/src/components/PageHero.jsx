@@ -8,31 +8,22 @@ import { TerminalSquare } from "lucide-react";
  */
 function PageHero({ badge, title, highlight, subtitle }) {
   return (
-    <div className="relative bg-[#0f172a] border-b border-slate-800 pt-36 pb-24 overflow-hidden flex flex-col items-center justify-center text-center">
-      
-      {/* ── Abstract Tech Background ── */}
-      <div className="pointer-events-none absolute inset-0 opacity-[0.04]"
-        style={{ backgroundImage: "linear-gradient(#ffffff 1px, transparent 1px), linear-gradient(90deg, #ffffff 1px, transparent 1px)", backgroundSize: "64px 64px" }} />
-      
-      <div className="pointer-events-none absolute inset-0"
-        style={{ background: "radial-gradient(ellipse at top, #08834920 0%, transparent 60%)" }} />
-      
-      <div className="pointer-events-none absolute -left-[20%] top-[20%] w-[500px] h-[500px] border-[50px] border-white/[0.03] rounded-full blur-[8px]" />
-      <div className="pointer-events-none absolute -right-[10%] top-[40%] w-[300px] h-[300px] border-[30px] border-[#088349]/[0.06] rounded-full blur-[4px]" />
-
-      {/* Extra glow */}
-      <div className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[#088349]/[0.05] rounded-full blur-[80px]" />
+    <div className="relative bg-slate-50 border-b border-slate-200 pt-36 pb-24 overflow-hidden flex flex-col items-center justify-center text-center font-sans">
+      {/* ── Corporate Abstract Background ── */}
+      <div className="absolute top-0 right-0 w-1/3 h-full bg-[#088349]/5 skew-x-12 transform origin-top pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-1/4 h-1/2 bg-slate-100 skew-x-[-12deg] transform origin-bottom pointer-events-none" />
 
       <div className="relative z-10 max-w-5xl mx-auto px-6 lg:px-12 flex flex-col items-center">
-        
-        {/* Terminal Badge */}
+        {/* Modern Corporate Badge */}
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#1e293b]/50 border border-[#088349]/40 mb-8 backdrop-blur-md shadow-lg shadow-[#088349]/10"
+          className="inline-flex items-center gap-2 px-3 py-1.5 rounded bg-white border border-slate-200 shadow-sm mb-8"
         >
-          <TerminalSquare size={12} className="text-[#3ddc84]" />
-          <span className="text-[#3ddc84] text-[10px] font-black uppercase tracking-[0.2em]">{badge}</span>
+          <div className="w-1.5 h-1.5 rounded-full bg-[#088349]" />
+          <span className="text-[#088349] text-xs font-bold uppercase tracking-widest">
+            {badge}
+          </span>
         </motion.div>
 
         {/* Heading */}
@@ -40,14 +31,10 @@ function PageHero({ badge, title, highlight, subtitle }) {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
-          className="text-4xl md:text-5xl lg:text-[4rem] font-black text-white mb-6 leading-[1.05] tracking-tight"
+          className="text-4xl md:text-5xl lg:text-[4rem] font-bold text-slate-800 mb-6 leading-[1.1] tracking-tight"
         >
           {title}{" "}
-          {highlight && (
-            <span style={{ background: "linear-gradient(135deg, #3ddc84, #088349)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
-              {highlight}
-            </span>
-          )}
+          {highlight && <span className="text-[#088349]">{highlight}</span>}
         </motion.h1>
 
         {/* Subtitle */}
@@ -56,18 +43,18 @@ function PageHero({ badge, title, highlight, subtitle }) {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-[17px] text-slate-400 max-w-2xl mx-auto leading-relaxed font-medium"
+            className="text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed"
           >
             {subtitle}
           </motion.p>
         )}
 
-        {/* Scanning line */}
-        <motion.div 
-          initial={{ scaleX: 0, opacity: 0 }} 
-          animate={{ scaleX: 1, opacity: 1 }} 
-          transition={{ delay: 0.5, duration: 1 }}
-          className="w-full max-w-xs h-px bg-gradient-to-r from-transparent via-[#088349]/50 to-transparent mt-12"
+        {/* Professional separator line */}
+        <motion.div
+          initial={{ scaleX: 0, opacity: 0 }}
+          animate={{ scaleX: 1, opacity: 1 }}
+          transition={{ delay: 0.5, duration: 0.8 }}
+          className="w-16 h-1 bg-[#088349] mt-10 rounded"
         />
       </div>
     </div>
