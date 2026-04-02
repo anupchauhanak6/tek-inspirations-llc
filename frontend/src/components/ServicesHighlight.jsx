@@ -109,15 +109,15 @@ export default function ServicesHighlight() {
                   alt={service.title} 
                   className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
                 />
-                
-                {/* Floating Icon Drop */}
-                <div className="absolute -bottom-8 left-8 z-20">
-                  <div className="w-16 h-16 bg-slate-900 rounded-xl flex items-center justify-center text-[#088349] border-4 border-[#1e293b] group-hover:scale-110 group-hover:bg-[#088349] group-hover:text-white transition-all duration-300 shadow-xl">
-                    <service.icon size={28} strokeWidth={2} />
-                  </div>
-                </div>
               </div>
               
+              {/* Floating Icon Drop */}
+              <div className="absolute top-48 left-8 z-20">
+                <div className="w-16 h-16 bg-slate-900 rounded-xl flex items-center justify-center text-[#088349] border-4 border-[#1e293b] group-hover:scale-110 group-hover:bg-[#088349] group-hover:text-white transition-all duration-300 shadow-xl">
+                  <service.icon size={28} strokeWidth={2} />
+                </div>
+              </div>
+
               <div className="p-8 pt-12 flex flex-col flex-1">
                 <h3 className="text-2xl font-bold text-white mb-3">
                   {service.title}
