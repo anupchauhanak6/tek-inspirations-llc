@@ -28,17 +28,17 @@ function Footer() {
   return (
     <footer className="bg-[#022c22] text-slate-400 relative overflow-hidden font-sans border-t border-[#064e3b]">
       {/* Decorative background elements using Emerald green */}
-      <div className="pointer-events-none absolute top-0 right-0 w-[600px] h-[600px] opacity-[0.03]"
+      <div className="pointer-events-none absolute top-0 right-0 w-150 h-150 opacity-[0.03]"
         style={{ background: "radial-gradient(circle, #10b981, transparent 60%)", filter: "blur(80px)" }} />
-      <div className="pointer-events-none absolute bottom-0 left-0 w-[400px] h-[400px] opacity-[0.02]"
+      <div className="pointer-events-none absolute bottom-0 left-0 w-100 h-100 opacity-[0.02]"
         style={{ background: "radial-gradient(circle, #059669, transparent 60%)", filter: "blur(60px)" }} />
 
       {/* Top accent line */}
-      <div className="h-[2px] w-full"
+      <div className="h-0.5 w-full"
         style={{ background: "linear-gradient(to right, transparent, #059669, #10b981, #059669, transparent)" }} />
 
       <div className="max-w-7xl mx-auto px-6 lg:px-12 pt-16 pb-8 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-14 border-b border-white/[0.06]">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-14 border-b border-white/6">
 
           {/* Brand Column */}
           <div className="md:col-span-12 lg:col-span-5">
@@ -61,7 +61,7 @@ function Footer() {
               </p>
               <div className="flex gap-2">
                 <input type="email" placeholder="Enter your email"
-                  className="flex-1 bg-white/[0.04] border border-white/[0.08] rounded px-4 py-3 text-sm text-slate-300 placeholder-slate-500 focus:outline-none focus:border-[#10b981]/50 focus:bg-white/[0.06] transition-all" />
+                  className="flex-1 bg-white/4 border border-white/8 rounded px-4 py-3 text-sm text-slate-300 placeholder-slate-500 focus:outline-none focus:border-[#10b981]/50 focus:bg-white/6 transition-all" />
                 <button className="px-5 py-3 rounded text-white font-bold transition-all hover:-translate-y-0.5 shadow-md hover:shadow-[#10b981]/20 active:scale-95"
                   style={{ background: "linear-gradient(135deg, #059669, #047857)" }}>
                   <ArrowRight size={16} strokeWidth={2.5} />
@@ -73,7 +73,7 @@ function Footer() {
             <div className="flex gap-3">
               {socials.map(({ icon: Icon, href, label }) => (
                 <a key={label} href={href} aria-label={label}
-                  className="w-10 h-10 rounded flex items-center justify-center border border-white/[0.08] bg-white/[0.03] text-slate-400 hover:text-white hover:bg-[#059669] hover:border-[#059669] transition-all duration-200 hover:-translate-y-0.5 shadow-sm hover:shadow-[#059669]/20">
+                  className="w-10 h-10 rounded flex items-center justify-center border border-white/8 bg-white/3 text-slate-400 hover:text-white hover:bg-[#059669] hover:border-[#059669] transition-all duration-200 hover:-translate-y-0.5 shadow-sm hover:shadow-[#059669]/20">
                   <Icon size={15} />
                 </a>
               ))}
@@ -83,7 +83,7 @@ function Footer() {
           {/* Quick Links */}
           <div className="md:col-span-6 lg:col-span-2">
             <h3 className="text-white font-bold text-xs uppercase tracking-[0.15em] mb-6 flex items-center gap-2">
-              <span className="w-5 h-[2px] bg-[#059669] rounded-full" />
+              <span className="w-5 h-0.5 bg-[#059669] rounded-full" />
               Quick Links
             </h3>
             <ul className="space-y-3.5">
@@ -102,7 +102,7 @@ function Footer() {
           {/* Solutions */}
           <div className="md:col-span-6 lg:col-span-2">
             <h3 className="text-white font-bold text-xs uppercase tracking-[0.15em] mb-6 flex items-center gap-2">
-              <span className="w-5 h-[2px] bg-[#059669] rounded-full" />
+              <span className="w-5 h-0.5 bg-[#059669] rounded-full" />
               Solutions
             </h3>
             <ul className="space-y-3.5">
@@ -121,7 +121,7 @@ function Footer() {
           {/* Contact */}
           <div className="md:col-span-12 lg:col-span-3">
             <h3 className="text-white font-bold text-xs uppercase tracking-[0.15em] mb-6 flex items-center gap-2">
-              <span className="w-5 h-[2px] bg-[#059669] rounded-full" />
+              <span className="w-5 h-0.5 bg-[#059669] rounded-full" />
               Contact
             </h3>
             <ul className="space-y-5">
@@ -131,7 +131,7 @@ function Footer() {
                 { icon: MapPin, label: "Location", value: "Frisco, Texas, USA" },
               ].map(({ icon: Icon, label, value }) => (
                 <li key={label} className="group flex items-start gap-3.5">
-                  <div className="mt-0.5 w-9 h-9 rounded flex items-center justify-center bg-white/[0.04] border border-white/[0.08] group-hover:border-[#059669]/40 group-hover:bg-[#059669]/10 transition-all shrink-0">
+                  <div className="mt-0.5 w-9 h-9 rounded flex items-center justify-center bg-white/4 border border-white/8 group-hover:border-[#059669]/40 group-hover:bg-[#059669]/10 transition-all shrink-0">
                     <Icon size={16} className="text-[#10b981]" />
                   </div>
                   <div>

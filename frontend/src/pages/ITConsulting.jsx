@@ -64,7 +64,7 @@ function ITConsulting() {
             </motion.div>
 
             <motion.div initial={{ opacity: 0, x: 24 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }}>
-              <div className="bg-[#0f172a] rounded-[2rem] border border-slate-800 shadow-2xl p-8 relative overflow-hidden">
+              <div className="bg-[#0f172a] rounded-4xl border border-slate-800 shadow-2xl p-8 relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-64 h-64 bg-[#088349]/10 rounded-full blur-[80px] pointer-events-none" />
                 
                 <div className="flex items-center gap-4 mb-8 pb-8 border-b border-slate-700/50">
@@ -116,9 +116,9 @@ function ITConsulting() {
             {process.map(({ step, code, icon: Icon, title, desc }, i) => (
               <motion.div key={code}
                 initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="bg-[#1e293b]/50 backdrop-blur-xl border border-white/[0.06] rounded-[1.5rem] p-8 relative overflow-hidden hover:border-[#088349]/40 hover:bg-[#1e293b]/80 transition-all duration-500 group">
+                className="bg-[#1e293b]/50 backdrop-blur-xl border border-white/6 rounded-3xl p-8 relative overflow-hidden hover:border-[#088349]/40 hover:bg-[#1e293b]/80 transition-all duration-500 group">
                 
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#088349]/5 to-transparent h-[200%] -translate-y-[100%] group-hover:translate-y-[100%] transition-transform duration-1000 ease-in-out pointer-events-none" />
+                <div className="absolute inset-0 bg-linear-to-b from-transparent via-[#088349]/5 to-transparent h-[200%] -translate-y-full group-hover:translate-y-full transition-transform duration-1000 ease-in-out pointer-events-none" />
 
                 {/* Step number */}
                 <div className="text-white/5 font-black text-7xl absolute top-2 right-4">{step}</div>

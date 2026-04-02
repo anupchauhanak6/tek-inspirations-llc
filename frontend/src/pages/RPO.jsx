@@ -88,11 +88,11 @@ function RPO() {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3 }}
-          className="bg-[#0f172a] rounded-[2rem] border border-slate-800 shadow-2xl grid grid-cols-2 md:grid-cols-4 divide-x divide-slate-800 backdrop-blur-3xl overflow-hidden"
+          className="bg-[#0f172a] rounded-4xl border border-slate-800 shadow-2xl grid grid-cols-2 md:grid-cols-4 divide-x divide-slate-800 backdrop-blur-3xl overflow-hidden"
         >
           {stats.map(({ value, label, color }) => (
             <div key={label} className="p-8 text-center relative group">
-              <div className="absolute inset-0 bg-gradient-to-t from-[#088349]/5 to-transparent h-[200%] -translate-y-[100%] group-hover:translate-y-[100%] transition-transform duration-1000 ease-in-out pointer-events-none" />
+              <div className="absolute inset-0 bg-linear-to-t from-[#088349]/5 to-transparent h-[200%] -translate-y-full group-hover:translate-y-full transition-transform duration-1000 ease-in-out pointer-events-none" />
               <div
                 className="font-black text-3xl mb-2 tracking-tight"
                 style={{ color }}
@@ -116,7 +116,7 @@ function RPO() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="bg-[#0f172a] rounded-[2rem] border border-slate-800 shadow-2xl p-10 flex flex-col relative overflow-hidden"
+              className="bg-[#0f172a] rounded-4xl border border-slate-800 shadow-2xl p-10 flex flex-col relative overflow-hidden"
             >
               <div className="absolute top-0 right-0 w-64 h-64 bg-[#088349]/10 rounded-full blur-[80px] pointer-events-none" />
 
@@ -160,17 +160,17 @@ function RPO() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="relative rounded-[2rem] overflow-hidden min-h-[400px] border border-slate-200 group shadow-xl"
+              className="relative rounded-4xl overflow-hidden min-h-100 border border-slate-200 group shadow-xl"
             >
               <img
                 src="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?auto=format&fit=crop&q=80&w=1200"
                 alt="Talent Operations"
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a] via-[#0f172a]/30 to-transparent" />
+              <div className="absolute inset-0 bg-linear-to-t from-[#0f172a] via-[#0f172a]/30 to-transparent" />
 
               <div className="absolute bottom-10 left-10">
-                <div className="bg-[#1e293b]/90 backdrop-blur-xl border border-white/20 p-6 rounded-2xl shadow-2xl origin-bottom-left transition-transform duration-500 group-hover:scale-105">
+                <div className="bg-[#1e293b]/90 backdrop-blur-xl border border-white/20 p-6 rounded-3xl shadow-2xl origin-bottom-left transition-transform duration-500 group-hover:scale-105">
                   <ShieldCheck size={28} className="text-[#3ddc84] mb-4" />
                   <p className="text-[#3ddc84] text-[10px] font-black uppercase tracking-[0.2em] mb-2">
                     Security Cleared
@@ -219,9 +219,9 @@ function RPO() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="bg-[#1e293b]/50 backdrop-blur-xl border border-white/[0.06] rounded-[1.5rem] p-8 relative overflow-hidden hover:border-[#088349]/40 hover:bg-[#1e293b]/80 transition-all duration-500 group"
+                className="bg-[#1e293b]/50 backdrop-blur-xl border border-white/60 rounded-3xl p-8 relative overflow-hidden hover:border-[#088349]/40 hover:bg-[#1e293b]/80 transition-all duration-500 group"
               >
-                <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[#088349] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute top-0 left-0 right-0 h-0.5 bg-linear-to-r from-[#088349] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <div className="w-14 h-14 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 group-hover:border-[#088349]/40 group-hover:bg-[#088349]/10 transition-all duration-300">
                   <Icon size={22} className="text-[#3ddc84]" strokeWidth={2} />
                 </div>
@@ -247,7 +247,7 @@ function RPO() {
                   key={num}
                   className="relative pl-6 lg:pl-0 lg:pt-6 border-l-2 lg:border-l-0 lg:border-t-2 border-[#088349]/30"
                 >
-                  <div className="absolute top-0 left-0 w-3 h-3 -translate-x-[7px] lg:translate-x-0 lg:-translate-y-[7px] rounded-full bg-[#3ddc84] shadow-[0_0_12px_#3ddc84]" />
+                  <div className="absolute top-0 left-0 w-3 h-3 -translate-x-1.75 lg:translate-x-0 lg:-translate-y-1.75 rounded-full bg-[#3ddc84] shadow-[0_0_12px_#3ddc84]" />
                   <div className="text-white font-black text-3xl mb-4 tracking-tight opacity-20 hidden lg:block">
                     {num}
                   </div>

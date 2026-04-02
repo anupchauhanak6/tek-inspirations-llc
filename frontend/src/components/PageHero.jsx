@@ -11,7 +11,7 @@ function PageHero({ badge, title, highlight, subtitle }) {
     <div className="relative bg-slate-50 border-b border-slate-200 pt-36 pb-24 overflow-hidden flex flex-col items-center justify-center text-center font-sans">
       {/* ── Corporate Abstract Background ── */}
       <div className="absolute top-0 right-0 w-1/3 h-full bg-[#088349]/5 skew-x-12 transform origin-top pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-1/4 h-1/2 bg-slate-100 skew-x-[-12deg] transform origin-bottom pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-1/4 h-1/2 bg-slate-100 -skew-x-12 transform origin-bottom pointer-events-none" />
 
       <div className="relative z-10 max-w-5xl mx-auto px-6 lg:px-12 flex flex-col items-center">
         {/* Modern Corporate Badge */}

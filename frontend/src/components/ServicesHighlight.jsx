@@ -50,7 +50,7 @@ export default function ServicesHighlight() {
     <section className="py-24 md:py-32 bg-[#0f172a] font-sans border-y border-slate-800 relative z-10 overflow-hidden">
       {/* Background accents */}
       <div className="absolute top-0 right-0 w-1/3 h-full bg-[#088349]/5 skew-x-12 transform origin-top pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-1/4 h-1/2 bg-slate-900 skew-x-[-12deg] transform origin-bottom pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-1/4 h-1/2 bg-slate-900 -skew-x-12 transform origin-bottom pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-20">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">

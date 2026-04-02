@@ -61,7 +61,7 @@ export default function Testimonials() {
                 We partner with industry leaders to deliver secure, scalable, and highly innovative technology solutions that drive real results. Hear from the executives who trust our operational excellence.
               </p>
               
-              <div className="flex items-center gap-4 bg-white p-4 rounded-lg shadow-sm border border-slate-200 inline-flex">
+              <div className="flex items-center gap-4 bg-white p-4 rounded-lg shadow-sm border border-slate-200">
                 <div className="flex -space-x-4">
                   <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=150&q=80" className="w-12 h-12 rounded-full border-2 border-white object-cover" alt="Reviewer" />
                   <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=150&q=80" className="w-12 h-12 rounded-full border-2 border-white object-cover hidden sm:block" alt="Reviewer" />

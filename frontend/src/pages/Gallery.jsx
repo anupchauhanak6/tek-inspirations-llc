@@ -80,8 +80,8 @@ function Gallery() {
                   className={`group relative overflow-hidden cursor-pointer border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-500 rounded-2xl ${i === 0 ? "md:row-span-2" : ""}`}
                   style={{ aspectRatio: i === 0 ? "auto" : "16/10" }}
                   onClick={() => setSelected(img)}>
-                  <img src={img.url} alt={img.title} className={`w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 ${i === 0 ? "min-h-[300px] md:min-h-full" : ""}`} />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5">
+                  <img src={img.url} alt={img.title} className={`w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 ${i === 0 ? "min-h-75 md:min-h-full" : ""}`} />
+                  <div className="absolute inset-0 bg-linear-to-t from-slate-900/80 via-slate-900/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5">
                     <span className="text-[10px] font-black uppercase tracking-widest mb-1.5 text-[#3ddc84]">
                       {img.category}
                     </span>

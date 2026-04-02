@@ -80,7 +80,7 @@ function SimpleDropdown({ label, items, isActive }) {
       {isActive && (
         <motion.div
           layoutId="nav-line"
-          className="absolute bottom-0 left-0 right-0 h-[3px] bg-[#059669] rounded-t-sm"
+          className="absolute bottom-0 left-0 right-0 h-0.75 bg-[#059669] rounded-t-sm"
         />
       )}
 
@@ -136,12 +136,12 @@ function SolutionsMegaDropdown({ isActive }) {
       {isActive && (
         <motion.div
           layoutId="nav-line"
-          className="absolute bottom-0 left-0 right-0 h-[3px] bg-[#059669] rounded-t-sm"
+          className="absolute bottom-0 left-0 right-0 h-0.75 bg-[#059669] rounded-t-sm"
         />
       )}
 
       {/* Dropdown Container with built-in padding bridge */}
-      <div className="absolute top-full left-1/2 -translate-x-1/2 w-[520px] pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+      <div className="absolute top-full left-1/2 -translate-x-1/2 w-130 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
         <div className="bg-white rounded-lg border border-slate-200 shadow-xl overflow-hidden flex transform translate-y-2 group-hover:translate-y-0 transition-transform duration-200">
           <div className="w-1/3 bg-[#022c22] p-6 relative overflow-hidden flex flex-col justify-between">
             <div className="relative z-10">
@@ -262,11 +262,11 @@ function Header() {
             : "bg-white border-b border-slate-200"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 h-[80px] flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 h-20 flex items-center justify-between">
           <Link
             to="/"
             onClick={close}
-            className="shrink-0 flex items-center h-[80px] py-4"
+            className="shrink-0 flex items-center h-20 py-4"
           >
             <img
               src="photos/logo.png"
@@ -289,7 +289,7 @@ function Header() {
                   {isActive && (
                     <motion.div
                       layoutId="nav-line"
-                      className="absolute bottom-0 left-0 right-0 h-[3px] bg-[#059669] rounded-t-sm"
+                      className="absolute bottom-0 left-0 right-0 h-0.75 bg-[#059669] rounded-t-sm"
                     />
                   )}
                 </>
@@ -318,7 +318,7 @@ function Header() {
                   {isActive && (
                     <motion.div
                       layoutId="nav-line"
-                      className="absolute bottom-0 left-0 right-0 h-[3px] bg-[#059669] rounded-t-sm"
+                      className="absolute bottom-0 left-0 right-0 h-0.75 bg-[#059669] rounded-t-sm"
                     />
                   )}
                 </>
@@ -386,10 +386,10 @@ function Header() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ duration: 0.32, ease: [0.22, 1, 0.36, 1] }}
-              className="fixed top-0 right-0 bottom-0 z-50 w-[300px] max-w-full flex flex-col bg-white border-l border-slate-100 shadow-2xl lg:hidden overflow-y-auto"
+              className="fixed top-0 right-0 bottom-0 z-50 w-75 max-w-full flex flex-col bg-white border-l border-slate-100 shadow-2xl lg:hidden overflow-y-auto"
             >
               {/* Drawer header */}
-              <div className="flex items-center justify-between px-5 py-4 border-b border-slate-100 h-[80px]">
+              <div className="flex items-center justify-between px-5 py-4 border-b border-slate-100 h-20">
                 <Link to="/" onClick={close}>
                   <img
                     src="photos/logo.png"

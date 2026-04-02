@@ -52,7 +52,7 @@ export default function Hero() {
     setCurrent((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
 
   return (
-    <section className="relative h-[90vh] min-h-[600px] w-full overflow-hidden bg-slate-900 group font-sans">
+    <section className="relative h-[90vh] min-h-150 w-full overflow-hidden bg-slate-900 group font-sans">
       <AnimatePresence mode="wait">
         <motion.div
           key={current}
@@ -67,7 +67,7 @@ export default function Hero() {
             style={{ backgroundImage: `url('${slides[current].bgImage}')` }}
           />
           <div className="absolute inset-0 bg-slate-950/70" />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-900/60 to-transparent" />
+          <div className="absolute inset-0 bg-linear-to-r from-slate-950/90 via-slate-900/60 to-transparent" />
         </motion.div>
       </AnimatePresence>
 

@@ -72,13 +72,13 @@ export default function HomeStats() {
               transition={{ duration: 0.7 }}
               className="relative"
             >
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-slate-100 h-[600px] w-full">
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-slate-100 h-150 w-full">
                 <img 
                   src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1000" 
                   alt="Global Tech Network" 
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent" />
+                <div className="absolute inset-0 bg-linear-to-t from-slate-900/80 via-slate-900/20 to-transparent" />
                 
                 {/* Floating Image overlay */}
                 <motion.div 
