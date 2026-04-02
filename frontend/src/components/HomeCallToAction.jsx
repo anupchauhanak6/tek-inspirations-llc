@@ -18,7 +18,7 @@ export default function HomeCallToAction() {
             className="relative"
           >
             {/* Main Image */}
-            <div className="rounded-lg overflow-hidden shadow-lg border border-slate-100 bg-slate-100 relative h-[500px]">
+            <div className="rounded-lg overflow-hidden shadow-lg border border-slate-100 bg-slate-100 relative h-125">
               <img
                 src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2940&auto=format&fit=crop"
                 alt="TEK Inspirations IT Team"

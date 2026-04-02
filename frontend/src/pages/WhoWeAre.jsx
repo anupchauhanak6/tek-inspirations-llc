@@ -38,9 +38,9 @@ function WhoWeAre() {
       {/* ── Enterprise Narrative ── */}
       <section className="py-24 bg-white relative overflow-hidden">
         {/* Decorative circles */}
-        <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#0f172a]/[0.015] rounded-full border border-[#0f172a]/[0.04] flex items-center justify-center pointer-events-none">
-          <div className="w-[600px] h-[600px] border border-[#0f172a]/[0.04] rounded-full flex items-center justify-center">
-            <div className="w-[400px] h-[400px] border border-[#0f172a]/[0.04] rounded-full" />
+        <div className="absolute right-0 top-1/2 -translate-y-1/2 w-200 h-200 bg-[#0f172a]/1.5 rounded-full border border-[#0f172a]/4 flex items-center justify-center pointer-events-none">
+          <div className="w-150 h-150 border border-[#0f172a]/4 rounded-full flex items-center justify-center">
+            <div className="w-100 h-100 border border-[#0f172a]/4 rounded-full" />
           </div>
         </div>
 
@@ -51,14 +51,14 @@ function WhoWeAre() {
             {/* Dark Tech Visualization */}
             <motion.div 
               initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}
-              className="relative aspect-square lg:aspect-[4/5] rounded-[2rem] overflow-hidden shadow-2xl bg-[#0f172a] border-2 border-slate-800 flex items-center justify-center group"
+              className="relative aspect-square lg:aspect-4/5 rounded-4xl overflow-hidden shadow-2xl bg-[#0f172a] border-2 border-slate-800 flex items-center justify-center group"
             >
               <img 
                 src="https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&q=80&w=1200" 
                 alt="Corporate Technology Team" 
                 className="absolute inset-0 w-full h-full object-cover opacity-30 grayscale group-hover:grayscale-0 group-hover:opacity-40 transition-all duration-700"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a] via-[#0f172a]/30 to-transparent opacity-90" />
+              <div className="absolute inset-0 bg-linear-to-t from-[#0f172a] via-[#0f172a]/30 to-transparent opacity-90" />
               
               {/* Glass UI Element */}
               <div className="absolute bottom-6 left-6 right-6">
@@ -109,7 +109,7 @@ function WhoWeAre() {
 
               <div className="grid grid-cols-2 gap-4 mt-8">
                 {quickStats.map(({ icon: Icon, k, v }) => (
-                  <div key={k} className="bg-slate-50 border border-slate-100 p-4 rounded-xl group hover:border-[#088349]/20 hover:bg-[#088349]/[0.02] transition-colors">
+                  <div key={k} className="bg-slate-50 border border-slate-100 p-4 rounded-xl group hover:border-[#088349]/20 hover:bg-[#088349]/2 transition-colors">
                     <div className="flex items-center gap-2 mb-2">
                       <Icon size={14} className="text-[#088349]" />
                       <p className="text-[#088349] font-black text-[10px] uppercase tracking-widest">{k}</p>
@@ -131,7 +131,7 @@ function WhoWeAre() {
             </div>
             
             {/* Connecting line */}
-            <div className="hidden lg:block absolute top-[180px] left-0 w-full h-[2px] bg-slate-200 z-0">
+            <div className="hidden lg:block absolute top-45 left-0 w-full h-0.5 bg-slate-200 z-0">
                <div className="absolute top-0 left-0 h-full w-1/3" style={{ background: "linear-gradient(to right, #0aad60, transparent)" }} />
             </div>
 
@@ -182,10 +182,10 @@ function WhoWeAre() {
             {values.map(({ title, icon: Icon, desc }, i) => (
               <motion.div key={title}
                 initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.07 }}
-                className="bg-[#1e293b]/50 backdrop-blur-xl border border-white/[0.06] rounded-[1.5rem] p-8 hover:border-[#088349]/40 hover:bg-[#1e293b]/80 transition-all duration-500 group relative overflow-hidden">
+                className="bg-[#1e293b]/50 backdrop-blur-xl border border-white/6 rounded-3xl p-8 hover:border-[#088349]/40 hover:bg-[#1e293b]/80 transition-all duration-500 group relative overflow-hidden">
                 
                 {/* Gradient top accent */}
-                <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[#088349] via-[#3ddc84] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute top-0 left-0 right-0 h-0.5 bg-linear-to-r from-[#088349] via-[#3ddc84] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 
                 <div className="w-14 h-14 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-[#088349]/20 group-hover:border-[#088349]/40 transition-all duration-300">
                   <Icon size={22} className="text-[#3ddc84]" strokeWidth={2} />

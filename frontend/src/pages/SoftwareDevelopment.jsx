@@ -66,8 +66,8 @@ function SoftwareDevelopment() {
             </motion.div>
 
             <motion.div initial={{ opacity: 0, x: 24 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }}>
-              <div className="bg-[#0f172a] rounded-[2rem] border border-slate-800 shadow-2xl p-8 relative overflow-hidden">
-                <div className="absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r from-transparent via-[#088349] to-transparent" />
+              <div className="bg-[#0f172a] rounded-4xl border border-slate-800 shadow-2xl p-8 relative overflow-hidden">
+                <div className="absolute top-0 left-0 w-full h-0.75 bg-linear-to-r from-transparent via-[#088349] to-transparent" />
                 
                 {/* Terminal-style header */}
                 <div className="flex items-center gap-2 mb-4 pb-3 border-b border-slate-700/50">
@@ -126,9 +126,9 @@ function SoftwareDevelopment() {
             {capabilities.map(({ icon: Icon, title, desc }, i) => (
               <motion.div key={title}
                 initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.08 }}
-                className="bg-[#1e293b]/50 backdrop-blur-xl border border-white/[0.06] rounded-[1.5rem] p-8 relative overflow-hidden hover:border-[#088349]/40 hover:bg-[#1e293b]/80 transition-all duration-500 group">
+                className="bg-[#1e293b]/50 backdrop-blur-xl border border-white/6 rounded-3xl p-8 relative overflow-hidden hover:border-[#088349]/40 hover:bg-[#1e293b]/80 transition-all duration-500 group">
                 
-                <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[#088349] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute top-0 left-0 right-0 h-0.5 bg-linear-to-r from-[#088349] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 
                 <div className="w-14 h-14 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 group-hover:border-[#088349]/40 group-hover:bg-[#088349]/10 transition-all duration-300">
                   <Icon size={22} className="text-[#3ddc84]" strokeWidth={2} />
