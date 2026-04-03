@@ -29,7 +29,7 @@ const PageLoader = () => (
     />
 
     {/* Core Glowing Aura */}
-    <div className="absolute w-[400px] h-[400px] bg-[#088349]/5 rounded-full blur-[80px] animate-pulse pointer-events-none z-0"></div>
+    <div className="absolute w-100 h-100 bg-[#088349]/5 rounded-full blur-[80px] animate-pulse pointer-events-none z-0"></div>
 
     {/* Loader Graphic */}
     <div className="relative z-10 flex flex-col items-center">
