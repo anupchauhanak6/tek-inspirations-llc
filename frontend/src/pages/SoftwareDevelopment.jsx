@@ -1,4 +1,5 @@
 import React from "react";
+import SEOHelmet from "../components/SEOHelmet";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Code2, Smartphone, Palette, Cloud, TestTube, RefreshCw, ArrowRight, Binary } from "lucide-react";
@@ -34,6 +35,22 @@ const techStack = [
 function SoftwareDevelopment() {
   return (
     <div className="min-h-screen bg-[#0a0a0a] font-sans">
+      <SEOHelmet
+        title="Software Development Services — Custom Enterprise Software & Apps"
+        description="TEK Inspirations LLC delivers bespoke software development services including web apps, mobile apps, cloud-native SaaS, and enterprise systems. React, Node.js, Python, AWS, Azure experts with global delivery from USA and India."
+        canonical="/our-solutions/software-development"
+        keywords={["custom software development USA", "enterprise software development", "web application development", "mobile app development", "cloud software development", "React development company", "software company Texas"]}
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "serviceType": "Software Development",
+          "provider": { "@type": "Organization", "name": "TEK Inspirations LLC", "url": "https://www.tekinspirations.com" },
+          "name": "Custom Software Development",
+          "description": "Bespoke software development including web apps, mobile apps, cloud-native SaaS, and enterprise systems.",
+          "areaServed": ["United States", "India"],
+          "url": "https://www.tekinspirations.com/our-solutions/software-development"
+        }}
+      />
       <PageHero
         badge="Software Engineering"
         title="Compile the"

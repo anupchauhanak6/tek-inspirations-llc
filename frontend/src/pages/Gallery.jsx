@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import SEOHelmet from "../components/SEOHelmet";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ZoomIn, ChevronLeft, ChevronRight } from "lucide-react";
 import PageHero from "../components/PageHero";
@@ -87,6 +88,12 @@ function Gallery() {
 
   return (
     <div className="min-h-screen bg-[#0a0a0a] font-sans">
+      <SEOHelmet
+        title="Gallery — TEK Life, Events & Company Culture"
+        description="Explore TEK Inspirations LLC's company culture through our gallery — Diwali celebrations, Independence Day events, quarterly awards, and team moments from our global offices in USA and India."
+        canonical="/gallery"
+        keywords={["TEK Inspirations culture", "IT company events", "technology company gallery", "TEK Inspirations team photos", "company celebrations India"]}
+      />
       <PageHero
         badge="Our Culture"
         title="A Glimpse of"

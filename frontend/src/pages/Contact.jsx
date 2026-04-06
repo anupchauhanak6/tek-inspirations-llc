@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import SEOHelmet from "../components/SEOHelmet";
 import {
   Mail,
   Phone,
@@ -102,6 +103,26 @@ function Contact() {
 
   return (
     <div className="min-h-screen bg-[#0a0a0a] font-sans">
+      <SEOHelmet
+        title="Contact Us — Get a Free IT Consultation"
+        description="Contact TEK Inspirations LLC for expert IT staffing, managed services, software development, or RPO solutions. Offices in Frisco TX, Noida, Agra, Meerut & Varanasi. Response within 24 hours."
+        canonical="/contact"
+        keywords={["contact TEK Inspirations", "IT consulting contact", "IT staffing agency contact", "Frisco Texas IT company", "hire IT consultants USA"]}
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "ContactPage",
+          "name": "Contact TEK Inspirations LLC",
+          "url": "https://www.tekinspirations.com/contact",
+          "description": "Get in touch with TEK Inspirations LLC for IT staffing, consulting, and managed services.",
+          "mainEntity": {
+            "@type": "Organization",
+            "name": "TEK Inspirations LLC",
+            "telephone": "+1-469-555-0100",
+            "email": "info@tekinspirations.com",
+            "address": { "@type": "PostalAddress", "streetAddress": "13573 Tabasco Cat Trail", "addressLocality": "Frisco", "addressRegion": "TX", "postalCode": "75035", "addressCountry": "US" }
+          }
+        }}
+      />
       <PageHero
         badge="Contact Us"
         title="Let's"

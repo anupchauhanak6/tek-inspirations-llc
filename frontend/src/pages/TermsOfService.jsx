@@ -1,4 +1,5 @@
 import React from "react";
+import SEOHelmet from "../components/SEOHelmet";
 import { motion } from "framer-motion";
 import { Scale, FileText } from "lucide-react";
 import PageHero from "../components/PageHero";
@@ -19,6 +20,12 @@ const sections = [
 function TermsOfService() {
   return (
     <div className="min-h-screen bg-[#fafafa] font-sans">
+      <SEOHelmet
+        title="Terms of Service — Legal Agreement & Usage Terms"
+        description="Review the terms and conditions governing use of TEK Inspirations LLC's website and services. By accessing our services, you agree to these terms."
+        canonical="/terms-of-service"
+        noindex={true}
+      />
       <PageHero
         badge="Legal & Compliance"
         title="Terms &"

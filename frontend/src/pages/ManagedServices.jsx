@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import SEOHelmet from "../components/SEOHelmet";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import { 
@@ -91,6 +92,22 @@ function FAQItem({ q, a, index }) {
 function ManagedServices() {
   return (
     <div className="min-h-screen bg-[#0a0a0a] font-sans">
+      <SEOHelmet
+        title="Managed IT Services — 24/7 Enterprise IT Operations & Support"
+        description="TEK Inspirations LLC provides comprehensive managed IT services including 24/7 monitoring, cloud management, cybersecurity, helpdesk support, and IT infrastructure management for enterprises across USA and India."
+        canonical="/our-solutions/managed-services"
+        keywords={["managed IT services USA", "managed service provider", "24/7 IT support", "cloud managed services", "IT infrastructure management", "cybersecurity managed services", "MSP USA"]}
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "serviceType": "Managed IT Services",
+          "provider": { "@type": "Organization", "name": "TEK Inspirations LLC", "url": "https://www.tekinspirations.com" },
+          "name": "Managed IT Services",
+          "description": "Comprehensive managed IT services including 24/7 monitoring, cloud management, cybersecurity, and helpdesk support.",
+          "areaServed": ["United States", "India"],
+          "url": "https://www.tekinspirations.com/our-solutions/managed-services"
+        }}
+      />
       <PageHero
         badge="Managed IT Services"
         title="Managed IT"

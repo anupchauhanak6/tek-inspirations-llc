@@ -1,4 +1,5 @@
 import React from "react";
+import SEOHelmet from "../components/SEOHelmet";
 import { motion } from "framer-motion";
 import { MapPin, Users, Globe, Building2, Award } from "lucide-react";
 import PageHero from "../components/PageHero";
@@ -22,6 +23,19 @@ const teams = [
 function OurLeaders() {
   return (
     <div className="min-h-screen bg-[#0a0a0a] font-sans">
+      <SEOHelmet
+        title="Our Leaders — Executive Team & Global Offices"
+        description="Meet the executive leadership and board of directors at TEK Inspirations LLC. Our global team drives IT staffing, technology consulting, and managed services across 5 offices in USA and India."
+        canonical="/who-we-are/our-leaders"
+        keywords={["TEK Inspirations leadership", "IT company executives", "technology company board", "IT firm management USA", "TEK Inspirations team"]}
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "AboutPage",
+          "name": "TEK Inspirations LLC Leadership",
+          "url": "https://www.tekinspirations.com/who-we-are/our-leaders",
+          "description": "Meet the executive leadership at TEK Inspirations LLC — guiding our global IT staffing and technology operations."
+        }}
+      />
       <PageHero
         badge="Leadership"
         title="Meet Our"

@@ -1,4 +1,5 @@
 import React from "react";
+import SEOHelmet from "../components/SEOHelmet";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { CheckCircle2, Lightbulb, Target, Map, BarChart3, ArrowRight, GitMerge, Settings2, Cpu, TrendingUp, Quote } from "lucide-react";
@@ -33,6 +34,22 @@ const testimonial = {
 function ITConsulting() {
   return (
     <div className="min-h-screen bg-[#0a0a0a] font-sans">
+      <SEOHelmet
+        title="IT Consulting Services — Expert Technology Strategy & Architecture"
+        description="TEK Inspirations LLC offers enterprise IT consulting services including technology roadmaps, cloud architecture, digital transformation, and infrastructure optimization. Serving businesses across the USA and India."
+        canonical="/our-solutions/it-consulting"
+        keywords={["IT consulting services USA", "enterprise IT consulting", "technology roadmap", "digital transformation consulting", "cloud architecture consultant", "IT strategy services"]}
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "serviceType": "IT Consulting",
+          "provider": { "@type": "Organization", "name": "TEK Inspirations LLC", "url": "https://www.tekinspirations.com" },
+          "name": "IT Consulting Services",
+          "description": "Expert IT consulting services including technology roadmaps, cloud architecture, digital transformation, and infrastructure optimization.",
+          "areaServed": ["United States", "India"],
+          "url": "https://www.tekinspirations.com/our-solutions/it-consulting"
+        }}
+      />
       <PageHero
         badge="IT Consulting"
         title="Engineering"

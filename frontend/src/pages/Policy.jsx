@@ -1,4 +1,5 @@
 import React from "react";
+import SEOHelmet from "../components/SEOHelmet";
 import { motion } from "framer-motion";
 import { Shield, FileText } from "lucide-react";
 import PageHero from "../components/PageHero";
@@ -18,6 +19,12 @@ const sections = [
 function PrivacyPolicy() {
   return (
     <div className="min-h-screen bg-[#fafafa] font-sans">
+      <SEOHelmet
+        title="Privacy Policy — Data Protection & GDPR Compliance"
+        description="Read TEK Inspirations LLC's privacy policy. We are committed to protecting your personal data and respecting your privacy rights in compliance with applicable data protection laws."
+        canonical="/privacy-policy"
+        noindex={true}
+      />
       <PageHero
         badge="Legal & Compliance"
         title="Privacy"

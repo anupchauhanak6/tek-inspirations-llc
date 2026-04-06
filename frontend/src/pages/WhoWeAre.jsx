@@ -1,4 +1,5 @@
 import React from "react";
+import SEOHelmet from "../components/SEOHelmet";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Shield, Rocket, Users, Lock, Cpu, AlignLeft, ArrowRight, Binary, Globe, Building2, Award } from "lucide-react";
@@ -32,6 +33,26 @@ const quickStats = [
 function WhoWeAre() {
   return (
     <div className="min-h-screen bg-[#0a0a0a] font-sans flex flex-col">
+      <SEOHelmet
+        title="Who We Are — About TEK Inspirations LLC"
+        description="TEK Inspirations LLC is a Frisco, Texas-based IT staffing and technology company founded in 2016. Learn about our mission, values, global operations, and the story behind our excellence in IT services across the USA and India."
+        canonical="/who-we-are"
+        keywords={["about TEK Inspirations", "IT company Texas", "IT staffing company history", "technology company Frisco TX", "enterprise IT firm USA", "IT services company profile"]}
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "AboutPage",
+          "name": "About TEK Inspirations LLC",
+          "url": "https://www.tekinspirations.com/who-we-are",
+          "description": "TEK Inspirations LLC is a leading IT staffing and technology company founded in Frisco, Texas in 2016.",
+          "mainEntity": {
+            "@type": "Organization",
+            "name": "TEK Inspirations LLC",
+            "foundingDate": "2016",
+            "foundingLocation": "Frisco, Texas, USA",
+            "numberOfEmployees": { "@type": "QuantitativeValue", "value": "200" }
+          }
+        }}
+      />
       <PageHero
         badge="Corporate Origin"
         title="Engineering"

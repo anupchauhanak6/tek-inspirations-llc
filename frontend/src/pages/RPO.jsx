@@ -1,4 +1,5 @@
 import React from "react";
+import SEOHelmet from "../components/SEOHelmet";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import {
@@ -79,6 +80,22 @@ const advantages = [
 function RPO() {
   return (
     <div className="min-h-screen bg-[#0a0a0a] font-sans">
+      <SEOHelmet
+        title="Recruitment Process Outsourcing (RPO) — IT Staffing & Talent Solutions"
+        description="TEK Inspirations LLC is a leading RPO provider offering end-to-end recruitment process outsourcing, IT staffing, and talent acquisition solutions. We source pre-vetted technical talent for enterprises across the USA and India."
+        canonical="/our-solutions/rpo"
+        keywords={["RPO services USA", "recruitment process outsourcing", "IT staffing solutions", "technical talent acquisition", "IT recruitment agency USA", "offshore staffing", "technology staffing company"]}
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "serviceType": "Recruitment Process Outsourcing",
+          "provider": { "@type": "Organization", "name": "TEK Inspirations LLC", "url": "https://www.tekinspirations.com" },
+          "name": "Recruitment Process Outsourcing (RPO)",
+          "description": "End-to-end RPO and IT staffing solutions. Pre-vetted technical talent for enterprises.",
+          "areaServed": ["United States", "India"],
+          "url": "https://www.tekinspirations.com/our-solutions/rpo"
+        }}
+      />
       <PageHero
         badge="Recruitment Process Outsourcing"
         title="Human Capital"

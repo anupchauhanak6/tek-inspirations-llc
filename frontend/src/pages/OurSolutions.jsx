@@ -1,4 +1,5 @@
 import React from "react";
+import SEOHelmet from "../components/SEOHelmet";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import {
@@ -92,6 +93,24 @@ const services = [
 function OurSolutions() {
   return (
     <div className="min-h-screen bg-[#0a0a0a] font-sans">
+      <SEOHelmet
+        title="Our Solutions — IT Services, Consulting & Managed Solutions"
+        description="Explore TEK Inspirations LLC's full suite of enterprise solutions: IT Consulting, Managed Services, Software Development, and Recruitment (RPO). Trusted by enterprises across the USA and India."
+        canonical="/our-solutions"
+        keywords={["IT solutions provider USA", "enterprise IT services", "technology solutions company", "IT consulting and staffing", "managed services provider", "software development company USA"]}
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          "name": "TEK Inspirations LLC Services",
+          "url": "https://www.tekinspirations.com/our-solutions",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "IT Consulting", "url": "https://www.tekinspirations.com/our-solutions/it-consulting" },
+            { "@type": "ListItem", "position": 2, "name": "Managed Services", "url": "https://www.tekinspirations.com/our-solutions/managed-services" },
+            { "@type": "ListItem", "position": 3, "name": "Software Development", "url": "https://www.tekinspirations.com/our-solutions/software-development" },
+            { "@type": "ListItem", "position": 4, "name": "RPO & IT Staffing", "url": "https://www.tekinspirations.com/our-solutions/rpo" }
+          ]
+        }}
+      />
       <PageHero
         badge="Enterprise Solutions"
         title="Architecting"
