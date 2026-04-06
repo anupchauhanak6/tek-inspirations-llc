@@ -3,6 +3,10 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Code2, Settings, Users, ArrowRight, CheckCircle2 } from "lucide-react";
 
+/* ─── Logo brand colors ─── */
+const BRAND = "#289434"; // Logo Forest Green
+const DARK  = "#14542c"; // Logo Dark Ivy
+
 const services = [
   {
     image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=800",
@@ -47,13 +51,13 @@ const services = [
 
 export default function ServicesHighlight() {
   return (
-    <section className="py-24 md:py-32 bg-[#0f172a] font-sans border-y border-slate-800 relative z-10 overflow-hidden">
-      {/* Background accents */}
-      <div className="absolute top-0 right-0 w-1/3 h-full bg-[#088349]/5 skew-x-12 transform origin-top pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-1/4 h-1/2 bg-slate-900 -skew-x-12 transform origin-bottom pointer-events-none" />
+    <section className="py-24 md:py-32 bg-[#0a0a0a] font-sans border-b border-white/10 relative z-10 overflow-hidden">
+      {/* Background brutalist grid */}
+      <div className="absolute inset-0 pointer-events-none opacity-[0.03]"
+           style={{ backgroundImage: "linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)", backgroundSize: "60px 60px" }} />
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-20">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
+      <div className="max-w-[1700px] mx-auto px-6 lg:px-16 relative z-20">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
           <motion.div 
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -61,15 +65,16 @@ export default function ServicesHighlight() {
               transition={{ duration: 0.6 }}
               className="max-w-2xl"
           >
-            <h4 className="text-[#088349] font-bold tracking-widest uppercase text-xs mb-4 flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-[#088349]" /> 
+            <h4 className="font-black tracking-[0.2em] uppercase text-[11px] mb-5 flex items-center gap-4" style={{ color: BRAND }}>
+              <span className="w-8 h-[2px]" style={{ background: BRAND }} /> 
               Our Core Offerings
             </h4>
-            <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">
-              Enterprise <span className="text-[#088349]">IT Solutions</span>
+            <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tight text-white mb-6 leading-none">
+              Enterprise<br />
+              <span style={{ color: BRAND }}>IT Solutions</span>
             </h2>
-            <div className="w-16 h-1 bg-[#088349] rounded mb-4" />
-            <p className="text-slate-400 text-lg">
+            <div className="w-20 h-1 rounded-none mb-6" style={{ background: BRAND }} />
+            <p className="text-white/50 text-lg md:text-xl font-medium max-w-xl">
               From deploying scalable codebases to acquiring the top 1% of global tech talent, we provide unified operational dominance.
             </p>
           </motion.div>
@@ -82,67 +87,82 @@ export default function ServicesHighlight() {
           >
              <Link
                 to="/our-solution"
-                className="inline-flex items-center gap-2 bg-[#088349] hover:bg-[#066639] text-white px-6 py-3 rounded font-bold tracking-wide transition-colors"
+                className="group flex items-center gap-4 text-white hover:text-white transition-colors"
               >
-                View All Solutions
-                <ArrowRight size={18} />
+                <span className="font-black tracking-widest uppercase text-sm md:text-lg border-b-[3px] border-white pb-1 transition-all" style={{ borderBottomColor: BRAND }}>
+                  View All Solutions
+                </span>
+                <svg width="44" height="26" viewBox="0 0 44 26" fill="none" className="transition-colors group-hover:translate-x-2 duration-300" style={{ color: BRAND }}>
+                  <path d="M2,2 L2,13 L40,13" stroke="currentColor" strokeWidth="2.5" />
+                  <path d="M32,5 L40,13 L32,21" stroke="currentColor" strokeWidth="2.5" />
+                </svg>
               </Link>
           </motion.div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {/* 1px GAP GRID for brutalist aesthetic */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-white/10 border border-white/10 shadow-2xl">
           {services.map((service, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: i * 0.15 }}
-              whileHover={{ y: -8 }}
-              className="bg-[#1e293b] border border-slate-700/50 rounded-xl shadow-2xl flex flex-col group transition-all duration-300 relative overflow-hidden"
+              className="bg-[#0a0a0a] flex flex-col group transition-all duration-300 relative overflow-hidden"
             >
-              {/* Rich Image Header */}
-              <div className="h-56 w-full relative overflow-hidden">
-                <div className="absolute inset-0 bg-slate-900/30 group-hover:bg-transparent transition-colors duration-500 z-10" />
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-[0.03] transition-opacity duration-500 pointer-events-none" style={{ background: BRAND }} />
+
+              {/* Cinematic Image Header */}
+              <div className="h-64 w-full relative overflow-hidden border-b border-white/10">
+                <div className="absolute inset-0 bg-black/60 group-hover:bg-black/20 transition-colors duration-500 z-10" />
                 <img 
                   src={service.image} 
                   alt={service.title} 
-                  className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+                  className="w-full h-full object-cover grayscale blur-[2px] transform group-hover:scale-105 group-hover:grayscale-0 group-hover:blur-0 transition-all duration-700"
                 />
               </div>
               
-              {/* Floating Icon Drop */}
-              <div className="absolute top-48 left-8 z-20">
-                <div className="w-16 h-16 bg-slate-900 rounded-xl flex items-center justify-center text-[#088349] border-4 border-[#1e293b] group-hover:scale-110 group-hover:bg-[#088349] group-hover:text-white transition-all duration-300 shadow-xl">
-                  <service.icon size={28} strokeWidth={2} />
+              {/* Brutalist Icon Box overlaps image */}
+              <div className="absolute top-52 left-8 z-20">
+                <div className="w-16 h-16 bg-[#0a0a0a] flex items-center justify-center border border-white/20 group-hover:border-white/50 transition-all duration-500 shadow-2xl" style={{ color: BRAND }}>
+                  <service.icon size={26} strokeWidth={2.5} />
                 </div>
               </div>
 
-              <div className="p-8 pt-12 flex flex-col flex-1">
-                <h3 className="text-2xl font-bold text-white mb-3">
+              <div className="p-8 pt-12 flex flex-col flex-1 pl-8 border-l-[3px] border-transparent transition-colors duration-300" style={{ borderLeftColor: `rgba(40,148,52,0)` }}>
+                {/* We apply a green left-border physically on hover */}
+                <style>{`
+                  .group:hover .hover-border-${i} {
+                    border-left-color: ${BRAND} !important;
+                  }
+                `}</style>
+                <div className={`hover-border-${i} absolute top-64 bottom-0 left-0 w-[4px] bg-transparent transition-colors duration-500`} />
+
+                <h3 className="text-2xl font-black uppercase tracking-wide text-white mb-4 group-hover:text-white transition-colors duration-300">
                   {service.title}
                 </h3>
-                <p className="text-slate-400 text-base mb-6 leading-relaxed">
+                <p className="text-white/50 text-[15px] font-medium mb-8 leading-relaxed">
                   {service.subtitle}
                 </p>
                 
-                <div className="w-full h-px bg-slate-700/50 mb-6" />
-                
-                <ul className="space-y-4 mb-8 flex-1">
+                <ul className="space-y-4 mb-10 flex-1">
                   {service.list.map((item, idx) => (
-                    <li key={idx} className="flex items-start gap-3">
-                      <CheckCircle2 size={20} className="text-[#088349] shrink-0" />
-                      <span className="text-slate-300 font-medium">{item}</span>
+                    <li key={idx} className="flex items-start gap-4">
+                      <div className="mt-1">
+                         <CheckCircle2 size={18} strokeWidth={2.5} style={{ color: BRAND }} className="scale-x-90" />
+                      </div>
+                      <span className="text-white/70 font-bold text-[13px] uppercase tracking-wide">{item}</span>
                     </li>
                   ))}
                 </ul>
 
                 <Link
                   to={service.path}
-                  className="inline-flex items-center gap-2 text-[#088349] font-bold tracking-wide uppercase group-hover:text-white transition-colors mt-auto"
+                  className="inline-flex items-center gap-3 text-white/50 font-black tracking-widest uppercase transition-colors mt-auto group/btn"
                 >
-                  {service.btnText}
-                  <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
+                  <span className="group-hover/btn:text-white transition-colors">{service.btnText}</span>
+                  <ArrowRight size={16} strokeWidth={2.5} style={{ color: BRAND }} className="transition-transform group-hover/btn:translate-x-2" />
                 </Link>
               </div>
             </motion.div>
