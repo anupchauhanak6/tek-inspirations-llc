@@ -14,7 +14,7 @@ const slides = [
     rightSmall:
       "Talent acquisition, contract staffing, and permanent placement — turnkey. No generic solutions. No compromises.",
     btn: "EXPLORE SOLUTIONS",
-    link: "/our-solution",
+    link: "/our-solutions",
   },
   {
     id: 2,
@@ -27,7 +27,7 @@ const slides = [
     rightSmall:
       "Infrastructure tuning, network security, and robust cloud deployments — turnkey. Built strictly for operational stability.",
     btn: "LEARN MORE",
-    link: "/our-solution/managed-services",
+    link: "/our-solutions/managed-services",
   },
   {
     id: 3,
@@ -56,7 +56,6 @@ export default function Hero() {
 
   return (
     <section className="relative h-screen min-h-[800px] w-full overflow-hidden bg-[#0a0a0a] group font-sans">
-      
       {/* Background Slider */}
       <AnimatePresence mode="wait">
         <motion.div
@@ -123,7 +122,6 @@ export default function Hero() {
 
         {/* BOTTOM LEFT CTA & PAGINATION (Static Layout) */}
         <div className="absolute bottom-12 md:bottom-16 left-6 lg:left-16 right-6 lg:right-16 z-20 flex justify-between items-end">
-          
           {/* CTA Link matching reference style */}
           <AnimatePresence mode="wait">
             <motion.div
@@ -172,7 +170,9 @@ export default function Hero() {
                 key={index}
                 onClick={() => setCurrent(index)}
                 className={`transition-all duration-500 rounded ${
-                  current === index ? "w-10 h-[3px] bg-[#289434]" : "w-6 h-[2px] bg-white/40 hover:bg-white"
+                  current === index
+                    ? "w-10 h-[3px] bg-[#289434]"
+                    : "w-6 h-[2px] bg-white/40 hover:bg-white"
                 }`}
                 aria-label={`Go to slide ${index + 1}`}
               />
