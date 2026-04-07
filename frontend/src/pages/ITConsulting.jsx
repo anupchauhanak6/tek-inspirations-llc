@@ -1,8 +1,13 @@
 import React from "react";
+import SEOHelmet from "../components/SEOHelmet";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { CheckCircle2, Lightbulb, Target, Map, BarChart3, ArrowRight, GitMerge, Settings2, Cpu, TrendingUp, Quote } from "lucide-react";
 import PageHero from "../components/PageHero";
+
+/* ─── Logo brand colors ─── */
+const BRAND = "#289434"; // Logo Forest Green
+const DARK  = "#14542c"; // Logo Dark Ivy
 
 const deliverables = [
   "Strategic Roadmap Alignment",
@@ -28,65 +33,88 @@ const testimonial = {
 
 function ITConsulting() {
   return (
-    <div className="min-h-screen bg-[#f8fafc]">
+    <div className="min-h-screen bg-[#0a0a0a] font-sans">
+      <SEOHelmet
+        title="IT Consulting Services — Expert Technology Strategy & Architecture"
+        description="TEK Inspirations LLC offers enterprise IT consulting services including technology roadmaps, cloud architecture, digital transformation, and infrastructure optimization. Serving businesses across the USA and India."
+        canonical="/our-solutions/it-consulting"
+        keywords={["IT consulting services USA", "enterprise IT consulting", "technology roadmap", "digital transformation consulting", "cloud architecture consultant", "IT strategy services"]}
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "serviceType": "IT Consulting",
+          "provider": { "@type": "Organization", "name": "TEK Inspirations LLC", "url": "https://www.tekinspirations.com" },
+          "name": "IT Consulting Services",
+          "description": "Expert IT consulting services including technology roadmaps, cloud architecture, digital transformation, and infrastructure optimization.",
+          "areaServed": ["United States", "India"],
+          "url": "https://www.tekinspirations.com/our-solutions/it-consulting"
+        }}
+      />
       <PageHero
-        badge="Enterprise IT Consulting"
+        badge="IT Consulting"
         title="Engineering"
-        highlight="Your Roadmap"
+        highlight="Roadmaps"
         subtitle="We translate complex business objectives into highly available, scalable, and secure technology infrastructures."
+        bgImage="https://images.unsplash.com/photo-1454165833767-02754d7bd7eb?auto=format&fit=crop&q=80&w=2000"
       />
 
-      {/* ── Capabilities Overview ── */}
-      <section className="py-24 bg-white relative overflow-hidden">
-        <div className="absolute inset-0 z-0 opacity-[0.025]" style={{ backgroundImage: "radial-gradient(#088349 1px, transparent 1px)", backgroundSize: "40px 40px" }} />
+      {/* ── Capabilities Overview - Light Dual Tone ── */}
+      <section className="py-24 md:py-32 bg-[#fafafa] relative overflow-hidden border-t border-zinc-200">
+        {/* Brutalist Grid Overlay */}
+        <div className="absolute inset-0 pointer-events-none opacity-[0.04]"
+             style={{ backgroundImage: "linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px)", backgroundSize: "40px 40px" }} />
 
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+        <div className="max-w-[1700px] mx-auto px-6 lg:px-16 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
             
             <motion.div initial={{ opacity: 0, x: -24 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-[#0f172a] shadow-lg shadow-[#088349]/10 border border-[#088349]/30 mb-5">
-                <Cpu size={12} className="text-[#088349]" />
-                <span className="text-[#3ddc84] text-[10px] font-black uppercase tracking-[0.2em]">Strategic IT Assessment</span>
+              <div className="inline-flex items-center gap-3 mb-6">
+                <Cpu size={16} style={{ color: BRAND }} />
+                <span className="text-[11px] font-black uppercase tracking-[0.2em] text-zinc-500">Strategic IT Assessment</span>
               </div>
-              <h2 className="text-3xl lg:text-5xl font-black text-[#0f172a] mb-6 leading-[1.1] tracking-tight">
+              <h2 className="text-4xl lg:text-7xl font-black uppercase tracking-tighter text-zinc-900 mb-8 leading-[0.95]">
                 Unlock Optimal <br/>
-                <span style={{ background: "linear-gradient(135deg,#088349,#0aad60)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
+                <span style={{ color: BRAND }}>
                   System Potential
                 </span>
               </h2>
-              <div className="space-y-4 text-slate-600 leading-relaxed text-[15px] font-medium border-l-2 border-[#088349]/30 pl-5 mb-8">
+              <div className="space-y-6 text-zinc-600 leading-relaxed text-lg font-bold border-l-[3px] mb-12 pl-6 shadow-sm" style={{ borderLeftColor: BRAND }}>
                 <p>Enterprise IT consulting isn't just advisory—it's the architectural foundation of digital transformation. We bridge the gap between operational goals and deep technical implementation.</p>
                 <p>Our engineers construct meticulous roadmaps designed to expand your market footprint, enhance security posture, and generate compounding ROI through automation and cloud integration.</p>
               </div>
-              <Link to="/contact" className="group inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-[#0f172a] hover:bg-[#1e293b] text-white font-bold text-sm transition-all duration-300 shadow-xl shadow-[#0f172a]/20 hover:-translate-y-0.5 active:scale-[0.98]">
-                Schedule Technical Review <ArrowRight size={15} className="text-[#088349] group-hover:translate-x-1 transition-transform" />
+
+              {/* Cinematic Arrow Link */}
+              <Link to="/contact" className="group flex items-center gap-4 text-zinc-900 hover:text-zinc-600 transition-colors relative z-10 w-fit">
+                <span className="font-black tracking-[0.2em] uppercase text-[13px] border-b-[3px] border-zinc-300 pb-1.5 transition-all group-hover:border-zinc-900" style={{ borderBottomColor: BRAND }}>
+                  Technical Review
+                </span>
+                <ArrowRight size={20} strokeWidth={2.5} style={{ color: BRAND }} className="transition-transform group-hover:translate-x-2" />
               </Link>
             </motion.div>
 
             <motion.div initial={{ opacity: 0, x: 24 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }}>
-              <div className="bg-[#0f172a] rounded-4xl border border-slate-800 shadow-2xl p-8 relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-64 h-64 bg-[#088349]/10 rounded-full blur-[80px] pointer-events-none" />
+              <div className="bg-white border border-zinc-200 shadow-2xl p-10 lg:p-14 relative overflow-hidden hover:bg-zinc-50 transition-colors duration-500" style={{ borderBottomWidth: '12px', borderBottomColor: BRAND }}>
+                <div className="absolute inset-0 z-0 opacity-[0.05]" style={{ backgroundImage: "linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px)", backgroundSize: "40px 40px" }} />
                 
-                <div className="flex items-center gap-4 mb-8 pb-8 border-b border-slate-700/50">
-                  <div className="w-14 h-14 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center shadow-lg">
-                    <Lightbulb size={24} className="text-[#3ddc84]" />
+                <div className="flex items-center gap-6 mb-10 pb-8 border-b border-zinc-200 relative z-10">
+                  <div className="w-16 h-16 bg-zinc-100 border border-zinc-200 shadow-sm flex items-center justify-center shrink-0">
+                    <Lightbulb size={24} style={{ color: BRAND }} strokeWidth={2.5} />
                   </div>
                   <div>
-                    <p className="font-black text-white text-2xl tracking-tight">Core Deliverables</p>
-                    <p className="text-[#3ddc84] text-[10px] font-bold uppercase tracking-[0.2em] mt-1">SLA-Backed Performance</p>
+                    <p className="font-black text-zinc-900 text-3xl tracking-tight uppercase">Core Deliverables</p>
+                    <p className="text-zinc-500 text-[10px] font-black uppercase tracking-[0.2em] mt-2">SLA-Backed Performance</p>
                   </div>
                 </div>
 
-                <ul className="space-y-4">
+                <ul className="space-y-6 relative z-10">
                   {deliverables.map((d, i) => (
                     <motion.li key={i} 
-                      initial={{ opacity: 0, x: 10 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}
-                      transition={{ delay: i * 0.05 }}
-                      className="flex items-start gap-4 group/item">
-                      <div className="mt-0.5 w-6 h-6 rounded bg-[#088349]/20 border border-[#088349]/40 flex items-center justify-center shrink-0 group-hover/item:bg-[#088349]/30 transition-colors">
-                        <CheckCircle2 size={12} className="text-[#3ddc84]" />
+                      initial={{ opacity: 0, x: 10 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.05 }}
+                      className="flex items-center gap-5 group/item">
+                      <div className="w-6 h-6 border border-zinc-200 bg-white flex items-center justify-center shrink-0 group-hover/item:border-[#289434] transition-colors">
+                        <CheckCircle2 size={12} style={{ color: BRAND }} />
                       </div>
-                      <span className="text-slate-300 text-sm font-medium leading-relaxed">{d}</span>
+                      <span className="text-zinc-700 text-sm font-bold uppercase tracking-widest group-hover/item:text-zinc-900 transition-colors">{d}</span>
                     </motion.li>
                   ))}
                 </ul>
@@ -97,42 +125,42 @@ function ITConsulting() {
       </section>
 
       {/* ── Process Matrix ── */}
-      <section className="py-24 bg-[#0f172a] relative border-t border-slate-800 overflow-hidden">
-        <div className="absolute inset-0 z-0 opacity-[0.05]" style={{ backgroundImage: "linear-gradient(#ffffff 1px, transparent 1px), linear-gradient(90deg, #ffffff 1px, transparent 1px)", backgroundSize: "64px 64px" }} />
-        <div className="absolute right-0 bottom-0 w-96 h-96 bg-[#088349]/5 rounded-full blur-[100px] pointer-events-none" />
+      <section className="py-32 bg-[#0a0a0a] relative border-t border-white/10 overflow-hidden">
+        <div className="absolute inset-0 z-0 opacity-[0.03]" style={{ backgroundImage: "linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)", backgroundSize: "60px 60px" }} />
         
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 mb-4 backdrop-blur-md">
-              <span className="w-1.5 h-1.5 bg-[#3ddc84] rounded-full animate-pulse shadow-[0_0_8px_#3ddc84]" />
-              <span className="text-slate-300 text-[10px] font-black uppercase tracking-[0.2em]">Execution Matrix</span>
-            </div>
-            <h2 className="text-3xl lg:text-5xl font-black text-white mb-4 tracking-tight">
-              Deployment <span className="text-[#3ddc84]">Protocol</span>
+        <div className="max-w-[1700px] mx-auto px-6 lg:px-16 relative z-10">
+          <div className="text-center mb-20">
+            <h4 className="font-black tracking-[0.2em] uppercase text-[11px] mb-4 flex items-center justify-center gap-4 text-white/50">
+              <span className="w-8 h-[2px]" style={{ background: BRAND }} />
+              Execution Matrix
+              <span className="w-8 h-[2px]" style={{ background: BRAND }} />
+            </h4>
+            <h2 className="text-5xl lg:text-7xl font-black uppercase text-white tracking-tighter leading-none">
+              Deployment <span style={{ color: BRAND }}>Protocol</span>
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-white/10 border border-white/10 shadow-2xl">
             {process.map(({ step, code, icon: Icon, title, desc }, i) => (
               <motion.div key={code}
-                initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="bg-[#1e293b]/50 backdrop-blur-xl border border-white/6 rounded-3xl p-8 relative overflow-hidden hover:border-[#088349]/40 hover:bg-[#1e293b]/80 transition-all duration-500 group">
+                initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}
+                className="bg-[#1e2020] p-10 relative overflow-hidden group hover:bg-[#0a0a0a] transition-colors duration-500">
                 
-                <div className="absolute inset-0 bg-linear-to-b from-transparent via-[#088349]/5 to-transparent h-[200%] -translate-y-full group-hover:translate-y-full transition-transform duration-1000 ease-in-out pointer-events-none" />
+                {/* Step number massive */}
+                <div className="text-white/5 font-black text-8xl absolute top-4 right-4 leading-none pointer-events-none">{step}</div>
 
-                {/* Step number */}
-                <div className="text-white/5 font-black text-7xl absolute top-2 right-4">{step}</div>
-
-                <div className="text-[#3ddc84] text-[9px] font-black uppercase tracking-[0.2em] mb-4 bg-[#3ddc84]/10 rounded border border-[#3ddc84]/20 px-2.5 py-1 w-fit">
+                <div className="text-white text-[9px] font-black uppercase tracking-[0.2em] mb-10 border border-white/20 px-3 py-1.5 w-fit" style={{ borderLeftWidth: '4px', borderLeftColor: BRAND }}>
                   {code}
                 </div>
                 
-                <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 group-hover:border-[#088349]/40 transition-all">
-                  <Icon size={20} className="text-[#3ddc84]" strokeWidth={2} />
+                <div className="w-14 h-14 bg-black border border-white/20 flex items-center justify-center mb-10 shadow-2xl group-hover:border-white/50 transition-colors">
+                  <Icon size={20} style={{ color: BRAND }} strokeWidth={2.5} />
                 </div>
                 
-                <h3 className="text-white font-black text-xl mb-3">{title}</h3>
-                <p className="text-slate-400 text-sm leading-relaxed font-medium">{desc}</p>
+                <h3 className="text-white font-black text-2xl uppercase tracking-tight mb-4 relative z-10">{title}</h3>
+                <p className="text-white/40 text-[13px] leading-relaxed font-bold relative z-10">{desc}</p>
+
+                <div className="absolute bottom-0 left-0 w-0 h-[3px] transition-all duration-500 group-hover:w-full" style={{ background: BRAND }} />
               </motion.div>
             ))}
           </div>
@@ -140,17 +168,18 @@ function ITConsulting() {
           {/* Testimonial snippet */}
           <motion.div
             initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-            className="mt-16 max-w-2xl mx-auto text-center"
+            className="mt-32 max-w-4xl mx-auto text-center border-t border-white/10 pt-16 relative"
           >
-            <Quote size={24} className="text-[#3ddc84]/30 mx-auto mb-4" />
-            <p className="text-slate-300 text-lg leading-relaxed italic mb-4">"{testimonial.text}"</p>
-            <p className="text-white font-bold text-sm">{testimonial.name}</p>
-            <p className="text-slate-400 text-xs">{testimonial.role}</p>
+            <Quote size={80} className="absolute top-8 left-1/2 -translate-x-1/2 text-white/5 -z-10" />
+            <p className="text-white/80 text-xl md:text-3xl font-black uppercase tracking-tight leading-loose mb-8">"{testimonial.text}"</p>
+            <p className="text-white font-black text-sm uppercase tracking-widest">{testimonial.name}</p>
+            <p className="text-white/40 text-[10px] uppercase font-bold tracking-[0.2em] mt-2" style={{ color: BRAND }}>{testimonial.role}</p>
           </motion.div>
           
-          <div className="text-center mt-12">
-            <Link to="/contact" className="inline-flex items-center gap-2 px-8 py-4 bg-[#088349] hover:bg-[#0aad60] text-white font-bold text-sm rounded-xl transition-all duration-300 shadow-xl shadow-[#088349]/30 hover:-translate-y-0.5 group active:scale-[0.98]">
-              Initialize Consulting Phase <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+          <div className="text-center mt-20">
+            <Link to="/contact" className="group hidden md:inline-flex items-center gap-4 text-white hover:text-white transition-colors pb-4 w-fit mx-auto">
+              <span className="text-[13px] font-black uppercase tracking-[0.2em] border-b-[3px] border-white/20 pb-1.5 transition-all group-hover:border-white" style={{ borderBottomColor: BRAND }}>Initialize Consulting Phase</span> 
+              <ArrowRight size={18} className="group-hover:translate-x-2 transition-transform" style={{ color: BRAND }} strokeWidth={3} />
             </Link>
           </div>
         </div>

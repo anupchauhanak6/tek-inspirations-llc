@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Disallow legal & utility pages from indexing
+Disallow: /privacy-policy
+Disallow: /terms-of-service
+
+# Sitemap location
+Sitemap: https://www.tekinspirations.com/sitemap.xml

@@ -9,180 +9,96 @@ import {
   Settings,
   Users,
   Code2,
-  Phone,
   ArrowRight,
   Terminal,
 } from "lucide-react";
 
-/* ─── Corporate Colors (Green logo matched) ─── */
+/* ─── Brand tokens (extracted from logo) ─── */
+const BRAND = "#289434"; // Logo Forest Green
+const DARK  = "#14542c"; // Logo Dark Ivy
+
+const navLinks = [
+  { label: "Home",    to: "/",        end: true  },
+  { label: "Gallery", to: "/gallery", end: false },
+];
+
 const whoWeAreItems = [
-  {
-    name: "Who We Are",
-    path: "/who-we-are",
-    desc: "Corporate mission & core values",
-  },
-  {
-    name: "Our Leaders",
-    path: "/who-we-are/our-leaders",
-    desc: "Executive command & board",
-  },
+  { name: "Who We Are",  path: "/who-we-are",             desc: "Mission & core values" },
+  { name: "Our Leaders", path: "/who-we-are/our-leaders", desc: "Executive command & board" },
 ];
 
 const solutionItems = [
-  {
-    name: "IT Consulting",
-    path: "/our-solution/it-consulting",
-    icon: Lightbulb,
-    color: "#059669", // emerald-600
-    bg: "#ecfdf5", // emerald-50
-  },
-  {
-    name: "Managed Services",
-    path: "/our-solution/managed-services",
-    icon: Settings,
-    color: "#059669",
-    bg: "#022c22", // emerald-950
-  },
-  {
-    name: "RPO Solutions",
-    path: "/our-solution/rpo",
-    icon: Users,
-    color: "#059669",
-    bg: "#ecfdf5", // emerald-50
-  },
-  {
-    name: "Software Development",
-    path: "/our-solution/software-development",
-    icon: Code2,
-    color: "#059669",
-    bg: "#022c22", // emerald-950
-  },
+  { name: "IT Consulting",        path: "/our-solution/it-consulting",        icon: Lightbulb, tag: "Advisory"    },
+  { name: "Managed Services",     path: "/our-solution/managed-services",     icon: Settings,  tag: "Operations"  },
+  { name: "RPO Solutions",        path: "/our-solution/rpo",                  icon: Users,     tag: "Staffing"    },
+  { name: "Software Development", path: "/our-solution/software-development", icon: Code2,     tag: "Engineering" },
 ];
 
-/* ─── Simple dropdown (Who We Are) ─── */
-function SimpleDropdown({ label, items, isActive }) {
+/* ════════════════════════════════════════════
+   WHO WE ARE – simple dropdown
+════════════════════════════════════════════ */
+function WhoWeAreDropdown({ isActive }) {
   return (
     <div className="relative h-full flex items-center group">
+      {/* Trigger */}
       <button
-        className={`flex items-center gap-1.5 text-[13px] font-bold uppercase tracking-widest transition-colors focus:outline-none h-full ${
-          isActive
-            ? "text-[#059669]"
-            : "text-[#022c22] group-hover:text-[#059669]"
-        }`}
+        className="flex items-center gap-1 text-[11px] font-black uppercase tracking-widest h-full focus:outline-none transition-colors"
+        style={{ color: isActive ? BRAND : "rgba(255,255,255,0.65)" }}
       >
-        {label}
-        <ChevronDown
-          size={14}
-          className="transition-transform duration-200 group-hover:rotate-180"
-        />
+        Who We Are
+        <ChevronDown size={12} className="mt-px transition-transform duration-200 group-hover:rotate-180" />
       </button>
 
+      {/* Active underline */}
       {isActive && (
-        <motion.div
-          layoutId="nav-line"
-          className="absolute bottom-0 left-0 right-0 h-0.75 bg-[#059669] rounded-t-sm"
+        <motion.span
+          layoutId="nav-bar"
+          className="absolute bottom-0 left-0 right-0 h-[2px]"
+          style={{ background: BRAND }}
         />
       )}
 
-      {/* Dropdown Container with built-in padding bridge */}
-      <div className="absolute top-full left-0 w-56 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-        <div className="bg-white rounded-lg border border-slate-200 shadow-xl overflow-hidden p-2 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-200">
-          {items.map((item) => (
-            <NavLink
-              key={item.path}
-              to={item.path}
-              className={({ isActive }) =>
-                `flex flex-col px-4 py-3.5 rounded transition-all ${
-                  isActive
-                    ? "bg-slate-50 border border-[#059669]/20"
-                    : "text-[#022c22] hover:bg-slate-50 border border-transparent hover:border-slate-200"
-                }`
-              }
-            >
-              <span
-                className={`font-bold text-sm ${isActive ? "text-[#059669]" : "text-[#022c22]"}`}
-              >
-                {item.name}
-              </span>
-              <span className="text-[10px] text-slate-500 mt-1 uppercase font-bold tracking-widest">
-                {item.desc}
-              </span>
-            </NavLink>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-}
+      {/* Invisible bridge so hover persists */}
+      <div className="absolute top-full left-0 right-0 h-4 invisible" />
 
-/* ─── Mega dropdown (Solutions) ─── */
-function SolutionsMegaDropdown({ isActive }) {
-  return (
-    <div className="relative h-full flex items-center group">
-      <button
-        className={`flex items-center gap-1.5 text-[13px] font-bold uppercase tracking-widest transition-colors focus:outline-none h-full ${
-          isActive
-            ? "text-[#059669]"
-            : "text-[#022c22] group-hover:text-[#059669]"
-        }`}
+      {/* Dropdown panel */}
+      <div
+        className="absolute top-[calc(100%+1px)] left-0 w-64
+                   opacity-0 invisible pointer-events-none
+                   group-hover:opacity-100 group-hover:visible group-hover:pointer-events-auto
+                   translate-y-3 group-hover:translate-y-0
+                   transition-all duration-200 z-[60]"
       >
-        Solutions
-        <ChevronDown
-          size={14}
-          className="transition-transform duration-200 group-hover:rotate-180"
-        />
-      </button>
-
-      {isActive && (
-        <motion.div
-          layoutId="nav-line"
-          className="absolute bottom-0 left-0 right-0 h-0.75 bg-[#059669] rounded-t-sm"
-        />
-      )}
-
-      {/* Dropdown Container with built-in padding bridge */}
-      <div className="absolute top-full left-1/2 -translate-x-1/2 w-130 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-        <div className="bg-white rounded-lg border border-slate-200 shadow-xl overflow-hidden flex transform translate-y-2 group-hover:translate-y-0 transition-transform duration-200">
-          <div className="w-1/3 bg-[#022c22] p-6 relative overflow-hidden flex flex-col justify-between">
-            <div className="relative z-10">
-              <Terminal size={24} className="text-[#059669] mb-4" />
-              <h3 className="text-white font-bold text-xl mb-2">
-                Systems & Capabilities
-              </h3>
-              <p className="text-emerald-100/70 text-xs leading-relaxed">
-                Enterprise-grade modules designed for absolute operational scale.
-              </p>
-            </div>
-            <Link
-              to="/our-solution"
-              className="relative z-10 inline-flex items-center gap-2 text-[#059669] text-[10px] font-bold uppercase tracking-[0.2em] group/link hover:text-white transition-colors"
-            >
-              View All{" "}
-              <ArrowRight
-                size={14}
-                className="group-hover/link:translate-x-1 transition-transform"
-              />
-            </Link>
+        <div className="bg-[#1e2020] border border-white/[0.15] shadow-[0_20px_60px_rgba(0,0,0,0.7)]">
+          {/* Panel header */}
+          <div className="px-5 py-3 border-b border-white/[0.12] flex items-center gap-3">
+            <Terminal size={14} style={{ color: BRAND }} />
+            <span className="text-white/50 text-[10px] font-black uppercase tracking-[0.2em]">Company</span>
           </div>
-
-          <div className="w-2/3 p-4 grid grid-cols-2 gap-2">
-            {solutionItems.map(({ name, path, icon: Icon, color, bg }) => (
+          {/* Links */}
+          <div className="p-2">
+            {whoWeAreItems.map((item) => (
               <NavLink
-                key={path}
-                to={path}
-                className={({ isActive: a }) =>
-                  `flex flex-col gap-3 p-4 rounded transition-all group/item border ${a ? "bg-slate-50 border-[#059669]/30 shadow-sm" : "border-transparent hover:border-slate-200 hover:bg-slate-50"}`
-                }
+                key={item.path}
+                to={item.path}
+                className="group/item flex flex-col px-4 py-3.5 relative overflow-hidden transition-colors hover:bg-white/[0.08]"
               >
-                <div
-                  className="w-10 h-10 rounded flex items-center justify-center shrink-0 shadow-sm transition-transform group-hover/item:scale-105"
-                  style={{ background: bg }}
-                >
-                  <Icon size={18} style={{ color }} strokeWidth={2} />
-                </div>
-                <p className="text-[#022c22] text-[13px] font-bold leading-tight group-hover/item:text-[#059669] transition-colors">
-                  {name}
-                </p>
+                {({ isActive: a }) => (
+                  <>
+                    {/* Left accent bar */}
+                    <span
+                      className="absolute left-0 top-2 bottom-2 w-[2px] transition-opacity duration-200"
+                      style={{ background: BRAND, opacity: a ? 1 : 0 }}
+                    />
+                    <span
+                      className="text-[12px] font-black uppercase tracking-widest transition-colors"
+                      style={{ color: a ? BRAND : "rgba(255,255,255,0.88)" }}
+                    >
+                      {item.name}
+                    </span>
+                    <span className="text-[10px] text-white/45 mt-0.5 tracking-wide">{item.desc}</span>
+                  </>
+                )}
               </NavLink>
             ))}
           </div>
@@ -192,21 +108,118 @@ function SolutionsMegaDropdown({ isActive }) {
   );
 }
 
-/* ─── Mobile Accordion ─── */
+/* ════════════════════════════════════════════
+   SOLUTIONS – mega dropdown
+════════════════════════════════════════════ */
+function SolutionsDropdown({ isActive }) {
+  return (
+    <div className="relative h-full flex items-center group">
+      {/* Trigger */}
+      <button
+        className="flex items-center gap-1 text-[11px] font-black uppercase tracking-widest h-full focus:outline-none transition-colors"
+        style={{ color: isActive ? BRAND : "rgba(255,255,255,0.65)" }}
+      >
+        Solutions
+        <ChevronDown size={12} className="mt-px transition-transform duration-200 group-hover:rotate-180" />
+      </button>
+
+      {isActive && (
+        <motion.span
+          layoutId="nav-bar"
+          className="absolute bottom-0 left-0 right-0 h-[2px]"
+          style={{ background: BRAND }}
+        />
+      )}
+
+      <div className="absolute top-full left-0 right-0 h-4 invisible" />
+
+      {/* Mega panel */}
+      <div
+        className="absolute top-[calc(100%+1px)] left-1/2 -translate-x-1/2 w-[600px]
+                   opacity-0 invisible pointer-events-none
+                   group-hover:opacity-100 group-hover:visible group-hover:pointer-events-auto
+                   translate-y-3 group-hover:translate-y-0
+                   transition-all duration-200 z-[60]"
+      >
+        <div className="bg-[#1e2020] border border-white/[0.15] shadow-[0_20px_60px_rgba(0,0,0,0.7)] overflow-hidden flex">
+
+          {/* Left accent column */}
+          <div className="w-[200px] flex-shrink-0 flex flex-col justify-between p-6 relative overflow-hidden"
+               style={{ background: DARK }}>
+            {/* Radial glow */}
+            <div className="absolute inset-0 pointer-events-none"
+                 style={{ background: `radial-gradient(ellipse at top left, ${BRAND}33 0%, transparent 65%)` }} />
+            <div className="relative z-10">
+              <Terminal size={20} className="mb-5" style={{ color: BRAND }} />
+              <h3 className="text-white font-black text-base uppercase leading-tight tracking-wide mb-2">
+                Systems &<br />Capabilities
+              </h3>
+              <p className="text-white/60 text-[11px] leading-relaxed">
+                Enterprise-grade modules built for absolute operational scale.
+              </p>
+            </div>
+            <Link
+              to="/our-solution"
+              className="relative z-10 group/link inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.18em] transition-colors hover:text-white mt-6"
+              style={{ color: BRAND }}
+            >
+              View All
+              <ArrowRight size={11} className="group-hover/link:translate-x-1 transition-transform" />
+            </Link>
+          </div>
+
+          {/* Right grid */}
+          <div className="flex-1 grid grid-cols-2 gap-px bg-white/[0.10] p-px">
+            {solutionItems.map(({ name, path, icon: Icon, tag }) => (
+              <NavLink
+                key={path}
+                to={path}
+                className="group/sol flex flex-col gap-3 p-5 bg-[#1e2020] transition-colors hover:bg-white/[0.08]"
+              >
+                {({ isActive: a }) => (
+                  <>
+                    <div className="flex items-start justify-between">
+                      <div
+                        className="w-9 h-9 flex items-center justify-center border transition-colors"
+                        style={{ borderColor: a ? `${BRAND}60` : "rgba(255,255,255,0.20)" }}
+                      >
+                        <Icon size={15} style={{ color: a ? BRAND : "rgba(255,255,255,0.65)" }} strokeWidth={2} />
+                      </div>
+                      <span className="text-[9px] font-black uppercase tracking-widest text-white/40 mt-1">{tag}</span>
+                    </div>
+                    <span
+                      className="text-[12px] font-black uppercase tracking-wide leading-snug transition-colors group-hover/sol:text-white"
+                      style={{ color: a ? BRAND : "rgba(255,255,255,0.85)" }}
+                    >
+                      {name}
+                    </span>
+                  </>
+                )}
+              </NavLink>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ════════════════════════════════════════════
+   MOBILE ACCORDION
+════════════════════════════════════════════ */
 function MobileAccordion({ label, children }) {
   const [open, setOpen] = useState(false);
   return (
-    <div className="border-b border-slate-100">
+    <div style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
       <button
         onClick={() => setOpen(!open)}
-        className="flex items-center justify-between w-full px-6 py-4 text-left focus:outline-none"
+        className="flex items-center justify-between w-full px-6 py-5 text-left focus:outline-none"
       >
-        <span className="text-[#022c22] font-bold text-[13px] uppercase tracking-widest">
-          {label}
-        </span>
+        <span className="text-[11px] font-black uppercase tracking-widest text-white/50">{label}</span>
         <ChevronDown
-          size={16}
-          className={`text-slate-400 transition-transform duration-300 ${open ? "rotate-180" : ""}`}
+          size={14}
+          className={`transition-transform duration-300 ${open ? "rotate-180" : ""}`}
+          style={{ color: open ? BRAND : "rgba(255,255,255,0.25)" }}
         />
       </button>
       <AnimatePresence initial={false}>
@@ -215,10 +228,10 @@ function MobileAccordion({ label, children }) {
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.2 }}
+            transition={{ duration: 0.22 }}
             className="overflow-hidden"
           >
-            <div className="px-6 pb-4 space-y-1">{children}</div>
+            <div className="px-4 pb-3 space-y-0.5">{children}</div>
           </motion.div>
         )}
       </AnimatePresence>
@@ -226,296 +239,294 @@ function MobileAccordion({ label, children }) {
   );
 }
 
-/* ─── Main Header ─── */
+/* ════════════════════════════════════════════
+   MAIN HEADER
+════════════════════════════════════════════ */
 function Header() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen,   setIsOpen]   = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
-  const close = () => setIsOpen(false);
+  const close    = () => setIsOpen(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
+    const onScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   useEffect(() => {
     document.documentElement.style.overflow = isOpen ? "hidden" : "";
-    return () => {
-      document.documentElement.style.overflow = "";
-    };
+    return () => { document.documentElement.style.overflow = ""; };
   }, [isOpen]);
 
-  useEffect(() => {
-    close();
-  }, [location.pathname]);
+  useEffect(() => { close(); }, [location.pathname]);
 
-  const whoWeAreActive = location.pathname.startsWith("/who-we-are");
+  const whoWeAreActive  = location.pathname.startsWith("/who-we-are");
   const solutionsActive = location.pathname.startsWith("/our-solution");
+  const contactActive   = location.pathname === "/contact";
 
   return (
     <>
+      {/* ═══════════════ HEADER BAR ═══════════════ */}
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled
-            ? "bg-white shadow-md border-b border-slate-200"
-            : "bg-white border-b border-slate-200"
-        }`}
+        className="fixed top-0 left-0 right-0 z-50 transition-all duration-500"
+        style={{
+          background: scrolled ? "rgba(10,10,10,0.96)" : "transparent",
+          backdropFilter: scrolled ? "blur(18px) saturate(160%)" : "none",
+          borderBottom: scrolled ? "1px solid rgba(255,255,255,0.07)" : "1px solid transparent",
+          boxShadow: scrolled ? "0 4px 40px rgba(0,0,0,0.6)" : "none",
+        }}
       >
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 h-20 flex items-center justify-between">
-          <Link
-            to="/"
-            onClick={close}
-            className="shrink-0 flex items-center h-20 py-4"
-          >
+        {/* Top brand line */}
+        <div
+          className="absolute top-0 left-0 right-0 h-[2px]"
+          style={{ background: `linear-gradient(90deg, transparent 0%, ${BRAND} 50%, transparent 100%)` }}
+        />
+
+        <div className="max-w-[1700px] mx-auto px-6 lg:px-16 h-20 flex items-center justify-between">
+
+          {/* ── Logo ── */}
+          <Link to="/" onClick={close} className="shrink-0 flex items-center group">
             <img
               src="photos/logo.png"
-              width={100}
               alt="TEK Inspirations LLC"
-              className="h-full w-auto max-h-12 object-contain hover:scale-105 transition-transform"
+              className="h-10 w-auto object-contain select-none"
+              style={{ filter: "brightness(0) invert(1)" }}
             />
           </Link>
 
-          {/* Desktop Nav */}
+          {/* ── Desktop Navigation ── */}
           <nav className="hidden lg:flex items-center h-full gap-8">
-            <NavLink to="/" end className="relative h-full flex items-center group">
-              {({ isActive }) => (
-                <>
-                  <span
-                    className={`text-[13px] font-bold uppercase tracking-widest transition-colors ${isActive ? "text-[#059669]" : "text-[#022c22] group-hover:text-[#059669]"}`}
-                  >
-                    Home
-                  </span>
-                  {isActive && (
-                    <motion.div
-                      layoutId="nav-line"
-                      className="absolute bottom-0 left-0 right-0 h-0.75 bg-[#059669] rounded-t-sm"
-                    />
-                  )}
-                </>
-              )}
-            </NavLink>
 
-            <SimpleDropdown
-              label="Who We Are"
-              items={whoWeAreItems}
-              isActive={whoWeAreActive}
-            />
+            {/* Simple links */}
+            {navLinks.map(({ label, to, end }) => (
+              <NavLink key={to} to={to} end={end} className="relative h-full flex items-center group">
+                {({ isActive }) => (
+                  <>
+                    <span
+                      className="text-[11px] font-black uppercase tracking-widest transition-colors duration-200 group-hover:text-white"
+                      style={{ color: isActive ? BRAND : "rgba(255,255,255,0.65)" }}
+                    >
+                      {label}
+                    </span>
+                    {isActive && (
+                      <motion.span
+                        layoutId="nav-bar"
+                        className="absolute bottom-0 left-0 right-0 h-[2px]"
+                        style={{ background: BRAND }}
+                      />
+                    )}
+                  </>
+                )}
+              </NavLink>
+            ))}
 
-            <SolutionsMegaDropdown isActive={solutionsActive} />
+            {/* Dropdowns */}
+            <WhoWeAreDropdown isActive={whoWeAreActive} />
+            <SolutionsDropdown  isActive={solutionsActive} />
 
-            <NavLink
-              to="/gallery"
-              className="relative h-full flex items-center group"
-            >
-              {({ isActive }) => (
-                <>
-                  <span
-                    className={`text-[13px] font-bold uppercase tracking-widest transition-colors ${isActive ? "text-[#059669]" : "text-[#022c22] group-hover:text-[#059669]"}`}
-                  >
-                    Gallery
-                  </span>
-                  {isActive && (
-                    <motion.div
-                      layoutId="nav-line"
-                      className="absolute bottom-0 left-0 right-0 h-0.75 bg-[#059669] rounded-t-sm"
-                    />
-                  )}
-                </>
-              )}
-            </NavLink>
+            {/* Vertical divider */}
+            <span className="w-px h-5 bg-white/15" />
 
-            <div className="w-px h-6 bg-slate-300 mx-1" />
-
+            {/* CTA – arrow style matching Hero */}
             <NavLink
               to="/contact"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded bg-[#059669] hover:bg-[#047857] text-white font-bold text-[13px] uppercase tracking-wider transition-all duration-300 shadow"
+              className="group flex items-center gap-3 transition-colors"
+              style={{ color: contactActive ? BRAND : "rgba(255,255,255,0.75)" }}
             >
-              <Phone size={16} />
-              Contact Us
+              {/* L-shaped arrow SVG */}
+              <svg
+                width="34" height="20" viewBox="0 0 44 26" fill="none"
+                className="flex-shrink-0 transition-colors group-hover:opacity-100"
+                style={{ color: BRAND }}
+              >
+                <path d="M2,2 L2,13 L40,13" stroke="currentColor" strokeWidth="2.5" strokeLinecap="square" />
+                <path d="M32,5 L40,13 L32,21" stroke="currentColor" strokeWidth="2.5" strokeLinecap="square" />
+              </svg>
+              <span
+                className="text-[11px] font-black uppercase tracking-widest pb-0.5 border-b-2 transition-all duration-200 group-hover:text-white group-hover:border-white/50"
+                style={{ borderColor: contactActive ? BRAND : BRAND }}
+              >
+                Contact Us
+              </span>
             </NavLink>
           </nav>
 
-          {/* Mobile hamburger */}
+          {/* ── Mobile Hamburger ── */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden w-11 h-11 rounded border border-slate-200 bg-slate-50 flex items-center justify-center text-slate-800 hover:border-[#059669]/40 hover:text-[#059669] transition-all"
+            className="lg:hidden relative w-10 h-10 flex flex-col items-center justify-center gap-[5px] focus:outline-none group"
+            aria-label="Toggle menu"
           >
             <AnimatePresence mode="wait" initial={false}>
               {isOpen ? (
-                <motion.span
-                  key="x"
-                  initial={{ rotate: -90, opacity: 0 }}
-                  animate={{ rotate: 0, opacity: 1 }}
-                  exit={{ rotate: 90, opacity: 0 }}
+                <motion.div
+                  key="x" initial={{ rotate: -90, opacity: 0 }}
+                  animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }}
                   transition={{ duration: 0.15 }}
+                  className="text-white/70 hover:text-white transition-colors"
                 >
-                  <X size={20} />
-                </motion.span>
+                  <X size={22} />
+                </motion.div>
               ) : (
-                <motion.span
-                  key="menu"
-                  initial={{ rotate: 90, opacity: 0 }}
-                  animate={{ rotate: 0, opacity: 1 }}
-                  exit={{ rotate: -90, opacity: 0 }}
+                <motion.div
+                  key="bars" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
                   transition={{ duration: 0.15 }}
+                  className="flex flex-col gap-[5px] items-end w-6"
                 >
-                  <Menu size={20} />
-                </motion.span>
+                  <span className="block h-[2px] w-6 bg-white/70 group-hover:bg-white transition-colors" />
+                  <span className="block h-[2px] w-4 bg-white/70 group-hover:bg-white group-hover:w-6 transition-all duration-300" style={{ background: BRAND }} />
+                  <span className="block h-[2px] w-6 bg-white/70 group-hover:bg-white transition-colors" />
+                </motion.div>
               )}
             </AnimatePresence>
           </button>
+
         </div>
       </header>
 
-      {/* Mobile Drawer */}
+      {/* ═══════════════ MOBILE DRAWER ═══════════════ */}
       <AnimatePresence>
         {isOpen && (
           <>
+            {/* backdrop */}
             <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.2 }}
-              className="fixed inset-0 z-40 bg-slate-900/40 backdrop-blur-sm lg:hidden"
+              key="backdrop"
+              initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+              transition={{ duration: 0.25 }}
+              className="fixed inset-0 z-40 lg:hidden"
+              style={{ background: "rgba(0,0,0,0.75)", backdropFilter: "blur(8px)" }}
               onClick={close}
             />
 
+            {/* panel */}
             <motion.div
-              initial={{ x: "100%" }}
-              animate={{ x: 0 }}
-              exit={{ x: "100%" }}
-              transition={{ duration: 0.32, ease: [0.22, 1, 0.36, 1] }}
-              className="fixed top-0 right-0 bottom-0 z-50 w-75 max-w-full flex flex-col bg-white border-l border-slate-100 shadow-2xl lg:hidden overflow-y-auto"
+              key="drawer"
+              initial={{ x: "100%" }} animate={{ x: 0 }} exit={{ x: "100%" }}
+              transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+              className="fixed top-0 right-0 bottom-0 z-50 w-80 max-w-full flex flex-col lg:hidden overflow-y-auto"
+              style={{ background: "#0a0a0a", borderLeft: "1px solid rgba(255,255,255,0.07)" }}
             >
-              {/* Drawer header */}
-              <div className="flex items-center justify-between px-5 py-4 border-b border-slate-100 h-20">
+              {/* Panel header */}
+              <div
+                className="flex items-center justify-between px-6 h-20 flex-shrink-0"
+                style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}
+              >
+                {/* Brand line replica inside drawer */}
+                <div className="absolute top-0 left-0 right-0 h-[2px]"
+                     style={{ background: `linear-gradient(90deg, ${BRAND}, transparent)` }} />
                 <Link to="/" onClick={close}>
-                  <img
-                    src="photos/logo.png"
-                    alt="TEK Inspirations"
-                    className="h-10 w-auto object-contain"
-                  />
+                  <img src="photos/logo.png" alt="TEK Inspirations"
+                    className="h-9 w-auto object-contain" style={{ filter: "brightness(0) invert(1)" }} />
                 </Link>
                 <button
                   onClick={close}
-                  className="w-10 h-10 rounded border border-slate-200 bg-slate-50 flex items-center justify-center text-slate-600 hover:text-[#059669] transition-colors"
+                  className="w-9 h-9 flex items-center justify-center text-white/40 hover:text-white transition-colors"
                 >
                   <X size={18} />
                 </button>
               </div>
 
-              {/* Links */}
-              <div className="flex-1 py-4">
-                <NavLink
-                  to="/"
-                  end
-                  onClick={close}
-                  className={({ isActive }) =>
-                    `flex items-center px-6 py-4 text-[13px] font-bold uppercase tracking-widest border-b border-slate-100 transition-colors ${
-                      isActive
-                        ? "text-[#059669] bg-[#ecfdf5]"
-                        : "text-[#022c22] hover:text-[#059669] hover:bg-slate-50"
-                    }`
-                  }
-                >
-                  Home
-                </NavLink>
+              {/* Nav items */}
+              <div className="flex-1 py-2">
+
+                {navLinks.map(({ label, to, end }) => (
+                  <NavLink key={to} to={to} end={end} onClick={close}
+                    className="flex items-center gap-4 px-6 py-5 text-[11px] font-black uppercase tracking-widest transition-colors"
+                    style={({ isActive }) => ({
+                      color: isActive ? BRAND : "rgba(255,255,255,0.45)",
+                      borderBottom: "1px solid rgba(255,255,255,0.06)",
+                      background: "transparent",
+                    })}
+                  >
+                    {({ isActive }) => (
+                      <>
+                        {isActive && <span className="w-[2px] h-4 block flex-shrink-0" style={{ background: BRAND }} />}
+                        {label}
+                      </>
+                    )}
+                  </NavLink>
+                ))}
 
                 <MobileAccordion label="Who We Are">
                   {whoWeAreItems.map(({ name, path }) => (
-                    <NavLink
-                      key={path}
-                      to={path}
-                      onClick={close}
-                      className={({ isActive }) =>
-                        `flex items-center gap-2.5 px-3 py-3 rounded text-[12px] font-bold uppercase tracking-wider transition-colors ${
-                          isActive
-                            ? "text-[#059669] bg-[#ecfdf5]"
-                            : "text-slate-600 hover:text-[#059669] hover:bg-slate-50"
-                        }`
-                      }
+                    <NavLink key={path} to={path} onClick={close}
+                      className="flex items-center gap-3 px-4 py-4 text-[11px] font-black uppercase tracking-wider transition-colors hover:bg-white/[0.03]"
+                      style={({ isActive }) => ({ color: isActive ? BRAND : "rgba(255,255,255,0.35)" })}
                     >
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#059669] shrink-0" />
-                      {name}
+                      {({ isActive }) => (
+                        <>
+                          <span className="w-[2px] h-3 flex-shrink-0" style={{ background: isActive ? BRAND : "rgba(255,255,255,0.15)" }} />
+                          {name}
+                        </>
+                      )}
                     </NavLink>
                   ))}
                 </MobileAccordion>
 
                 <MobileAccordion label="Solutions">
-                  <NavLink
-                    to="/our-solution"
-                    onClick={close}
-                    className={({ isActive }) =>
-                      `flex items-center gap-2.5 px-3 py-3 w-[calc(100%-8px)] rounded text-[12px] font-bold uppercase tracking-wider transition-colors mb-2 ${
-                        isActive
-                          ? "text-[#059669] bg-[#ecfdf5]"
-                          : "text-slate-600 hover:text-[#059669] hover:bg-slate-50"
-                      }`
-                    }
+                  {/* All solutions link */}
+                  <NavLink to="/our-solution" onClick={close}
+                    className="flex items-center gap-3 px-4 py-4 text-[10px] font-black uppercase tracking-wider transition-colors hover:bg-white/[0.03]"
+                    style={({ isActive }) => ({ color: isActive ? BRAND : "rgba(255,255,255,0.25)" })}
                   >
-                    <span className="w-1.5 h-1.5 rounded-full bg-slate-300 shrink-0" />{" "}
-                    Unified Capabilities
+                    <ArrowRight size={11} style={{ color: BRAND }} />
+                    All Solutions
                   </NavLink>
-                  {solutionItems.map(
-                    ({ name, path, icon: Icon, color, bg }) => (
-                      <NavLink
-                        key={path}
-                        to={path}
-                        onClick={close}
-                        className={({ isActive }) =>
-                          `flex items-center gap-3 px-3 py-3 rounded transition-colors ${
-                            isActive ? "bg-slate-50" : "hover:bg-slate-50"
-                          }`
-                        }
-                      >
-                        {({ isActive }) => (
-                          <>
-                            <div
-                              className="w-8 h-8 rounded flex items-center justify-center shrink-0 shadow-sm"
-                              style={{ background: bg }}
-                            >
-                              <Icon
-                                size={14}
-                                style={{ color }}
-                                strokeWidth={2}
-                              />
-                            </div>
-                            <span
-                              className={`${isActive ? "text-[#059669]" : "text-[#022c22]"} text-[13px] font-bold`}
-                            >
+                  {/* Individual items */}
+                  {solutionItems.map(({ name, path, icon: Icon, tag }) => (
+                    <NavLink key={path} to={path} onClick={close}
+                      className="flex items-center gap-3 px-4 py-4 transition-colors hover:bg-white/[0.03]"
+                      style={({ isActive }) => ({ background: isActive ? "rgba(255,255,255,0.03)" : "" })}
+                    >
+                      {({ isActive }) => (
+                        <>
+                          <div className="w-8 h-8 border flex items-center justify-center flex-shrink-0"
+                               style={{ borderColor: isActive ? `${BRAND}60` : "rgba(255,255,255,0.08)" }}>
+                            <Icon size={13} style={{ color: isActive ? BRAND : "rgba(255,255,255,0.3)" }} strokeWidth={2} />
+                          </div>
+                          <div>
+                            <p className="text-[11px] font-black uppercase tracking-widest"
+                               style={{ color: isActive ? BRAND : "rgba(255,255,255,0.55)" }}>
                               {name}
-                            </span>
-                          </>
-                        )}
-                      </NavLink>
-                    ),
-                  )}
+                            </p>
+                            <p className="text-[9px] uppercase tracking-widest text-white/20 mt-0.5">{tag}</p>
+                          </div>
+                        </>
+                      )}
+                    </NavLink>
+                  ))}
                 </MobileAccordion>
 
-                <NavLink
-                  to="/gallery"
-                  onClick={close}
-                  className={({ isActive }) =>
-                    `flex items-center px-6 py-4 text-[13px] font-bold uppercase tracking-widest border-b border-slate-100 transition-colors ${
-                      isActive
-                        ? "text-[#059669] bg-[#ecfdf5]"
-                        : "text-[#022c22] hover:text-[#059669] hover:bg-slate-50"
-                    }`
-                  }
+                <NavLink to="/gallery" onClick={close}
+                  className="flex items-center gap-4 px-6 py-5 text-[11px] font-black uppercase tracking-widest transition-colors"
+                  style={({ isActive }) => ({
+                    color: isActive ? BRAND : "rgba(255,255,255,0.45)",
+                    borderBottom: "1px solid rgba(255,255,255,0.06)",
+                  })}
                 >
-                  Gallery
+                  {({ isActive }) => (
+                    <>
+                      {isActive && <span className="w-[2px] h-4 block flex-shrink-0" style={{ background: BRAND }} />}
+                      Gallery
+                    </>
+                  )}
                 </NavLink>
               </div>
 
-              {/* Footer CTA */}
-              <div className="p-6 border-t border-slate-100 bg-slate-50">
+              {/* Drawer CTA */}
+              <div className="p-6 flex-shrink-0" style={{ borderTop: "1px solid rgba(255,255,255,0.07)" }}>
                 <NavLink
                   to="/contact"
                   onClick={close}
-                  className="flex items-center justify-center gap-2 w-full py-4 rounded bg-[#059669] hover:bg-[#047857] text-white font-bold text-[13px] uppercase tracking-wider transition-all shadow-md"
+                  className="group flex items-center justify-center gap-3 w-full py-4 text-white transition-all"
+                  style={{ border: `1px solid ${BRAND}50` }}
                 >
-                  <Phone size={14} /> Contact Us
+                  <svg width="26" height="16" viewBox="0 0 44 26" fill="none" style={{ color: BRAND }}>
+                    <path d="M2,2 L2,13 L40,13" stroke="currentColor" strokeWidth="2.5" strokeLinecap="square" />
+                    <path d="M32,5 L40,13 L32,21" stroke="currentColor" strokeWidth="2.5" strokeLinecap="square" />
+                  </svg>
+                  <span className="text-[11px] font-black uppercase tracking-widest">Contact Us</span>
                 </NavLink>
               </div>
             </motion.div>

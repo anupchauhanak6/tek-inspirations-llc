@@ -1,7 +1,12 @@
 import React from "react";
+import SEOHelmet from "../components/SEOHelmet";
 import { motion } from "framer-motion";
 import { Shield, FileText } from "lucide-react";
 import PageHero from "../components/PageHero";
+
+/* ─── Logo brand colors ─── */
+const BRAND = "#289434"; // Logo Forest Green
+const DARK  = "#14542c"; // Logo Dark Ivy
 
 const sections = [
   { title: "1. Introduction", content: "Welcome to Tek Inspirations LLC. We respect your privacy and are committed to protecting your personal data. This privacy policy will inform you as to how we look after your personal data when you visit our website and tell you about your privacy rights and how the law protects you." },
@@ -13,52 +18,65 @@ const sections = [
 
 function PrivacyPolicy() {
   return (
-    <div className="min-h-screen bg-[#f8fafc]">
+    <div className="min-h-screen bg-[#fafafa] font-sans">
+      <SEOHelmet
+        title="Privacy Policy — Data Protection & GDPR Compliance"
+        description="Read TEK Inspirations LLC's privacy policy. We are committed to protecting your personal data and respecting your privacy rights in compliance with applicable data protection laws."
+        canonical="/privacy-policy"
+        noindex={true}
+      />
       <PageHero
         badge="Legal & Compliance"
         title="Privacy"
         highlight="Policy"
         subtitle="Last Updated: March 2026. Your privacy and data security are our top priorities."
+        bgImage="https://images.unsplash.com/photo-1505664194779-8beaceb93744?auto=format&fit=crop&q=80&w=2000"
       />
 
-      <div className="max-w-4xl mx-auto px-6 lg:px-12 py-16">
+      <div className="max-w-[1700px] mx-auto px-6 lg:px-16 py-24 md:py-32 relative z-10 border-t border-zinc-200 mt-0 -translate-y-px">
+        
         {/* Info Strip */}
         <motion.div
-          initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}
-          className="flex items-center gap-3 p-4 rounded-xl bg-[#088349]/5 border border-[#088349]/15 mb-10"
-        >
-          <div className="w-10 h-10 rounded-lg bg-[#088349]/10 border border-[#088349]/20 flex items-center justify-center shrink-0">
-            <Shield size={18} className="text-[#088349]" />
-          </div>
-          <p className="text-sm text-slate-600 font-medium">
-            TEK Inspirations LLC is committed to protecting your privacy. This policy explains how we handle your personal data in compliance with applicable data protection regulations.
-          </p>
-        </motion.div>
+           initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}
+           className="flex flex-col md:flex-row items-start md:items-center gap-6 p-8 bg-[#0a0a0a] border border-[#1e2020] mb-16 shadow-2xl relative overflow-hidden"
+         >
+           <div className="absolute inset-0 pointer-events-none opacity-[0.04]" style={{ backgroundImage: "linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)", backgroundSize: "20px 20px" }} />
+          
+           <div className="w-12 h-12 bg-[#1e2020] border border-white/20 flex items-center justify-center shrink-0 relative z-10 shadow-2xl" style={{ color: BRAND }}>
+             <Shield size={20} strokeWidth={2.5} />
+           </div>
+           <p className="text-[14px] text-white/50 font-bold leading-relaxed max-w-3xl relative z-10">
+             TEK Inspirations LLC is absolutely committed to protecting your privacy. This policy dictates the structural methodologies of how we handle your personal data in strict compliance with applicable regulatory frameworks.
+           </p>
+         </motion.div>
 
         {/* Sections */}
         <motion.div
           initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }}
-          className="bg-white rounded-2xl shadow-lg shadow-slate-200/50 border border-slate-100 divide-y divide-slate-100 overflow-hidden"
+          className="bg-white border border-zinc-200 shadow-2xl divide-y divide-zinc-100 max-w-4xl mx-auto"
         >
           {sections.map(({ title, content, list }, i) => (
-            <div key={i} className="p-8 group hover:bg-slate-50/50 transition-colors">
-              <div className="flex items-start gap-3 mb-4">
-                <div className="mt-1 w-8 h-8 rounded-lg bg-[#088349]/10 border border-[#088349]/20 flex items-center justify-center shrink-0">
-                  <FileText size={14} className="text-[#088349]" />
+            <div key={i} className="p-10 lg:p-14 group hover:bg-zinc-50 transition-colors duration-500">
+              <div className="flex items-start gap-4 mb-6">
+                <div className="w-8 h-8 bg-zinc-100 border border-zinc-200 flex items-center justify-center shrink-0 mt-1 shadow-sm transition-colors group-hover:border-[#289434]" style={{ color: BRAND }}>
+                  <FileText size={14} strokeWidth={2.5} />
                 </div>
-                <h2 className="text-xl font-bold text-slate-900">{title}</h2>
+                <h2 className="text-2xl font-black uppercase text-zinc-900 tracking-tight">{title}</h2>
               </div>
-              <p className="text-slate-600 leading-relaxed ml-11">{content}</p>
-              {list && (
-                <ul className="mt-4 ml-11 space-y-2.5">
-                  {list.map((item, j) => (
-                    <li key={j} className="flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#088349] mt-2 shrink-0" />
-                      <span className="text-slate-600 leading-relaxed">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              )}
+              
+              <div className="ml-12 border-l-[3px] border-zinc-200 pl-6 group-hover:border-[#289434] transition-colors duration-500">
+                 <p className="text-zinc-600 leading-relaxed font-bold text-[14px]">{content}</p>
+                 {list && (
+                   <ul className="mt-6 space-y-4">
+                     {list.map((item, j) => (
+                       <li key={j} className="flex items-start gap-3">
+                         <span className="w-1.5 h-1.5 bg-zinc-300 mt-1.5 shrink-0 group-hover:bg-[#289434] transition-colors" />
+                         <span className="text-zinc-500 font-bold text-sm leading-relaxed group-hover:text-zinc-700 transition-colors">{item}</span>
+                       </li>
+                     ))}
+                   </ul>
+                 )}
+              </div>
             </div>
           ))}
         </motion.div>
